@@ -1,8 +1,8 @@
 const Button = ({ text, ...rest }) => {
   return (
-    <div>
+    <section>
       <button {...rest}>{text}</button>
-    </div>
+    </section>
   );
 };
 export default Button;

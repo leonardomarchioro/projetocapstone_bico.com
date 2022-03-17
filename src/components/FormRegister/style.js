@@ -15,42 +15,28 @@ export const ContainerPage = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    height: 640px;
+    height: 690px;
     width: 400px;
     background-color: var(--form-register);
     border-radius: 20px;
     padding-top: 40px;
 
-    > div {
+    > section {
+      width: 80%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      align-items: flex-start;
-      height: 75px;
-      width: 80%;
-
-      > input {
-        width: 100%;
-        height: 39px;
-        background-color: var(--bg-color-register-1);
-        border: transparent;
-        border-radius: 3px;
-        padding-left: 10px;
-        color: var(--title-1);
-
-        &::placeholder {
-          color: var(--color-scrollbar);
-        }
+      > button {
+        width: 265px;
+        height: 38px;
+        border-radius: 4px;
+        background: var(--color-primary-2);
+        color: white;
+        margin-bottom: 20px;
+        transition: background 0.5s;
       }
-      > div {
-        height: 25px;
-
-        > label {
-          font-size: 15px;
-        }
-        > span {
-          font-size: 12px;
-        }
+      > button:hover {
+        background: var(--color-primary-3);
       }
     }
   }
@@ -86,6 +72,9 @@ export const ContainerTitle = styled.div`
 
     > a {
       color: #1091ee;
+    }
+    > a:hover {
+      text-decoration: underline;
     }
   }
 `;

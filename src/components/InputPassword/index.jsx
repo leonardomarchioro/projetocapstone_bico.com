@@ -1,5 +1,7 @@
 import { useState } from "react";
+
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
+import { ContainerPassword, InputEye } from "./style";
 
 const InputPassword = ({ label, register, name, error, ...rest }) => {
   const [type, setType] = useState("password");
@@ -8,16 +10,16 @@ const InputPassword = ({ label, register, name, error, ...rest }) => {
   };
 
   return (
-    <div>
+    <ContainerPassword>
       <div>{!!label && <label>{label}</label>}</div>
-      <div>
+      <InputEye>
         <input {...register(name)} {...rest} type={type} />
         <button onClick={showPassword} type="button">
           {type === "password" ? <MdVisibility /> : <MdVisibilityOff />}
         </button>
-      </div>
+      </InputEye>
       <div>{!!error && <span>{error}</span>}</div>
-    </div>
+    </ContainerPassword>
   );
 };
 export default InputPassword;

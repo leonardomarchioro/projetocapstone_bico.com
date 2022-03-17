@@ -7,7 +7,7 @@ export const Container = styled.div`
   justify-content: space-around;
   flex-direction: column;
   transform-origin: 1px;
-
+  margin-right: 10px;
   cursor: pointer;
 
   div {

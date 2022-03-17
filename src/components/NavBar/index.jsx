@@ -4,7 +4,6 @@ const NavBar = () => {
   return (
     <Container>
       <ul>
-        <li>Home</li>
         <li>Sobre</li>
         <li>Servicos</li>
         <li>Contato</li>

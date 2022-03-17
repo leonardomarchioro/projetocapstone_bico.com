@@ -1,15 +1,8 @@
 import { Container } from "./styles";
-import { useState } from "react";
 
-const BurguerMenu = () => {
-  const [open, setOpen] = useState(false);
-  console.log(open);
-  const handleOpenBurguer = () => {
-    setOpen(!open);
-  };
-
+const BurguerMenu = ({ handleOpenNav, open }) => {
   return (
-    <Container onClick={handleOpenBurguer} open={open}>
+    <Container onClick={handleOpenNav} open={open}>
       <div></div>
       <div></div>
       <div></div>

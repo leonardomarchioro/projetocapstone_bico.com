@@ -8,7 +8,8 @@ import Input from "../Input";
 import InputPassword from "../InputPassword";
 import Button from "../Button";
 
-import { ContainerPage } from "./style";
+import { ContainerPage, ContainerTitle } from "./style";
+import { Link } from "react-router-dom";
 
 const FormRegister = () => {
   const { SignUp } = useUser();
@@ -56,6 +57,13 @@ const FormRegister = () => {
 
   return (
     <ContainerPage>
+      <ContainerTitle>
+        <h1>CRIAR NOVA CONTA</h1>
+        <h4>
+          Já possuí uma conta? <Link to="/">Login</Link>
+        </h4>
+      </ContainerTitle>
+
       <form onSubmit={handleSubmit(handleRegister)}>
         <Input
           label="Nome completo"

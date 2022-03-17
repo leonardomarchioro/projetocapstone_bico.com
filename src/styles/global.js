@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-export const styleGlobal = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
     *{
         margin: 0;
         padding: 0;
@@ -12,13 +12,20 @@ export const styleGlobal = createGlobalStyle`
     body{
         font-size: 1rem;
         font-family: 'Montserrat', sans-serif;
-        
+        height: 100vh;
+        width: 100vw;
     }
 
     button, input{
         font-family: 'Montserrat', sans-serif;
     }
-    
+
+    #root{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+   
 
     :root{
         --color-primary: #BADBF3;
@@ -28,9 +35,11 @@ export const styleGlobal = createGlobalStyle`
 
         --primary-tittle: #003347;
         --secondary-tittle: #1E637D;
-
+        
         --bg-color-register-1: #B9D9F0;
         --bg-color-register-2: #D5E3F8;
+
+        --form-register: #DFEEFA;
 
         /*Página de contato e sobre iguais */
         --bg-color-contact-1: #D6E4F8;
@@ -61,14 +70,17 @@ export const styleGlobal = createGlobalStyle`
         text-decoration: none;
     }
 
-    * {
+    // Está bugado resolver depois;
+
+    /* * {
         scrollbar-width: thin;
         scrollbar-color: var(--color-scrollbar) var(--color-scrollbar);
         opacity: 0.7;
-    }
+    } */
 
     /* Works on Chrome, Edge, and Safari */
-    *::-webkit-scrollbar {
+
+    /* *::-webkit-scrollbar {
         width: 12px;
     }
 
@@ -81,9 +93,9 @@ export const styleGlobal = createGlobalStyle`
         opacity: 0.7;
         border-radius: 20px;
         border: 1px solid var(--color-scrollbar);
-    }
+    } */
 
-    
+
 `;
 export const colorPrimary = "#BADBF3";
 export const colorPrimary2 = "#78BCED";
@@ -94,6 +106,8 @@ export const secondaryTittle = "#1E637D";
 
 export const bgColorRegister1 = "#B9D9F0";
 export const bgColorRegister2 = "#D5E3F8";
+
+export const formRegister = "#DFEEFA";
 
 export const bgColorContact1 = "#D6E4F8";
 export const bgColorContact2 = "#FCFCFC";

@@ -29,4 +29,8 @@ export const Container = styled.div`
       transform: ${({ open }) => open && "rotate(-45deg)"};
     }
   }
+
+  @media screen and (min-width: 1024px) {
+    display: none;
+  }
 `;

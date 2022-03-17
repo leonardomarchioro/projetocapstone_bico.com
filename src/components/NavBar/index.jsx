@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 import { Container } from "./styles";
 
-const NavBar = () => {
+const NavBar = ({ open }) => {
   return (
-    <Container>
+    <Container open={open}>
       <ul>
         <li>
           <Link to="/about">Sobre</Link>
         </li>
         <li>
-          <Link to="/suplier">Servicos</Link>
+          <Link to="/suplier">Servicos</Link>{" "}
         </li>
         <li>
           <Link to="/contact">Contato</Link>

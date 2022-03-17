@@ -10,4 +10,8 @@ export const Container = styled.header`
     justify-content: space-between;
     align-items: center;
   }
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    align-items: center;
+  }
 `;

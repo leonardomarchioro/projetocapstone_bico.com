@@ -9,6 +9,7 @@ export const Container = styled.nav`
   font-size: 13px;
   line-height: 22px;
   letter-spacing: 0.1rem;
+  display: ${({ open }) => (open ? "flex" : "none")};
 
   ul {
     width: 100%;
@@ -19,5 +20,9 @@ export const Container = styled.nav`
     li {
       list-style: none;
     }
+  }
+
+  @media screen and (min-width: 1024px) {
+    display: ${({ open }) => (open ? "flex" : "flex")};
   }
 `;

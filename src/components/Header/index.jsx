@@ -18,7 +18,7 @@ const Header = () => {
         <Logo />
         <BurguerMenu handleOpenNav={handleOpenNav} open={open} />
       </section>
-      {open && <NavBar />}
+      <NavBar open={open} />
     </Container>
   );
 };

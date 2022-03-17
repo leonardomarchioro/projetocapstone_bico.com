@@ -1,13 +1,9 @@
-import Register from "./pages/Register";
-import ModalLogin from "./components/ModalLogin";
-import Header from "./components/Header";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
     <div>
-      <Header />
-      <Register />
-      <ModalLogin />
+      <Dashboard />
     </div>
   );
 }

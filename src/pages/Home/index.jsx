@@ -1,5 +1,6 @@
 import ModalLogin from "../../components/ModalLogin";
 import ButaodeTeste from "../../components/ButaodeTeste";
+import Header from "../../components/Header";
 import { useState } from "react";
 
 const Home = () => {
@@ -11,7 +12,8 @@ const Home = () => {
 
   return (
     <div>
-      <ButaodeTeste onClick={openModalLogin} />
+      {/* <ButaodeTeste onClick={openModalLogin} /> */}
+      <Header />
       {modalLoginUp && <ModalLogin setModalLoginUp={setModalLoginUp} />}
     </div>
   );

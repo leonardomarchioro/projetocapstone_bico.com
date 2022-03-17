@@ -9,7 +9,7 @@ const InputPassword = ({ label, register, name, error, ...rest }) => {
 
   return (
     <div>
-      {!!label && <label>{label}</label>}
+      <div>{!!label && <label>{label}</label>}</div>
       <div>
         <input {...register(name)} {...rest} type={type} />
         <button onClick={showPassword} type="button">

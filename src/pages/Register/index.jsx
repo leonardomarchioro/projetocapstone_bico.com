@@ -2,6 +2,8 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 
+import { useUser } from "../../providers/User";
+
 import Input from "../../components/Input";
 import InputPassword from "../../components/InputPassword";
 import Button from "../../components/Button";
@@ -9,6 +11,8 @@ import Button from "../../components/Button";
 import { ContainerPage } from "./style";
 
 const Register = () => {
+  const { SignIn } = useUser();
+
   const schema = yup.object().shape({
     name: yup
       .string()
@@ -46,9 +50,8 @@ const Register = () => {
       phone,
       password,
     };
-    console.log(register);
 
-    // Função do Providers para enviar o reistro de novo usuário. \\
+    SignIn(register);
   };
 
   return (

@@ -10,6 +10,8 @@ import Button from "../../components/Button";
 
 import { ContainerModal } from "./style";
 
+import { Link } from "react-router-dom";
+
 const ModalLogin = () => {
   const { Login } = useUser();
 
@@ -62,6 +64,7 @@ const ModalLogin = () => {
         />
         <Button type="submit" text="Entrar" />
       </form>
+      <Link to="/register">Cadastre-se aqui</Link>
     </ContainerModal>
   );
 };

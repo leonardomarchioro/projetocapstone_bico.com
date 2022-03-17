@@ -13,7 +13,7 @@ export const ProviderUser = ({ children }) => {
   });
   const [token, setToken] = useState(localStorage.getItem("@token:Bico") || "");
 
-  const SignIn = async (data) => {
+  const SignUp = async (data) => {
     const response = await bicoApi
       .post("/users", data)
       .then((res) => console.log(res))
@@ -33,7 +33,7 @@ export const ProviderUser = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ userLogin, token, Login, SignIn }}>
+    <UserContext.Provider value={{ userLogin, token, Login, SignUp }}>
       {children}
     </UserContext.Provider>
   );

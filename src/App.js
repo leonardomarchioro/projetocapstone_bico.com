@@ -1,13 +1,7 @@
-import Register from "./pages/Register";
-import ModalLogin from "./components/ModalLogin";
+import Routes from "./routes";
 
 function App() {
-  return (
-    <div>
-      <Register />
-      <ModalLogin />
-    </div>
-  );
+  return <Routes />;
 }
 
 export default App;

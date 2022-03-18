@@ -75,8 +75,7 @@ export const GlobalStyle = createGlobalStyle`
     /* * {
         scrollbar-width: thin;
         scrollbar-color: var(--color-scrollbar) var(--color-scrollbar);
-        opacity: 0.7;
-    } */
+    }
 
     /* Works on Chrome, Edge, and Safari */
 

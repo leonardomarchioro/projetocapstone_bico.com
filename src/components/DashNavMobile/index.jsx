@@ -1,20 +1,28 @@
 import { Container } from "./styles";
 import { FiClipboard, FiUser, FiLogIn } from "react-icons/fi";
+import { useHistory } from "react-router-dom";
 
 const DashNavMobile = () => {
+  const history = useHistory();
+
+  const handleLogout = () => {
+    localStorage.clear();
+    history.push("/");
+  };
+
   return (
     <Container>
       <div>
-        <span>
+        <button onClick={console.log("perfil")}>
           <FiUser />
-        </span>
-        <span>
+        </button>
+        <button onClick={console.log("modal solicitar serviço")}>
           <FiClipboard />
-        </span>
+        </button>
       </div>
-      <span>
+      <button onClick={handleLogout}>
         <FiLogIn />
-      </span>
+      </button>
     </Container>
   );
 };

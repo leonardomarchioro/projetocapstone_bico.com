@@ -1,22 +1,45 @@
 import { Container } from "./styles";
+
 import Logo from "../../components/Logo";
 import DashNavMobile from "../../components/DashNavMobile";
 import AsideProfile from "../../components/AsideProfile";
-import SectionUserServices from "../../components/SectionUserServices";
 import Button from "../../components/Button";
-
-import { useUser } from "../../providers/User";
 import SectionAddServices from "../../components/SectionAddServices";
 
+import { useUser } from "../../providers/User";
+import { useState, useEffect } from "react";
+
 const DashboardClient = () => {
-  const { addSupplier } = useUser();
+  const { addSupplier, userLogin, supplier, supplierGet } = useUser();
+  const { dashboard, setDashboard } = useState("client");
+  console.log(supplier);
+
+  const handlePage = () => {
+    dashboard === "client" ? setDashboard("supplier") : setDashboard("client");
+  };
+
+  useEffect(() => {
+    if (userLogin.type === "supplier") {
+      supplierGet();
+    }
+  }, []);
+  console.log(userLogin.type);
 
   return (
     <Container>
       <Logo />
       <DashNavMobile />
-      {/* <AsideProfile /> */}
-      <SectionAddServices />
+      <AsideProfile />
+      {/* <SectionAddServices /> */}
+      {dashboard === "client" ? <div>cliente</div> : <div>Biqueiro</div>}
+      {supplier ? (
+        <>
+          <div>Página de biqueiro</div>
+          <Button onClick={handlePage} text="Trocar página" />
+        </>
+      ) : (
+        <Button onClick={addSupplier} text="Seja Membro" />
+      )}
     </Container>
   );
 };

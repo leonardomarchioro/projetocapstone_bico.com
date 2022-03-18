@@ -13,10 +13,11 @@ export const ProviderUser = ({ children }) => {
     }
     return {};
   });
+
   const [token, setToken] = useState(localStorage.getItem("@token:Bico") || "");
 
   const [supplier, setSuplier] = useState(false);
-  console.log(supplier);
+
   const SignUp = async (data) => {
     data.type = "client";
 
@@ -31,6 +32,9 @@ export const ProviderUser = ({ children }) => {
     }
   };
 
+  console.log(userLogin);
+  console.log(supplier);
+
   const ApiCheck = async (cep) => {
     const response = await axios.get(
       `https://viacep.com.br/ws/${cep}/json/unicode/`
@@ -39,7 +43,7 @@ export const ProviderUser = ({ children }) => {
     return response;
   };
 
-  const Login = async (data) => {
+  const Login = async (data, history) => {
     const response = await bicoApi
       .post("/login", data)
       .then((res) => {
@@ -48,19 +52,10 @@ export const ProviderUser = ({ children }) => {
         setToken(res.data.accessToken);
         localStorage.setItem("@user:Bico", JSON.stringify(res.data.user));
         localStorage.setItem("@token:Bico", res.data.accessToken);
+        history.push("/client");
       })
       .catch((err) => console.log(err));
     console.log(userLogin);
-    if (userLogin.type === "supplier") {
-      console.log("teste");
-      const supplierData = await bicoApi
-        .get(`/suppliers?userId=${userLogin.id}`)
-        .then((res) => {
-          setSuplier(res.data);
-          console.log(res);
-        })
-        .catch((err) => console.log(err));
-    }
   };
 
   const addSupplier = async () => {
@@ -68,8 +63,15 @@ export const ProviderUser = ({ children }) => {
 
     const { email, name, tel, cep, id } = userLogin;
     const update = await bicoApi
-      .patch(`/users/${id}`, { type: "supplier" })
-      .then((res) => console.log(res));
+      .patch(
+        `/users/${id}`,
+        { type: "supplier" },
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("@user:Bico", JSON.stringify(res.data.user));
+      });
     const data = {
       email: email,
       name: name,
@@ -85,10 +87,27 @@ export const ProviderUser = ({ children }) => {
       })
       .catch((err) => console.log(err));
   };
+  const supplierGet = async () => {
+    const response = await bicoApi
+      .get(`/suppliers?userId=${userLogin.id}`)
+      .then((res) => {
+        setSuplier(res.data);
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <UserContext.Provider
-      value={{ userLogin, token, Login, SignUp, addSupplier, supplier }}
+      value={{
+        userLogin,
+        token,
+        Login,
+        SignUp,
+        addSupplier,
+        supplier,
+        supplierGet,
+      }}
     >
       {children}
     </UserContext.Provider>

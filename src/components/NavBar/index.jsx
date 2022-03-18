@@ -1,25 +1,37 @@
 import { Link } from "react-router-dom";
-import { Container } from "./styles";
+import { NavContainer, ContainerUpLink, ContainerDownLink } from "./styles";
+import ButtonLogin from "../ButtonLogin";
+import { useState } from "react";
+import ModalLogin from "../ModalLogin";
 
-const NavBar = ({ open }) => {
+const NavBar = ({ open, openModalLogin, setModalLoginUp, ModalLoginUp }) => {
   return (
-    <Container open={open}>
+    <NavContainer open={open}>
       <ul>
-        <li>
-          <Link to="/about">Sobre</Link>
-        </li>
-        <li>
-          <Link to="/suplier">Servicos</Link>{" "}
-        </li>
-        <li>
-          <Link to="/contact">Contato</Link>
-        </li>
-        <li>Login</li>
-        <li>
-          <Link to="/register">Registrar-se</Link>
-        </li>
+        <ContainerUpLink>
+          <div>
+            {/* <li>
+              <Link to="/login">Login</Link>
+            </li> */}
+            {/* <ButtonLogin onClick={openModalLogin}>Login</ButtonLogin> */}
+            <button onClick={openModalLogin}>Login</button>
+            <li>
+              <Link to="/register">Registrar-se</Link>
+            </li>
+          </div>
+        </ContainerUpLink>
+        <ContainerDownLink>
+          <div>
+            <li>
+              <Link to="/about">Sobre</Link>
+            </li>
+            <li>
+              <Link to="/contact">Contato</Link>
+            </li>
+          </div>
+        </ContainerDownLink>
       </ul>
-    </Container>
+    </NavContainer>
   );
 };
 

@@ -1,8 +1,8 @@
 import { Container } from "./styles";
 
-const BurguerMenu = ({ handleOpenNav, open }) => {
+const BurguerMenu = ({ wrapperFunction, open }) => {
   return (
-    <Container onClick={handleOpenNav} open={open}>
+    <Container onClick={wrapperFunction} open={open}>
       <div></div>
       <div></div>
       <div></div>

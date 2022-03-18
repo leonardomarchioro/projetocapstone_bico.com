@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 27px;
-  height: 1rem;
+  height: 1.5rem;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -13,7 +13,7 @@ export const Container = styled.div`
   div {
     width: 27px;
     position: ${({ open }) => open && "fixed"};
-    height: 0.25rem;
+    height: 0.22rem;
     background-color: #12465a;
     border-radius: 10px;
     transition: all 0.3s linear;

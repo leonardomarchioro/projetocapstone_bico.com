@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-export const styleGlobal = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
     *{
         margin: 0;
         padding: 0;
@@ -24,6 +24,7 @@ export const styleGlobal = createGlobalStyle`
         --color-primary: #BADBF3;
         --color-primary-2: #78BCED;
         --color-primary-3: #3492D4;
+        --color-primary-4: #A5D7FB;
         --color-scrollbar: #868E96;
 
         --primary-tittle: #003347;
@@ -61,14 +62,14 @@ export const styleGlobal = createGlobalStyle`
         text-decoration: none;
     }
 
-    * {
+    /* *{
         scrollbar-width: thin;
         scrollbar-color: var(--color-scrollbar) var(--color-scrollbar);
         opacity: 0.7;
-    }
+    } */
 
     /* Works on Chrome, Edge, and Safari */
-    *::-webkit-scrollbar {
+    /* *::-webkit-scrollbar {
         width: 12px;
     }
 
@@ -81,13 +82,14 @@ export const styleGlobal = createGlobalStyle`
         opacity: 0.7;
         border-radius: 20px;
         border: 1px solid var(--color-scrollbar);
-    }
+    } */
 
     
 `;
 export const colorPrimary = "#BADBF3";
 export const colorPrimary2 = "#78BCED";
 export const colorPrimary3 = "#3492D4";
+export const colorPrimary4 = "#A5D7FB";
 
 export const primaryTittle = "#003347";
 export const secondaryTittle = "#1E637D";

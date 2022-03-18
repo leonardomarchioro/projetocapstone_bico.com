@@ -12,6 +12,7 @@ export const Container = styled.main`
   align-items: center;
   flex-direction: column;
   color: #12465a;
+  overflow: none;
 
   > div {
     width: 100%;

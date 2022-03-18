@@ -14,6 +14,7 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Montserrat', sans-serif;
         min-height: 100vh;
         width: 100vw;
+        overflow-x: hidden;
     }
 
     button, input{

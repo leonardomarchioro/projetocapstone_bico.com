@@ -1,11 +1,10 @@
 import { Switch, Route } from "react-router-dom";
 import About from "../pages/About";
-import Client from "../pages/Client";
+import Client from "../pages/DashboardClient";
 import Contact from "../pages/Contact";
 import Home from "../pages/Home";
 import Register from "../pages/Register";
-import Login from "../pages/Login";
-import Suplier from "../pages/Suplier";
+import DashboardSuplier from "../pages/DashboardSuplier";
 
 const Routes = () => {
   return (
@@ -16,9 +15,6 @@ const Routes = () => {
       <Route path="/register">
         <Register />
       </Route>
-      {/* <Route path="/login">
-        <Login />
-      </Route> */}
       <Route path="/about">
         <About />
       </Route>
@@ -29,7 +25,7 @@ const Routes = () => {
         <Contact />
       </Route>
       <Route path="/suplier">
-        <Suplier />
+        <DashboardSuplier />
       </Route>
     </Switch>
   );

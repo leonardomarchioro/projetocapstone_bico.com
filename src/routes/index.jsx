@@ -4,6 +4,7 @@ import Client from "../pages/Client";
 import Contact from "../pages/Contact";
 import Home from "../pages/Home";
 import Register from "../pages/Register";
+import Login from "../pages/Login";
 import Suplier from "../pages/Suplier";
 
 const Routes = () => {
@@ -15,6 +16,9 @@ const Routes = () => {
       <Route path="/register">
         <Register />
       </Route>
+      {/* <Route path="/login">
+        <Login />
+      </Route> */}
       <Route path="/about">
         <About />
       </Route>

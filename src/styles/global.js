@@ -31,6 +31,7 @@ export const GlobalStyle = createGlobalStyle`
         --color-primary: #BADBF3;
         --color-primary-2: #78BCED;
         --color-primary-3: #3492D4;
+        --color-primary-4: #A5D7FB;
         --color-scrollbar: #868E96;
 
         --primary-tittle: #003347;
@@ -94,11 +95,11 @@ export const GlobalStyle = createGlobalStyle`
         border: 1px solid var(--color-scrollbar);
     } */
 
-
 `;
 export const colorPrimary = "#BADBF3";
 export const colorPrimary2 = "#78BCED";
 export const colorPrimary3 = "#3492D4";
+export const colorPrimary4 = "#A5D7FB";
 
 export const primaryTittle = "#003347";
 export const secondaryTittle = "#1E637D";

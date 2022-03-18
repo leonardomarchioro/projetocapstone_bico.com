@@ -12,7 +12,7 @@ const InputPassword = ({ label, register, name, error, ...rest }) => {
   return (
     <ContainerPassword>
       <div>{!!label && <label>{label}</label>}</div>
-      <InputEye>
+      <InputEye error={error}>
         <input {...register(name)} {...rest} type={type} />
         <button onClick={showPassword} type="button">
           {type === "password" ? <MdVisibility /> : <MdVisibilityOff />}

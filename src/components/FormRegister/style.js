@@ -4,7 +4,7 @@ export const ContainerPage = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  min-height: 100vh;
   width: 50%;
   justify-content: center;
 
@@ -15,11 +15,11 @@ export const ContainerPage = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    height: 690px;
     width: 400px;
     background-color: var(--form-register);
     border-radius: 20px;
-    padding-top: 40px;
+    padding-top: 30px;
+    padding-bottom: 10px;
 
     > section {
       width: 80%;

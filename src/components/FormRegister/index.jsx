@@ -64,7 +64,6 @@ const FormRegister = () => {
   return (
     <ContainerPage>
       <ContainerTitle>
-        <h1>CRIAR NOVA CONTA</h1>
         <h4>
           Já possuí uma conta? <Link to="/">Login</Link>
         </h4>

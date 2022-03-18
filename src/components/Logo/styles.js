@@ -8,5 +8,10 @@ export const Container = styled.div`
     font-size: 18px;
     line-height: 21px;
     color: #12465a;
+    transition: 0.5s;
+
+    &:hover {
+      filter: drop-shadow(10px 10px 4px var(--primary-tittle));
+    }
   }
 `;

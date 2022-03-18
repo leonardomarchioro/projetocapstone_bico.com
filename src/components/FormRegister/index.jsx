@@ -19,9 +19,15 @@ const FormRegister = () => {
       .string()
       .required("Nome obrigatório")
       .matches(/^[ a-zA-Z á]*$/, "Deve conter apenas letras"),
-    cep: yup.string().required("Cep obrigatório"),
+    cep: yup
+      .string()
+      .required("Cep obrigatório")
+      .matches(/^[0-9]{5}-[0-9]{3}$/, "Cep inválido"),
     email: yup.string().required("Email obrigatório").email("Email inválido"),
-    phone: yup.string().required("Telefone obrigatório"),
+    phone: yup
+      .string()
+      .required("Telefone obrigatório")
+      .matches(/^[0-9]{4}-[0-9]{4}$/, "Número inválido"),
     password: yup
       .string()
       .required("Senha obrigatória")
@@ -78,8 +84,7 @@ const FormRegister = () => {
           register={register}
           name={"cep"}
           error={errors.cep?.message}
-          placeholder="Digite o cep aqui"
-          type="number"
+          placeholder="00000-000"
         />
         <Input
           label="E-mail"
@@ -94,8 +99,7 @@ const FormRegister = () => {
           register={register}
           name={"phone"}
           error={errors.phone?.message}
-          placeholder="Digite um telefone de contato aqui"
-          type="number"
+          placeholder="9999-9999"
         />
         <InputPassword
           label="Senha"

@@ -13,7 +13,7 @@ import { ContainerModal } from "./style";
 import { Link } from "react-router-dom";
 
 const ModalLogin = () => {
-  const { Login } = useUser();
+  const { Login, token } = useUser();
 
   const schema = yup.object().shape({
     email: yup.string().required("Email obrigatório").email("Email inválido"),

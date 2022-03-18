@@ -1,3 +1,4 @@
+import { ProviderService } from "./Services";
 import { ProviderUser } from "./User";
 
 
@@ -5,7 +6,9 @@ import { ProviderUser } from "./User";
 const Providers = ({ children }) => {
     return (
         <ProviderUser>
-            {children}
+            <ProviderService>
+                {children}
+            </ProviderService>
         </ProviderUser>
     )
 }

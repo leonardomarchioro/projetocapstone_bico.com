@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.header`
   width: 100%;
-  background-color: #78bced;
-  border-radius: ${({ open }) => open && "0 0 50px 0"};
+  background-color: var(--color-primary-4);
+  border-radius: ${({ open }) => open && "0 0 15px 15px"};
 
   .cont2 {
     background-color: var(--color-primary-4);

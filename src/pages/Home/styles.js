@@ -4,8 +4,12 @@ export const Container = styled.main`
   background-color: #badbf3;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   color: #12465a;
+  > div {
+    width: 100%;
+  }
 `;
 
 export const Content = styled.div`
@@ -13,7 +17,9 @@ export const Content = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: 100%;
   padding: 0 30px;
+  margin-top: 2rem;
 
   .containerMobile {
     max-width: 320px;

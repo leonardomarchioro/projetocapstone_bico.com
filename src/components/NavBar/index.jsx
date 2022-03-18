@@ -8,6 +8,13 @@ const NavBar = ({ open, openModalLogin, setModalLoginUp, ModalLoginUp }) => {
   return (
     <NavContainer open={open}>
       <ul>
+        <ContainerDownLink>
+          <div>
+            <Link to="/about">Sobre</Link>
+
+            <Link to="/contact">Contato</Link>
+          </div>
+        </ContainerDownLink>
         <ContainerUpLink>
           <div>
             {/* <li>
@@ -15,21 +22,10 @@ const NavBar = ({ open, openModalLogin, setModalLoginUp, ModalLoginUp }) => {
             </li> */}
             {/* <ButtonLogin onClick={openModalLogin}>Login</ButtonLogin> */}
             <button onClick={openModalLogin}>Login</button>
-            <li>
-              <Link to="/register">Registrar-se</Link>
-            </li>
+
+            <Link to="/register">Registrar-se</Link>
           </div>
         </ContainerUpLink>
-        <ContainerDownLink>
-          <div>
-            <li>
-              <Link to="/about">Sobre</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contato</Link>
-            </li>
-          </div>
-        </ContainerDownLink>
       </ul>
     </NavContainer>
   );

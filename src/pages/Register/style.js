@@ -2,13 +2,14 @@ import styled from "styled-components";
 
 export const PageRegister = styled.div`
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   display: flex;
   align-items: center;
+  overflow: hidden;
 `;
 
 export const ContainerImg = styled.div`
-  height: 100%;
+  min-height: 100vh;
   width: 50%;
   background-color: var(--bg-color-register-1);
   display: flex;

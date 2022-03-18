@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 import bicoApi from "../../services/bicoApi";
 import axios from "axios";
@@ -15,17 +15,12 @@ export const ProviderUser = ({ children }) => {
   });
   const [token, setToken] = useState(localStorage.getItem("@token:Bico") || "");
 
-  const [supplier, setSuplier] = useState(() => {
-    const newSupplier = localStorage.getItem("@supplier:Bico");
-    if (newSupplier) {
-      return JSON.parse(newSupplier);
-    }
-    return {};
-  });
-
+  const [supplier, setSuplier] = useState(false);
+  console.log(supplier);
   const SignUp = async (data) => {
-    const validation = ApiCheck(data.cep);
+    data.type = "client";
 
+    const validation = ApiCheck(data.cep);
     if ((await validation).data.cep) {
       const response = await bicoApi
         .post("/users", data)
@@ -55,34 +50,45 @@ export const ProviderUser = ({ children }) => {
         localStorage.setItem("@token:Bico", res.data.accessToken);
       })
       .catch((err) => console.log(err));
+    console.log(userLogin);
+    if (userLogin.type === "supplier") {
+      console.log("teste");
+      const supplierData = await bicoApi
+        .get(`/suppliers?userId=${userLogin.id}`)
+        .then((res) => {
+          setSuplier(res.data);
+          console.log(res);
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   const addSupplier = async () => {
-    const { email, name, tel, cep, id } = userLogin;
-    const data = { email: email, name: name, cep: cep, tel: tel, id: id };
+    console.log(userLogin);
 
+    const { email, name, tel, cep, id } = userLogin;
+    const update = await bicoApi
+      .patch(`/users/${id}`, { type: "supplier" })
+      .then((res) => console.log(res));
+    const data = {
+      email: email,
+      name: name,
+      cep: cep,
+      tel: tel,
+    };
+    console.log(data);
     const response = await bicoApi
-      .post(
-        "/suppliers",
-        { ...data, services_taken: [], userId: id },
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      )
+      .post("/suppliers", { ...data, services_taken: [], userId: id })
       .then((res) => {
+        setSuplier(res.data);
         console.log(res);
-        setSuplier(res.data.suppliers);
-        localStorage.setItem(
-          "@supplier:Bico",
-          JSON.stringify(res.data.suppliers)
-        );
       })
       .catch((err) => console.log(err));
   };
 
   return (
     <UserContext.Provider
-      value={{ userLogin, token, supplier, Login, SignUp, addSupplier }}
+      value={{ userLogin, token, Login, SignUp, addSupplier }}
     >
       {children}
     </UserContext.Provider>

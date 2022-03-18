@@ -2,15 +2,15 @@ import { Container } from "./styles";
 import Logo from "../../components/Logo";
 import DashNavMobile from "../../components/DashNavMobile";
 import AsideProfile from "../../components/AsideProfile";
-import SectionUserServices from "../../components/SectionUserServices";
+import SectionAddServices from "../../components/SectionAddServices";
 
 const DashboardClient = () => {
   return (
     <Container>
       <Logo />
       <DashNavMobile />
-      <AsideProfile />
-      <SectionUserServices />
+      {/* <AsideProfile /> */}
+      <SectionAddServices />
     </Container>
   );
 };

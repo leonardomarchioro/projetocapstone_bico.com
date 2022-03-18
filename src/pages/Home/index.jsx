@@ -5,6 +5,7 @@ import ButaodeTeste from "../../components/ButtonLogin";
 import Header from "../../components/Header";
 import { useState } from "react";
 import ButtonLogin from "../../components/ButtonLogin";
+import HomeImg from "../../assets/homeimg.svg";
 
 const Home = () => {
   const [modalLoginUp, setModalLoginUp] = useState(false);
@@ -26,7 +27,7 @@ const Home = () => {
           <h2>Contrate serviços ou ofereça seus trabalhos</h2>
           <p>TRABALHE FAZENDO BICOS OU CONTRATE-OS</p>
           <figure>
-            <img src={logo} alt="logo" />
+            <img src={HomeImg} alt="logo" />
           </figure>
           <span>
             Receba diariamente anúncios de bicos , ganhe desconto a cada
@@ -36,7 +37,7 @@ const Home = () => {
 
         <section className="containerDesktop">
           <figure>
-            <img src={logo} alt="logo" />
+            <img src={HomeImg} alt="logo" />
             <figcaption>O faz-tudo de confiança</figcaption>
           </figure>
         </section>

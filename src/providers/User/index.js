@@ -80,7 +80,7 @@ export const ProviderUser = ({ children }) => {
     const response = await bicoApi
       .post("/suppliers", { ...data, services_taken: [], userId: id })
       .then((res) => {
-        setSuplier(res.data);
+        setSuplier([res.data]);
         console.log(res);
       })
       .catch((err) => console.log(err));

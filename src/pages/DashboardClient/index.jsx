@@ -6,6 +6,7 @@ import SectionUserServices from "../../components/SectionUserServices";
 import Button from "../../components/Button";
 
 import { useUser } from "../../providers/User";
+import SectionAddServices from "../../components/SectionAddServices";
 
 const DashboardClient = () => {
   const { addSupplier } = useUser();
@@ -14,9 +15,8 @@ const DashboardClient = () => {
     <Container>
       <Logo />
       <DashNavMobile />
-      <AsideProfile />
-      <SectionUserServices />
-      <Button onClick={addSupplier} text="Seja membro" />
+      {/* <AsideProfile /> */}
+      <SectionAddServices />
     </Container>
   );
 };

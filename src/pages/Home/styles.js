@@ -7,6 +7,7 @@ export const Container = styled.main`
   flex-direction: column;
   align-items: center;
   color: #12465a;
+
   > div {
     width: 100%;
   }
@@ -45,8 +46,8 @@ export const Content = styled.div`
       padding: 30px 0;
 
       img {
-        width: 150px;
-        height: 132px;
+        width: 260px;
+        height: 200px;
       }
     }
   }
@@ -81,7 +82,7 @@ export const Content = styled.div`
         display: none;
 
         img {
-          width: 310px;
+          width: 450px;
           height: 292px;
         }
       }
@@ -101,7 +102,7 @@ export const Content = styled.div`
         justify-content: space-between;
         height: 340px;
         img {
-          width: 310px;
+          width: 400px;
           height: 292px;
         }
 

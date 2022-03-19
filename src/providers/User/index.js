@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState } from "react";
 
 import bicoApi from "../../services/bicoApi";
 import axios from "axios";
@@ -70,7 +70,7 @@ export const ProviderUser = ({ children }) => {
       )
       .then((res) => {
         console.log(res);
-        localStorage.setItem("@user:Bico", JSON.stringify(res.data.user));
+        localStorage.setItem("@user:Bico", JSON.stringify(res.data));
       });
     const data = {
       email: email,
@@ -80,7 +80,11 @@ export const ProviderUser = ({ children }) => {
     };
     console.log(data);
     const response = await bicoApi
-      .post("/suppliers", { ...data, services_taken: [], userId: id })
+      .post(
+        "/suppliers",
+        { ...data, services_taken: [], userId: id },
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
       .then((res) => {
         setSuplier([res.data]);
         console.log(res);
@@ -89,12 +93,20 @@ export const ProviderUser = ({ children }) => {
   };
   const supplierGet = async () => {
     const response = await bicoApi
-      .get(`/suppliers?userId=${userLogin.id}`)
+      .get(`/suppliers?userId=${userLogin.id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((res) => {
         setSuplier(res.data);
         console.log(res);
       })
       .catch((err) => console.log(err));
+  };
+
+  const handleLogout = (history) => {
+    localStorage.clear();
+    history.push("/");
+    setSuplier(false);
   };
 
   return (
@@ -107,6 +119,7 @@ export const ProviderUser = ({ children }) => {
         addSupplier,
         supplier,
         supplierGet,
+        handleLogout,
       }}
     >
       {children}

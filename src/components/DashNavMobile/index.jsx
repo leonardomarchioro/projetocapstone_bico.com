@@ -1,14 +1,12 @@
 import { Container } from "./styles";
 import { FiClipboard, FiUser, FiLogIn } from "react-icons/fi";
 import { useHistory } from "react-router-dom";
+import { useUser } from "../../providers/User";
 
 const DashNavMobile = () => {
   const history = useHistory();
 
-  const handleLogout = () => {
-    localStorage.clear();
-    history.push("/");
-  };
+  const { handleLogout } = useUser();
 
   return (
     <Container>
@@ -20,7 +18,7 @@ const DashNavMobile = () => {
           <FiClipboard />
         </button>
       </div>
-      <button onClick={handleLogout}>
+      <button onClick={() => handleLogout(history)}>
         <FiLogIn />
       </button>
     </Container>

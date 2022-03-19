@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState } from "react";
 
 import bicoApi from "../../services/bicoApi";
 import axios from "axios";
@@ -91,11 +91,19 @@ export const ProviderUser = ({ children }) => {
   };
   const supplierGet = async () => {
     const response = await bicoApi
-      .get(`/suppliers?userId=${userLogin.id}`)
+      .get(`/suppliers?userId=${userLogin.id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((res) => {
         setSuplier(res.data);
       })
       .catch((err) => console.log(err));
+  };
+
+  const handleLogout = (history) => {
+    localStorage.clear();
+    history.push("/");
+    setSuplier(false);
   };
 
   return (
@@ -108,6 +116,7 @@ export const ProviderUser = ({ children }) => {
         addSupplier,
         supplier,
         supplierGet,
+        handleLogout,
       }}
     >
       {children}

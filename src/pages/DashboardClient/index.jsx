@@ -11,11 +11,10 @@ import { useState, useEffect } from "react";
 
 const DashboardClient = () => {
   const { addSupplier, userLogin, supplier, supplierGet } = useUser();
-  const { dashboard, setDashboard } = useState("client");
-  console.log(supplier);
+  const [client, setClient] = useState(true);
 
   const handlePage = () => {
-    dashboard === "client" ? setDashboard("supplier") : setDashboard("client");
+    client ? setClient(false) : setClient(true);
   };
 
   useEffect(() => {
@@ -23,7 +22,6 @@ const DashboardClient = () => {
       supplierGet();
     }
   }, []);
-  console.log(userLogin.type);
 
   return (
     <Container>
@@ -31,7 +29,7 @@ const DashboardClient = () => {
       <DashNavMobile />
       <AsideProfile />
       {/* <SectionAddServices /> */}
-      {dashboard === "client" ? <div>cliente</div> : <div>Biqueiro</div>}
+      {client ? <div>cliente</div> : <div>Biqueiro</div>}
       {supplier ? (
         <>
           <div>Página de biqueiro</div>

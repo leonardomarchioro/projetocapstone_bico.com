@@ -28,7 +28,7 @@ export const ProviderUser = ({ children }) => {
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
     } else {
-      console.log("not");
+      console.log("Adicionar toast de erro");
     }
   };
 
@@ -44,6 +44,7 @@ export const ProviderUser = ({ children }) => {
   };
 
   const Login = async (data, history) => {
+    console.log(data);
     const response = await bicoApi
       .post("/login", data)
       .then((res) => {
@@ -55,13 +56,11 @@ export const ProviderUser = ({ children }) => {
         history.push("/client");
       })
       .catch((err) => console.log(err));
-    console.log(userLogin);
+    console.log(response);
   };
 
   const addSupplier = async () => {
-    console.log(userLogin);
-
-    const { email, name, tel, cep, id } = userLogin;
+    const { email, name, phone, cep, id } = userLogin;
     const update = await bicoApi
       .patch(
         `/users/${id}`,
@@ -70,20 +69,23 @@ export const ProviderUser = ({ children }) => {
       )
       .then((res) => {
         console.log(res);
-        localStorage.setItem("@user:Bico", JSON.stringify(res.data.user));
+        localStorage.setItem("@user:Bico", JSON.stringify(res.data));
       });
     const data = {
       email: email,
       name: name,
       cep: cep,
-      tel: tel,
+      phone: phone,
     };
     console.log(data);
     const response = await bicoApi
-      .post("/suppliers", { ...data, services_taken: [], userId: id })
+      .post(
+        "/suppliers",
+        { ...data, services_taken: [], userId: id },
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
       .then((res) => {
         setSuplier([res.data]);
-        console.log(res);
       })
       .catch((err) => console.log(err));
   };
@@ -92,7 +94,6 @@ export const ProviderUser = ({ children }) => {
       .get(`/suppliers?userId=${userLogin.id}`)
       .then((res) => {
         setSuplier(res.data);
-        console.log(res);
       })
       .catch((err) => console.log(err));
   };

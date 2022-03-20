@@ -92,7 +92,7 @@ const FormRegister = () => {
           register={register}
           name={"cep"}
           error={errors.cep?.message}
-          placeholder="00000-000"
+          placeholder="Ex: 00000-000"
         />
         <Input
           label="E-mail"
@@ -107,7 +107,7 @@ const FormRegister = () => {
           register={register}
           name={"phone"}
           error={errors.phone?.message}
-          placeholder="9999-9999"
+          placeholder="Ex: 9999-9999"
         />
         <InputPassword
           label="Senha"

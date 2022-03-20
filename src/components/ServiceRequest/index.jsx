@@ -12,6 +12,7 @@ const ServiceRequest = () => {
 
   const currentDate = new Date().toLocaleDateString();
   const dateFormated = currentDate.split("/").reverse().join("-");
+  console.log(dateFormated);
 
   const schema = yup.object().shape({
     category: yup
@@ -21,8 +22,7 @@ const ServiceRequest = () => {
     date: yup
       .date()
       .required("Data obigatória")
-      .min(dateFormated, "Só é possível incluir datas futuras"),
-
+      .min(currentDate, "Só é possível incluir datas futuras"),
     description: yup.string().required("Descrição do serviço obrigatória"),
   });
 

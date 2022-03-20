@@ -1,9 +1,10 @@
 import { useService } from "../../providers/Services";
-import Button from "../Button";
-import { Container, ContainerInfo, Div } from "./styles";
+import { Container } from "./styles";
 import { useEffect } from "react";
+import ContainerInfo from "../DashSuplierInfo";
+
 const DashboardSuplier = () => {
-  const { getAllServices, allServices, attSupplierToService } = useService();
+  const { getAllServices, allServices } = useService();
 
   useEffect(() => {
     getAllServices();
@@ -12,23 +13,7 @@ const DashboardSuplier = () => {
   return (
     <Container>
       {allServices.map((service) => {
-        return (
-          <>
-            <ContainerInfo>
-              <Div>
-                <h3>{service.name}</h3>
-                <span>{service.category}</span>
-              </Div>
-              <Button
-                id={service.id}
-                onClick={() => attSupplierToService(service.id)}
-                text={"Candidatar-se"}
-              />
-            </ContainerInfo>
-            <p>{service.description}</p>
-            <span>{service.date}</span>
-          </>
-        );
+        return <ContainerInfo service={service} />;
       })}
     </Container>
   );

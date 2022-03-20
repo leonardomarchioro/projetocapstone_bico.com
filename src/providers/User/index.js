@@ -13,28 +13,28 @@ export const ProviderUser = ({ children }) => {
     }
     return {};
   });
+
   const [token, setToken] = useState(localStorage.getItem("@token:Bico") || "");
 
-  const [supplier, setSuplier] = useState(() => {
-    const newSupplier = localStorage.getItem("@supplier:Bico");
-    if (newSupplier) {
-      return JSON.parse(newSupplier);
-    }
-    return {};
-  });
+  const [supplier, setSuplier] = useState(false);
 
-  const SignUp = async (data) => {
+  const SignUp = async (data, success, error) => {
+    data.type = "client";
+
     const validation = ApiCheck(data.cep);
-
     if ((await validation).data.cep) {
       const response = await bicoApi
         .post("/users", data)
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err));
+        .then(() => success())
+        .catch((err) => error(err.response.data));
     } else {
-      console.log("not");
+      console.log("Adicionar toast de erro");
+      error("CEP inválido!");
     }
   };
+
+  console.log(userLogin);
+  console.log(supplier);
 
   const ApiCheck = async (cep) => {
     const response = await axios.get(
@@ -44,7 +44,8 @@ export const ProviderUser = ({ children }) => {
     return response;
   };
 
-  const Login = async (data) => {
+  const Login = async (data, history) => {
+    console.log(data);
     const response = await bicoApi
       .post("/login", data)
       .then((res) => {
@@ -53,36 +54,71 @@ export const ProviderUser = ({ children }) => {
         setToken(res.data.accessToken);
         localStorage.setItem("@user:Bico", JSON.stringify(res.data.user));
         localStorage.setItem("@token:Bico", res.data.accessToken);
+        history.push("/client");
       })
       .catch((err) => console.log(err));
+    console.log(response);
   };
 
   const addSupplier = async () => {
-    const { email, name, tel, cep, id } = userLogin;
-    const data = { email: email, name: name, cep: cep, tel: tel, id: id };
-
+    const { email, name, phone, cep, id } = userLogin;
+    const update = await bicoApi
+      .patch(
+        `/users/${id}`,
+        { type: "supplier" },
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("@user:Bico", JSON.stringify(res.data));
+      });
+    const data = {
+      email: email,
+      name: name,
+      cep: cep,
+      phone: phone,
+    };
+    console.log(data);
     const response = await bicoApi
       .post(
         "/suppliers",
         { ...data, services_taken: [], userId: id },
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
+        { headers: { Authorization: `Bearer ${token}` } }
       )
       .then((res) => {
-        console.log(res);
-        setSuplier(res.data.suppliers);
-        localStorage.setItem(
-          "@supplier:Bico",
-          JSON.stringify(res.data.suppliers)
-        );
+        setSuplier([res.data]);
+      })
+      .catch((err) => console.log(err));
+  };
+  const supplierGet = async () => {
+    const response = await bicoApi
+      .get(`/suppliers?userId=${userLogin.id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((res) => {
+        setSuplier(res.data);
       })
       .catch((err) => console.log(err));
   };
 
+  const handleLogout = (history) => {
+    localStorage.clear();
+    history.push("/");
+    setSuplier(false);
+  };
+
   return (
     <UserContext.Provider
-      value={{ userLogin, token, supplier, Login, SignUp, addSupplier }}
+      value={{
+        userLogin,
+        token,
+        Login,
+        SignUp,
+        addSupplier,
+        supplier,
+        supplierGet,
+        handleLogout,
+      }}
     >
       {children}
     </UserContext.Provider>

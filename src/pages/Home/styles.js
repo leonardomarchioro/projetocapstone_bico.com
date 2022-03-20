@@ -4,8 +4,13 @@ export const Container = styled.main`
   background-color: #badbf3;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   color: #12465a;
+
+  > div {
+    width: 100%;
+  }
 `;
 
 export const Content = styled.div`
@@ -13,7 +18,9 @@ export const Content = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: 100%;
   padding: 0 30px;
+  margin-top: 2rem;
 
   .containerMobile {
     max-width: 320px;
@@ -39,8 +46,8 @@ export const Content = styled.div`
       padding: 30px 0;
 
       img {
-        width: 150px;
-        height: 132px;
+        width: 260px;
+        height: 200px;
       }
     }
   }
@@ -75,7 +82,7 @@ export const Content = styled.div`
         display: none;
 
         img {
-          width: 310px;
+          width: 450px;
           height: 292px;
         }
       }
@@ -95,7 +102,7 @@ export const Content = styled.div`
         justify-content: space-between;
         height: 340px;
         img {
-          width: 310px;
+          width: 400px;
           height: 292px;
         }
 

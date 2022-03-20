@@ -10,10 +10,11 @@ import Button from "../../components/Button";
 
 import { ContainerModal } from "./style";
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const ModalLogin = () => {
   const { Login, token } = useUser();
+  const history = useHistory();
 
   const schema = yup.object().shape({
     email: yup.string().required("Email obrigatório").email("Email inválido"),
@@ -40,7 +41,7 @@ const ModalLogin = () => {
       password,
     };
 
-    Login(login);
+    Login(login, history);
   };
 
   return (

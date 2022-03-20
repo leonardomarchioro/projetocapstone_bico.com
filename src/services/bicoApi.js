@@ -1,8 +1,7 @@
-import axios from "axios"
+import axios from "axios";
 
 const bicoApi = axios.create({
-    baseURL: "https://api-kenzie-bico.herokuapp.com/"
-})
+  baseURL: "https://api-kenzie-bico.herokuapp.com/",
+});
 
-
-export default bicoApi
+export default bicoApi;

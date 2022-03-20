@@ -1,9 +1,15 @@
 import { Container, Content } from "./styles";
 import { FaLinkedin } from "react-icons/fa";
 import { useState } from "react";
-import cellphone from "../../img/cellphone.png";
-import logo from "../../img/logo.png";
+import cellphone from "../../img/cellphone.gif";
+import Logo from "../../components/Logo";
+import { FiCornerDownLeft } from "react-icons/fi";
+import Button from "../../components/Button";
+import { useHistory } from "react-router-dom";
+
 const Contact = () => {
+  const history = useHistory();
+
   const [linkedinUsers] = useState([
     {
       name: "André Passoni",
@@ -43,6 +49,14 @@ const Contact = () => {
 
   return (
     <Container>
+      <div>
+        <Logo />
+        <Button
+          text={<FiCornerDownLeft size={30} />}
+          onClick={() => history.push("/")}
+        />
+      </div>
+
       <Content>
         <section className="containerMobile">
           <h2>Contatos</h2>
@@ -66,7 +80,11 @@ const Contact = () => {
         </section>
         <section className="containerDesktop">
           <figure>
+<<<<<<< HEAD
             <img src={logo} alt="teste" />
+=======
+            <img src={cellphone} alt="cellphone" />
+>>>>>>> f8fe8fa9736b9a79d9cecc1098c75f35cde0beb7
           </figure>
         </section>
       </Content>

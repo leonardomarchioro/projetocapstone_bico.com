@@ -12,8 +12,9 @@ export const GlobalStyle = createGlobalStyle`
     body{
         font-size: 1rem;
         font-family: 'Montserrat', sans-serif;
-        height: 100vh;
+        min-height: 100vh;
         width: 100vw;
+        overflow-x: hidden;
     }
 
     button, input{
@@ -23,7 +24,8 @@ export const GlobalStyle = createGlobalStyle`
     #root{
         width: 100%;
         height: 100%;
-        overflow: hidden;
+        overflow-x: hidden;
+        
     }
    
 

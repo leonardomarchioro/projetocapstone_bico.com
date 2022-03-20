@@ -10,7 +10,7 @@ const Input = ({
   ...rest
 }) => {
   return (
-    <ContainerInput>
+    <ContainerInput error={error}>
       <div>{!!label && <label>{label}</label>}</div>
       {type === "select" ? (
         <select {...register(name)} {...rest}>

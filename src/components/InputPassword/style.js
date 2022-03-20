@@ -11,6 +11,7 @@ export const ContainerPassword = styled.div`
     }
     > span {
       font-size: 12px;
+      color: #ff0033;
     }
   }
 `;
@@ -23,7 +24,7 @@ export const InputEye = styled.section`
     width: 100%;
     height: 39px;
     background-color: var(--bg-color-register-1);
-    border: transparent;
+    border: ${({ error }) => (error ? "1px solid #ff0033" : "transparent")};
     border-radius: 3px;
     padding-left: 10px;
     color: var(--title-1);

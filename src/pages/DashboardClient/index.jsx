@@ -8,6 +8,7 @@ import SectionAddServices from "../../components/SectionAddServices";
 
 import { useUser } from "../../providers/User";
 import { useState, useEffect } from "react";
+import ServiceSupplier from "../../components/ComponentSupplier";
 
 const DashboardClient = () => {
   const { addSupplier, userLogin, supplier, supplierGet } = useUser();

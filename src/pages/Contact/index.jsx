@@ -80,11 +80,7 @@ const Contact = () => {
         </section>
         <section className="containerDesktop">
           <figure>
-<<<<<<< HEAD
-            <img src={logo} alt="teste" />
-=======
             <img src={cellphone} alt="cellphone" />
->>>>>>> f8fe8fa9736b9a79d9cecc1098c75f35cde0beb7
           </figure>
         </section>
       </Content>

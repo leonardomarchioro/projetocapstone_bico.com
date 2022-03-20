@@ -2,7 +2,7 @@ import { Container, Content } from "./styles";
 import { FaLinkedin } from "react-icons/fa";
 import { useState } from "react";
 import cellphone from "../../img/cellphone.png";
-
+import logo from "../../img/logo.png";
 const Contact = () => {
   const [linkedinUsers] = useState([
     {
@@ -66,7 +66,7 @@ const Contact = () => {
         </section>
         <section className="containerDesktop">
           <figure>
-            <img scr={cellphone} alt="cellphone" />
+            <img src={logo} alt="teste" />
           </figure>
         </section>
       </Content>

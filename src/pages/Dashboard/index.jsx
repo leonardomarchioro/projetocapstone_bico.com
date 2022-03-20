@@ -3,14 +3,16 @@ import { Container } from "./styles";
 import Logo from "../../components/Logo";
 import DashNavMobile from "../../components/DashNavMobile";
 import AsideProfile from "../../components/AsideProfile";
-import Button from "../../components/Button";
-import SectionAddServices from "../../components/SectionAddServices";
+
+import DashboardSuplier from "../../components/DashboardSuplier";
+import DashboardClient from "../../components/DashboardClient";
 
 import { useUser } from "../../providers/User";
 import { useState, useEffect } from "react";
+import ServiceSupplier from "../../components/DashboardSuplier";
 
-const DashboardClient = () => {
-  const { addSupplier, userLogin, supplier, supplierGet } = useUser();
+const Dashboard = () => {
+  const { userLogin, supplierGet } = useUser();
   const [client, setClient] = useState(true);
 
   const handlePage = () => {
@@ -27,19 +29,10 @@ const DashboardClient = () => {
     <Container>
       <Logo />
       <DashNavMobile />
-      <AsideProfile />
-      {/* <SectionAddServices /> */}
-      {client ? <div>cliente</div> : <div>Biqueiro</div>}
-      {supplier ? (
-        <>
-          <div>Página de biqueiro</div>
-          <Button onClick={handlePage} text="Trocar página" />
-        </>
-      ) : (
-        <Button onClick={addSupplier} text="Seja Membro" />
-      )}
+      <AsideProfile handlePage={handlePage} />
+      {client ? <DashboardClient /> : <DashboardSuplier />}
     </Container>
   );
 };
 
-export default DashboardClient;
+export default Dashboard;

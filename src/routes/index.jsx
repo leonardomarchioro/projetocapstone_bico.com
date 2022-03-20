@@ -1,10 +1,9 @@
 import { Switch, Route } from "react-router-dom";
 import About from "../pages/About";
-import Client from "../pages/DashboardClient";
+import Dashboard from "../pages/Dashboard";
 import Contact from "../pages/Contact";
 import Home from "../pages/Home";
 import Register from "../pages/Register";
-import DashboardSuplier from "../pages/DashboardSuplier";
 
 const Routes = () => {
   return (
@@ -18,14 +17,11 @@ const Routes = () => {
       <Route path="/about">
         <About />
       </Route>
-      <Route path="/client">
-        <Client />
+      <Route path="/dashboard">
+        <Dashboard />
       </Route>
       <Route path="/contact">
         <Contact />
-      </Route>
-      <Route path="/suplier">
-        <DashboardSuplier />
       </Route>
     </Switch>
   );

@@ -17,7 +17,7 @@ const Input = ({
           {children}
         </select>
       ) : (
-        <input {...register(name)} {...rest} />
+        <input {...register(name)} {...rest} type={type} />
       )}
       <div>{!!error && <span>{error}</span>}</div>
     </ContainerInput>

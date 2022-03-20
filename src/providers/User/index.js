@@ -54,7 +54,7 @@ export const ProviderUser = ({ children }) => {
         setToken(res.data.accessToken);
         localStorage.setItem("@user:Bico", JSON.stringify(res.data.user));
         localStorage.setItem("@token:Bico", res.data.accessToken);
-        history.push("/client");
+        history.push("/dashboard");
       })
       .catch((err) => console.log(err));
     console.log(response);

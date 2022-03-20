@@ -6,7 +6,29 @@ const ServiceContext = createContext();
 
 export const ProviderService = ({ children }) => {
   const { userLogin, token, supplier } = useUser();
+  const [services, setService] = useState([]);
+  const [allServices, setAllServices] = useState([]);
 
+  const getAllServices = async () => {
+    const response = await bicoApi
+      .get("/services", { headers: { Authorization: `Bearer ${token}` } })
+      .then((res) => {
+        setAllServices(res.data);
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+  };
+  const getSevicesClient = async () => {
+    const response = await bicoApi
+      .get(`/services?clientId=${userLogin.id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((res) => {
+        setService(res.data);
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+  };
   const addService = async (data) => {
     const { email, name, cep, phone, id } = userLogin;
     const newData = {
@@ -29,13 +51,6 @@ export const ProviderService = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
-  const getAllServices = async (data) => {
-    const response = await bicoApi
-      .get("/services", { headers: { Authorization: `Bearer ${token}` } })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-  };
-
   const attSupplierToService = async (dataId) => {
     const response = await bicoApi
       .patch(
@@ -53,7 +68,7 @@ export const ProviderService = ({ children }) => {
     const response = await bicoApi
       .patch(
         `/services/${dataId}`,
-        { review: dataReview },
+        { review: dataReview, type: "complet" },
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -66,6 +81,7 @@ export const ProviderService = ({ children }) => {
     const response = await bicoApi.delete(`/services/${dataId}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
+    getSevicesClient();
   };
 
   return (
@@ -76,6 +92,9 @@ export const ProviderService = ({ children }) => {
         attSupplierToService,
         attServiceReview,
         deleteService,
+        getSevicesClient,
+        services,
+        allServices,
       }}
     >
       {children}

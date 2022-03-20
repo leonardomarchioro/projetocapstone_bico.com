@@ -1,21 +1,37 @@
 import { useService } from "../../providers/Services";
 import { useEffect, useState } from "react";
+import Button from "../Button";
 
 const MyServices = () => {
-  const { getSevicesClient, services } = useService();
+  const { getSevicesClient, services, deleteService, attServiceReview } =
+    useService();
 
   useEffect(() => {
     getSevicesClient();
   }, []);
+
   console.log(services);
   return (
     <div>
       <ul>
-        {services.map((service, i) => {
+        {services.map((service) => {
           return (
-            <li>
+            <li key={service.id} id={service.id}>
               <h2>{service.category}</h2>
               <span>{service.date}</span>
+              <Button
+                text="Excluir"
+                onClick={() => deleteService(service.id)}
+              />
+              <Button
+                text="review"
+                onClick={() =>
+                  attServiceReview(service.id, {
+                    score: 5,
+                    comment: " trabalha direitinho o rapaz",
+                  })
+                }
+              />
             </li>
           );
         })}

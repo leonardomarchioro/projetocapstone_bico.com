@@ -7,11 +7,13 @@ const ServiceContext = createContext();
 export const ProviderService = ({ children }) => {
   const { userLogin, token, supplier } = useUser();
   const [services, setService] = useState([]);
+  const [allServices, setAllServices] = useState([]);
 
   const getAllServices = async () => {
     const response = await bicoApi
       .get("/services", { headers: { Authorization: `Bearer ${token}` } })
       .then((res) => {
+        setAllServices(res.data);
         console.log(res);
       })
       .catch((err) => console.log(err));
@@ -70,7 +72,7 @@ export const ProviderService = ({ children }) => {
     const response = await bicoApi
       .patch(
         `/services/${dataId}`,
-        { review: dataReview },
+        { review: dataReview, type: "complet" },
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -83,6 +85,7 @@ export const ProviderService = ({ children }) => {
     const response = await bicoApi.delete(`/services/${dataId}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
+    getSevicesClient();
   };
 
   return (
@@ -95,6 +98,7 @@ export const ProviderService = ({ children }) => {
         deleteService,
         getSevicesClient,
         services,
+        allServices,
       }}
     >
       {children}

@@ -9,7 +9,7 @@ import DashboardClient from "../../components/DashboardClient";
 
 import { useUser } from "../../providers/User";
 import { useState, useEffect } from "react";
-import ServiceSupplier from "../../components/ComponentSupplier";
+import ServiceSupplier from "../../components/DashboardSuplier";
 
 const Dashboard = () => {
   const { userLogin, supplierGet } = useUser();

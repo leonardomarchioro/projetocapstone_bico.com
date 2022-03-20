@@ -5,9 +5,19 @@ import ButaodeTeste from "../../components/ButtonLogin";
 import Header from "../../components/Header";
 import { useState } from "react";
 import ButtonLogin from "../../components/ButtonLogin";
+import { useHistory } from "react-router-dom";
+import { useEffect } from "react";
 
 const Home = () => {
   const [modalLoginUp, setModalLoginUp] = useState(false);
+  const {
+    location: { prevPath },
+  } = useHistory();
+  useEffect(() => {
+    if (prevPath === "/register") {
+      setModalLoginUp(true);
+    }
+  }, [prevPath]);
 
   const openModalLogin = () => {
     //FUNÇAO PARA ABRIR MODAL DE LOGIN, IMPLEMENTAR PROVIDER

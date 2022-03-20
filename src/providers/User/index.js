@@ -23,16 +23,16 @@ export const ProviderUser = ({ children }) => {
     return {};
   });
 
-  const SignUp = async (data) => {
+  const SignUp = async (data, success, error) => {
     const validation = ApiCheck(data.cep);
 
     if ((await validation).data.cep) {
       const response = await bicoApi
         .post("/users", data)
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err));
+        .then(() => success())
+        .catch((err) => error(err.response.data));
     } else {
-      console.log("not");
+      error("CEP inválido!");
     }
   };
 

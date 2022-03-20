@@ -10,6 +10,7 @@ import Button from "../Button";
 
 import { ContainerPage, ContainerTitle } from "./style";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const FormRegister = () => {
   const { SignUp } = useUser();
@@ -49,6 +50,13 @@ const FormRegister = () => {
     resolver: yupResolver(schema),
   });
 
+  const success = () => {
+    toast.success("Conta criada com sucesso!");
+  };
+  const error = (errorMsg) => {
+    toast.error(errorMsg);
+  };
+
   const handleRegister = ({ name, cep, email, phone, password }) => {
     const register = {
       name,
@@ -58,7 +66,7 @@ const FormRegister = () => {
       password,
     };
 
-    SignUp(register);
+    SignUp(register, success, error);
   };
 
   return (
@@ -66,7 +74,8 @@ const FormRegister = () => {
       <ContainerTitle>
         <h1>CRIAR NOVA CONTA</h1>
         <h4>
-          Já possuí uma conta? <Link to="/">Login</Link>
+          Já possuí uma conta?{" "}
+          <Link to={{ pathname: "/", prevPath: "/register" }}>Login</Link>
         </h4>
       </ContainerTitle>
 

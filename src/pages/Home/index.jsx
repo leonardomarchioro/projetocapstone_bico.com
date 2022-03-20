@@ -1,5 +1,5 @@
 import { Container, Content } from "./styles";
-import logo from "../../img/logo.jpg";
+
 import ModalLogin from "../../components/ModalLogin";
 import ButaodeTeste from "../../components/ButtonLogin";
 import Header from "../../components/Header";
@@ -7,8 +7,19 @@ import { useState } from "react";
 import ButtonLogin from "../../components/ButtonLogin";
 import HomeImg from "../../assets/homeimg.svg";
 
+import { useHistory } from "react-router-dom";
+import { useEffect } from "react";
+
 const Home = () => {
   const [modalLoginUp, setModalLoginUp] = useState(false);
+  const {
+    location: { prevPath },
+  } = useHistory();
+  useEffect(() => {
+    if (prevPath === "/register") {
+      setModalLoginUp(true);
+    }
+  }, [prevPath]);
 
   const openModalLogin = () => {
     //FUNÇAO PARA ABRIR MODAL DE LOGIN, IMPLEMENTAR PROVIDER

@@ -18,17 +18,18 @@ export const ProviderUser = ({ children }) => {
 
   const [supplier, setSuplier] = useState(false);
 
-  const SignUp = async (data) => {
+  const SignUp = async (data, success, error) => {
     data.type = "client";
 
     const validation = ApiCheck(data.cep);
     if ((await validation).data.cep) {
       const response = await bicoApi
         .post("/users", data)
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err));
+        .then(() => success())
+        .catch((err) => error(err.response.data));
     } else {
       console.log("Adicionar toast de erro");
+      error("CEP inválido!");
     }
   };
 

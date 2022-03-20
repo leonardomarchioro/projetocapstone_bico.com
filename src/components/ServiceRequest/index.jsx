@@ -40,7 +40,7 @@ const ServiceRequest = () => {
       date,
       description,
     };
-    console.log(data);
+    // console.log(data);
     addService(data);
   };
 

@@ -7,7 +7,7 @@ const AsideProfile = ({ handlePage }) => {
   const { addSupplier, userLogin, supplier } = useUser();
   const [page, setPage] = useState("Biqueiro");
 
-  console.log(userLogin);
+  // console.log(userLogin);
   return (
     <Container>
       <img

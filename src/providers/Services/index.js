@@ -14,7 +14,7 @@ export const ProviderService = ({ children }) => {
       .get("/services", { headers: { Authorization: `Bearer ${token}` } })
       .then((res) => {
         setAllServices(res.data);
-        console.log(res);
+        // console.log(res);
       })
       .catch((err) => console.log(err));
   };
@@ -25,7 +25,7 @@ export const ProviderService = ({ children }) => {
       })
       .then((res) => {
         setService(res.data);
-        console.log(res);
+        // console.log(res);
       })
       .catch((err) => console.log(err));
   };
@@ -47,7 +47,7 @@ export const ProviderService = ({ children }) => {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
-      .then((res) => console.log(res))
+      .then((res) => res)
       .catch((err) => console.log(err));
   };
 
@@ -60,7 +60,7 @@ export const ProviderService = ({ children }) => {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
-      .then((res) => console.log(res))
+      .then((res) => res)
       .catch((err) => console.log(err));
   };
 
@@ -73,7 +73,7 @@ export const ProviderService = ({ children }) => {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
-      .then((res) => console.log(res))
+      .then((res) => res)
       .catch((err) => console.log(err));
   };
 

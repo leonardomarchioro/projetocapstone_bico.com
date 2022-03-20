@@ -10,7 +10,7 @@ const MyServices = () => {
     getSevicesClient();
   }, []);
 
-  console.log(services);
+  // console.log(services);
   return (
     <div>
       <ul>

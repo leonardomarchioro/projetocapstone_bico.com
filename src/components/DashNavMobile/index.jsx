@@ -11,10 +11,10 @@ const DashNavMobile = () => {
   return (
     <Container>
       <div>
-        <button onClick={console.log("perfil")}>
+        <button onClick={console.log()}>
           <FiUser />
         </button>
-        <button onClick={console.log("modal solicitar serviço")}>
+        <button onClick={console.log()}>
           <FiClipboard />
         </button>
       </div>

@@ -17,6 +17,12 @@ const Header = ({ openModalLogin }) => {
     const newColor = style === "cont" ? setStyle("cont2") : setStyle("cont");
   };
 
+  const wrapperFunc = () => {
+    openModalLogin(openModalLogin);
+    handleOpenNav();
+    changeStyle();
+  };
+
   const wrapperFunction = () => {
     handleOpenNav();
     changeStyle();
@@ -26,9 +32,13 @@ const Header = ({ openModalLogin }) => {
     <Container>
       <section className={style}>
         <Logo />
-        <BurguerMenu wrapperFunction={wrapperFunction} open={open} />
+        <BurguerMenu
+          wrapperFunction={wrapperFunction}
+          open={open}
+          wrapperFunc={wrapperFunc}
+        />
       </section>
-      <NavBar open={open} openModalLogin={openModalLogin} />
+      <NavBar open={open} wrapperFunc={wrapperFunc} />
     </Container>
   );
 };

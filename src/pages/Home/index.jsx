@@ -3,6 +3,7 @@ import logo from "../../img/logo.png";
 import ModalLogin from "../../components/ModalLogin";
 import ButaodeTeste from "../../components/ButtonLogin";
 import Header from "../../components/Header";
+import NavBar from "../../components/NavBar";
 import { useState } from "react";
 import ButtonLogin from "../../components/ButtonLogin";
 
@@ -19,28 +20,28 @@ const Home = () => {
       <div>
         <Header openModalLogin={openModalLogin} />
         {modalLoginUp && <ModalLogin openModalLogin={openModalLogin} />}
-      </div>
-      <Content>
-        <section className="containerMobile">
-          <h3>CHEGA MAIS!</h3>
-          <h2>Contrate serviços ou ofereça seus trabalhos</h2>
-          <p>TRABALHE FAZENDO BICOS OU CONTRATE-OS</p>
-          <figure>
-            <img src={logo} alt="logo" />
-          </figure>
-          <span>
-            Receba diariamente anúncios de bicos , ganhe desconto a cada
-            avaliação de serviço prestado e muito mais!{" "}
-          </span>
-        </section>
+        <Content modalLoginUp={modalLoginUp}>
+          <section className="containerMobile">
+            <h3>CHEGA MAIS!</h3>
+            <h2>Contrate serviços ou ofereça seus trabalhos</h2>
+            <p>TRABALHE FAZENDO BICOS OU CONTRATE-OS</p>
+            <figure>
+              <img src={logo} alt="logo" />
+            </figure>
+            <span>
+              Receba diariamente anúncios de bicos , ganhe desconto a cada
+              avaliação de serviço prestado e muito mais!
+            </span>
+          </section>
 
-        <section className="containerDesktop">
-          <figure>
-            <img src={logo} alt="logo" />
-            <figcaption>O faz-tudo de confiança</figcaption>
-          </figure>
-        </section>
-      </Content>
+          <section className="containerDesktop">
+            <figure>
+              <img src={logo} alt="logo" />
+              <figcaption>O faz-tudo de confiança</figcaption>
+            </figure>
+          </section>
+        </Content>
+      </div>
     </Container>
   );
 };

@@ -48,12 +48,37 @@ const Contact = () => {
     window.open(url, "_blank")?.focus();
   };
 
+  const dropIn = {
+    hidden: {
+      y: "-100vh",
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.1,
+        type: "spring",
+        damping: 100,
+        stiffness: 500,
+      },
+    },
+    exit: {
+      y: "100vh",
+      opacity: 0,
+    },
+  };
+
   return (
     <motion.section
-      initial={{ translateY: -1000, opacity: 0 }}
-      animate={{ translateY: 0, opacity: 2 }}
-      exit={{ translateY: 100, opacity: 0 }}
-      transition={{ duration: 1.2 }}
+      // initial={{ translateY: -1000, opacity: 0 }}
+      // animate={{ translateY: 0, opacity: 2 }}
+      // exit={{ translateY: 100, opacity: 0 }}
+      // transition={{ duration: 1.2 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 2 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1 }}
     >
       <Container>
         <div>
@@ -65,7 +90,13 @@ const Contact = () => {
         </div>
 
         <Content>
-          <section className="containerMobile">
+          <motion.section
+            variants={dropIn}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="containerMobile"
+          >
             <h2>Contatos</h2>
             <div className="principaisContatos">
               <ul>
@@ -84,7 +115,7 @@ const Contact = () => {
                 })}
               </ul>
             </div>
-          </section>
+          </motion.section>
           <section className="containerDesktop">
             <figure>
               <img src={cellphone} alt="cellphone" />

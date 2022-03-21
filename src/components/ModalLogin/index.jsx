@@ -9,6 +9,7 @@ import Button from "../../components/Button";
 import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
 import { ContainerModal, Welcome, ContainerForm } from "./style";
+import { toast } from "react-toastify";
 
 const ModalLogin = () => {
   const { Login, token } = useUser();
@@ -34,13 +35,27 @@ const ModalLogin = () => {
     resolver: yupResolver(schema),
   });
 
+  const success = () => {
+    toast.success("Login feito com sucesso!");
+  };
+  const error = (errorMsg) => {
+    console.log(errorMsg);
+    if (errorMsg === "Incorrect password") {
+      toast.error("Senha incorreta");
+    } else if (errorMsg === "Cannot find user") {
+      toast.error("Email não cadastrado");
+    } else {
+      toast.error("Houve algum erro, tente mais tarde");
+    }
+  };
+
   const handleLogin = ({ email, password }) => {
     const login = {
       email,
       password,
     };
 
-    Login(login, history);
+    Login(login, history, success, error);
   };
 
   return (

@@ -1,7 +1,6 @@
 import { useService } from "../../providers/Services";
 import { useEffect, useState } from "react";
 import Button from "../Button";
-import { dateFormated } from "../../uteils";
 
 const MyServices = () => {
   const { getSevicesClient, services, deleteService, attServiceReview } =

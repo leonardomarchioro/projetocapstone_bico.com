@@ -2,18 +2,26 @@ import { Container } from "./styles";
 import { useUser } from "../../providers/User";
 import { useState } from "react";
 import Button from "../Button";
+import { toast } from "react-toastify";
 
 const AsideProfile = ({ handlePage }) => {
   const { addSupplier, userLogin, supplier } = useUser();
   const [page, setPage] = useState("Biqueiro");
 
-  // console.log(userLogin);
+  const success = () => {
+    toast.success("Biqueiro cadastrado com sucesso!");
+  };
+  const error = () => {
+    toast.error("Houve algum erro, tente mais tarde");
+  };
+
   return (
     <Container>
       <img
         src="https://thenexus.one/storage/2022/03/Featured-Image-Luffy-hat.jpg"
         alt="Luffysan"
       />
+
       <span>{userLogin.name}</span>
       {supplier ? (
         <div>
@@ -27,7 +35,10 @@ const AsideProfile = ({ handlePage }) => {
           />
         </div>
       ) : (
-        <Button onClick={addSupplier} text="Seja Membro" />
+        <Button
+          onClick={() => addSupplier(success, error)}
+          text="Seja Membro"
+        />
       )}
     </Container>
   );

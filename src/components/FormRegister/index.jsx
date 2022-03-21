@@ -57,7 +57,11 @@ const FormRegister = () => {
     history.push({ pathname: "/", prevPath: "/register" });
   };
   const error = (errorMsg) => {
-    toast.error(errorMsg);
+    if (errorMsg === "Email already exists") {
+      toast.error("Email já cadastrado");
+    } else {
+      toast.error("Houve algum erro, tente mais tarde");
+    }
   };
 
   const handleRegister = ({ name, cep, email, phone, password }) => {

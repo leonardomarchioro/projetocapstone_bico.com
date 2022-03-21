@@ -1,34 +1,21 @@
-import { Switch, Route } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import About from "../pages/About";
-import Client from "../pages/DashboardClient";
+import Dashboard from "../pages/Dashboard";
 import Contact from "../pages/Contact";
 import Home from "../pages/Home";
 import Register from "../pages/Register";
-import DashboardSuplier from "../pages/DashboardSuplier";
 import { AnimatePresence } from "framer-motion";
+import { Route } from "react-router-dom";
 
 const Routes = () => {
   return (
     <AnimatePresence exitBeforeEnter>
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/register">
-          <Register />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/client">
-          <Client />
-        </Route>
-        <Route path="/contact">
-          <Contact />
-        </Route>
-        <Route path="/suplier">
-          <DashboardSuplier />
-        </Route>
+        <Route exact path="/" component={Home} />
+        <Route path="/register" component={Register} />
+        <Route path="/about" component={About} />
+        <Route path="/contact" component={Contact} />
+        <Route isPrivate path="/dashboard" component={Dashboard} />
       </Switch>
     </AnimatePresence>
   );

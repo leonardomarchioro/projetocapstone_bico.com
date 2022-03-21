@@ -1,8 +1,10 @@
+import { Btn, Sec } from "./style";
+
 const Button = ({ text, ...rest }) => {
   return (
-    <section>
-      <button {...rest}>{text}</button>
-    </section>
+    <Sec>
+      <Btn {...rest}>{text}</Btn>
+    </Sec>
   );
 };
 export default Button;

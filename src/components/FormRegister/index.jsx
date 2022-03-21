@@ -9,11 +9,13 @@ import InputPassword from "../InputPassword";
 import Button from "../Button";
 
 import { ContainerPage, ContainerTitle } from "./style";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const FormRegister = () => {
   const { SignUp } = useUser();
+  const history = useHistory();
 
   const schema = yup.object().shape({
     name: yup
@@ -52,6 +54,7 @@ const FormRegister = () => {
 
   const success = () => {
     toast.success("Conta criada com sucesso!");
+    history.push({ pathname: "/", prevPath: "/register" });
   };
   const error = (errorMsg) => {
     toast.error(errorMsg);
@@ -92,7 +95,7 @@ const FormRegister = () => {
           register={register}
           name={"cep"}
           error={errors.cep?.message}
-          placeholder="00000-000"
+          placeholder="Ex: 00000-000"
         />
         <Input
           label="E-mail"
@@ -107,7 +110,7 @@ const FormRegister = () => {
           register={register}
           name={"phone"}
           error={errors.phone?.message}
-          placeholder="9999-9999"
+          placeholder="Ex: 9999-9999"
         />
         <InputPassword
           label="Senha"

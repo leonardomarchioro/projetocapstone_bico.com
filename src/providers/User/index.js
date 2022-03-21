@@ -15,6 +15,7 @@ export const ProviderUser = ({ children }) => {
   });
 
   const [token, setToken] = useState(localStorage.getItem("@token:Bico") || "");
+  console.log(token);
 
   const [supplier, setSuplier] = useState(false);
 
@@ -28,13 +29,13 @@ export const ProviderUser = ({ children }) => {
         .then(() => success())
         .catch((err) => error(err.response.data));
     } else {
-      console.log("Adicionar toast de erro");
+      // console.log("Adicionar toast de erro");
       error("CEP inválido!");
     }
   };
 
-  console.log(userLogin);
-  console.log(supplier);
+  // console.log(userLogin);
+  // console.log(supplier);
 
   const ApiCheck = async (cep) => {
     const response = await axios.get(
@@ -45,19 +46,19 @@ export const ProviderUser = ({ children }) => {
   };
 
   const Login = async (data, history) => {
-    console.log(data);
+    // console.log(data);
     const response = await bicoApi
       .post("/login", data)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setUserLogin(res.data.user);
         setToken(res.data.accessToken);
         localStorage.setItem("@user:Bico", JSON.stringify(res.data.user));
         localStorage.setItem("@token:Bico", res.data.accessToken);
-        history.push("/client");
+        history.push("/dashboard");
       })
       .catch((err) => console.log(err));
-    console.log(response);
+    // console.log(response);
   };
 
   const addSupplier = async () => {
@@ -69,7 +70,7 @@ export const ProviderUser = ({ children }) => {
         { headers: { Authorization: `Bearer ${token}` } }
       )
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         localStorage.setItem("@user:Bico", JSON.stringify(res.data));
       });
     const data = {
@@ -78,7 +79,7 @@ export const ProviderUser = ({ children }) => {
       cep: cep,
       phone: phone,
     };
-    console.log(data);
+    // console.log(data);
     const response = await bicoApi
       .post(
         "/suppliers",
@@ -103,8 +104,9 @@ export const ProviderUser = ({ children }) => {
 
   const handleLogout = (history) => {
     localStorage.clear();
-    history.push("/");
     setSuplier(false);
+    setToken("");
+    // history.push("/");
   };
 
   return (

@@ -70,60 +70,51 @@ const Contact = () => {
   };
 
   return (
-    <motion.section
-      // initial={{ translateY: -1000, opacity: 0 }}
-      // animate={{ translateY: 0, opacity: 2 }}
-      // exit={{ translateY: 100, opacity: 0 }}
-      // transition={{ duration: 1.2 }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 2 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 1 }}
-    >
-      <Container>
+    <Container>
+      <div>
+        <Logo />
         <div>
-          <Logo />
           <Button
             text={<FiCornerDownLeft size={30} />}
             onClick={() => history.push("/")}
           />
         </div>
+      </div>
 
-        <Content>
-          <motion.section
-            variants={dropIn}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            className="containerMobile"
-          >
-            <h2>Contatos</h2>
-            <div className="principaisContatos">
-              <ul>
-                {linkedinUsers.map((user, index) => {
-                  return (
-                    <li key={index}>
-                      <h3>
-                        {user.name}{" "}
-                        <span onClick={() => openInNewTab(user.link)}>
-                          <FaLinkedin size={20} />
-                        </span>
-                      </h3>
-                      <i>{user.role}</i>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </motion.section>
-          <section className="containerDesktop">
-            <figure>
-              <img src={cellphone} alt="cellphone" />
-            </figure>
-          </section>
-        </Content>
-      </Container>
-    </motion.section>
+      <Content>
+        <motion.section
+          variants={dropIn}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          className="containerMobile"
+        >
+          <h2>Contatos</h2>
+          <div className="principaisContatos">
+            <ul>
+              {linkedinUsers.map((user, index) => {
+                return (
+                  <li key={index}>
+                    <h3>
+                      {user.name}{" "}
+                      <span onClick={() => openInNewTab(user.link)}>
+                        <FaLinkedin size={20} />
+                      </span>
+                    </h3>
+                    <i>{user.role}</i>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </motion.section>
+        <section className="containerDesktop">
+          <figure>
+            <img src={cellphone} alt="cellphone" />
+          </figure>
+        </section>
+      </Content>
+    </Container>
   );
 };
 export default Contact;

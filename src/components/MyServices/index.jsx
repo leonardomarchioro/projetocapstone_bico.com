@@ -15,6 +15,15 @@ const MyServices = () => {
     toast.success(msg);
   };
 
+  services.forEach((service) => {
+    if (service.supplier.supplierId) {
+      console.log("ok");
+    } else {
+      console.log("not");
+    }
+  });
+  console.log(services);
+
   return (
     <div>
       <ul>

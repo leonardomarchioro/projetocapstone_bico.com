@@ -34,7 +34,8 @@ export const Container = styled.section`
       justify-content: space-evenly;
       height: 100%;
       button {
-        padding: 1rem 0;
+        margin-top: 10px;
+        padding: 0.5rem 0;
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         color: #fff;
         flex: 0.25;

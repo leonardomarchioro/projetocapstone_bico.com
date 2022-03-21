@@ -1,4 +1,4 @@
-import { ContainerInput } from "./style";
+import { ContainerInput, InputWrapper, LabCont } from "./style";
 
 const Input = ({
   label,
@@ -10,17 +10,13 @@ const Input = ({
   ...rest
 }) => {
   return (
-    <ContainerInput error={error}>
-      <div>{!!label && <label>{label}</label>}</div>
-      {type === "select" ? (
-        <select {...register(name)} {...rest}>
-          {children}
-        </select>
-      ) : (
-        <input {...register(name)} {...rest} type={type} />
-      )}
-      <div>{!!error && <span>{error}</span>}</div>
-    </ContainerInput>
+    <InputWrapper>
+      <LabCont>{!!label && <label>{label}</label>}</LabCont>
+      <ContainerInput error={error}>
+        <input {...register(name)} {...rest} />
+        <div>{!!error && <span>{error}</span>}</div>
+      </ContainerInput>
+    </InputWrapper>
   );
 };
 export default Input;

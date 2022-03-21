@@ -11,6 +11,7 @@ import Button from "../../components/Button";
 import { ContainerModal } from "./style";
 
 import { Link, useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const ModalLogin = () => {
   const { Login, token } = useUser();
@@ -35,13 +36,26 @@ const ModalLogin = () => {
     resolver: yupResolver(schema),
   });
 
+  const success = () => {
+    toast.success("Login feito com sucesso!");
+  };
+  const error = (errorMsg) => {
+    if (errorMsg === "Incorrect password") {
+      toast.error("Senha incorreta");
+    } else if (errorMsg === "Cannot find user") {
+      toast.error("Usuário não cadastrado");
+    } else {
+      toast.error(errorMsg);
+    }
+  };
+
   const handleLogin = ({ email, password }) => {
     const login = {
       email,
       password,
     };
 
-    Login(login, history);
+    Login(login, history, success, error);
   };
 
   return (

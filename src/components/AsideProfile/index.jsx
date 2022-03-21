@@ -2,12 +2,20 @@ import { Container } from "./styles";
 import { useUser } from "../../providers/User";
 import { useState } from "react";
 import Button from "../Button";
+import { toast } from "react-toastify";
 
 const AsideProfile = ({ handlePage }) => {
   const { addSupplier, userLogin, supplier } = useUser();
   const [page, setPage] = useState("Biqueiro");
 
-  // console.log(userLogin);
+  const success = () => {
+    toast.success("Biqueiro cadastrado com sucesso!");
+  };
+  const error = (errorMsg) => {
+    console.log(errorMsg);
+    toast.error("Falha no cadastro, tente novamente mais tarde");
+  };
+
   return (
     <Container>
       <img
@@ -27,7 +35,10 @@ const AsideProfile = ({ handlePage }) => {
           />
         </div>
       ) : (
-        <Button onClick={addSupplier} text="Seja Membro" />
+        <Button
+          onClick={() => addSupplier(success, error)}
+          text="Seja Membro"
+        />
       )}
     </Container>
   );

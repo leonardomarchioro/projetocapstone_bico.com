@@ -54,7 +54,13 @@ const FormRegister = () => {
     toast.success("Conta criada com sucesso!");
   };
   const error = (errorMsg) => {
-    toast.error(errorMsg);
+    if (errorMsg === "Email already exists") {
+      toast.error("Email já existente");
+    } else if (errorMsg === "CEP inválido!") {
+      toast.error(errorMsg);
+    } else {
+      toast.error(errorMsg);
+    }
   };
 
   const handleRegister = ({ name, cep, email, phone, password }) => {

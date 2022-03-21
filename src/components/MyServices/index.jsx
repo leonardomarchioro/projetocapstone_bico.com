@@ -1,19 +1,20 @@
 import { useService } from "../../providers/Services";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Button from "../Button";
-import { dateFormated } from "../../uteils";
+import { toast } from "react-toastify";
 
 const MyServices = () => {
   const { getSevicesClient, services, deleteService, attServiceReview } =
     useService();
 
-  console.log(services);
-
   useEffect(() => {
     getSevicesClient();
   }, []);
 
-  // console.log(services);
+  const success = (msg) => {
+    toast.success(msg);
+  };
+
   return (
     <div>
       <ul>
@@ -24,7 +25,7 @@ const MyServices = () => {
               <span>{service.dateActual}</span>
               <Button
                 text="Excluir"
-                onClick={() => deleteService(service.id)}
+                onClick={() => deleteService(service.id, success)}
               />
               <Button
                 text="review"

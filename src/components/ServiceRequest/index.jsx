@@ -6,6 +6,7 @@ import { useService } from "../../providers/Services";
 
 import Button from "../Button";
 import Input from "../Input";
+import { toast } from "react-toastify";
 
 const ServiceRequest = () => {
   const { addService } = useService();
@@ -32,6 +33,13 @@ const ServiceRequest = () => {
     resolver: yupResolver(schema),
   });
 
+  const success = (msg) => {
+    toast.success(msg);
+  };
+  const error = (errorMsg) => {
+    toast.error(errorMsg);
+  };
+
   const postService = ({ category, date, description }) => {
     const day = date.getDate().toString().padStart(2, "0");
     const month = String(date.getMonth() + 1).padStart(2, "0");
@@ -43,8 +51,7 @@ const ServiceRequest = () => {
       dateActual,
       description,
     };
-    // console.log(data);
-    addService(data);
+    addService(data, success, error);
   };
 
   return (

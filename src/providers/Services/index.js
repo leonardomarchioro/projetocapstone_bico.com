@@ -14,7 +14,6 @@ export const ProviderService = ({ children }) => {
       .get("/services", { headers: { Authorization: `Bearer ${token}` } })
       .then((res) => {
         setAllServices(res.data);
-        // console.log(res);
       })
       .catch((err) => console.log(err));
   };
@@ -26,12 +25,11 @@ export const ProviderService = ({ children }) => {
       })
       .then((res) => {
         setService(res.data);
-        // console.log(res);
       })
       .catch((err) => console.log(err));
   };
 
-  const addService = async (data) => {
+  const addService = async (data, sucess, error) => {
     const { email, name, cep, phone, id } = userLogin;
     const newData = {
       ...data,
@@ -49,12 +47,12 @@ export const ProviderService = ({ children }) => {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
-      .then((res) => res)
-      .catch((err) => console.log(err));
+      .then((res) => sucess("Requisição de serviço feita com sucesso"))
+      .catch((err) => error(err.response.data));
     getSevicesClient();
   };
 
-  const attSupplierToService = async (dataId) => {
+  const attSupplierToService = async (dataId, sucess, error) => {
     const response = await bicoApi
       .patch(
         `/services/${dataId}`,
@@ -63,8 +61,13 @@ export const ProviderService = ({ children }) => {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
-      .then((res) => res)
-      .catch((err) => console.log(err));
+      .then((res) => {
+        sucess("Candidatado com sucesso!");
+      })
+      .catch((err) => {
+        error(err.response.data);
+        console.log(err);
+      });
   };
 
   const attServiceReview = async (dataId, dataReview) => {
@@ -80,10 +83,11 @@ export const ProviderService = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
-  const deleteService = async (dataId) => {
+  const deleteService = async (dataId, sucess) => {
     const response = await bicoApi.delete(`/services/${dataId}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
+    sucess("Requisição deletada");
     getSevicesClient();
   };
 

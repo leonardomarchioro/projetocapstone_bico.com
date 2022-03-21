@@ -1,4 +1,4 @@
-import { ContainerService, Div } from "./styles.js";
+import { ContainerService, Div, ContainerInfos } from "./styles.js";
 import Button from "../Button";
 import { useService } from "../../providers/Services/index.js";
 
@@ -8,18 +8,21 @@ const ContainerInfo = ({ service }) => {
   return (
     <>
       <ContainerService>
-        <Div>
-          <h3>{service.name}</h3>
-          <span>{service.category}</span>
-        </Div>
-        <Button
-          id={service.id}
-          onClick={() => attSupplierToService(service.id)}
-          text={"Candidatar-se"}
-        />
+        <ContainerInfos>
+          <div>
+            <h3>{service.name}</h3>
+            <span>Categoria: {service.category}</span>
+          </div>
+
+          <Button
+            id={service.id}
+            onClick={() => attSupplierToService(service.id)}
+            text={"Candidatar-se"}
+          />
+        </ContainerInfos>
+        <Div>{service.description}</Div>
+        <span>{service.dateActual}</span>
       </ContainerService>
-      <p>{service.description}</p>
-      <span>{service.dateActual}</span>
     </>
   );
 };

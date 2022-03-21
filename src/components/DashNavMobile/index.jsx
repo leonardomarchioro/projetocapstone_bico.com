@@ -3,7 +3,7 @@ import { FiClipboard, FiUser, FiLogIn } from "react-icons/fi";
 import { useHistory } from "react-router-dom";
 import { useUser } from "../../providers/User";
 
-const DashNavMobile = () => {
+const DashNavMobile = ({ handleService, handleProfile }) => {
   const history = useHistory();
 
   const { handleLogout } = useUser();
@@ -11,15 +11,15 @@ const DashNavMobile = () => {
   return (
     <Container>
       <div>
-        <button onClick={console.log()}>
-          <FiUser />
+        <button onClick={handleProfile}>
+          <FiUser size={20} />
         </button>
-        <button onClick={console.log()}>
-          <FiClipboard />
+        <button onClick={handleService}>
+          <FiClipboard size={20} />
         </button>
       </div>
       <button onClick={() => handleLogout(history)}>
-        <FiLogIn />
+        <FiLogIn size={20} />
       </button>
     </Container>
   );

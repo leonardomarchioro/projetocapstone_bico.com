@@ -1,58 +1,45 @@
-
 import styled from "styled-components";
 
+export const ContainerService = styled.li`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 10px;
+  background: linear-gradient(180deg, #a8d5f4 0%, rgb(255 255 255 / 68%) 100%);
+  margin: 10px 20px;
+  border-radius: 5px;
+  > span {
+    margin-left: 20px;
+  }
+`;
 
+export const Div = styled.p`
+  width: 100%;
+  padding: 5px 20px;
+  max-height: 100px;
+  word-break: break-word;
+`;
 
-export const ContainerService = styled.div`
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: space-between;
-padding-bottom: 10px;
+export const ContainerInfos = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 10px 20px;
 
-button{
-    background-color: #57DE75;
-    width: 96px;
-    height: 28px;
-    font-weight: 500;
-    font-size: 12px;
-    padding: 5px 5px;
-}
-`
+  > section {
+    width: auto;
+    button {
+      background-color: #57de75;
+      width: 96px;
+      height: 28px;
+      font-weight: 500;
+      font-size: 12px;
+      padding: 5px 5px;
+      transition: 1s;
 
-
-
-export const Container = styled.div`
-background: linear-gradient(180deg, #A8D5F4,rgba(214, 231, 243, 0));
-display: flex;
-flex-direction: column;
-justify-content: flex-start;
-padding: 15px 15px 0px 15px;
-max-width: 417px;
-min-height: 138px;
-
-h3{
-    font-size: 16px ;
-    font-weight: 500;
-    padding-bottom: 2px;
-}
-span{
-    font-size: 12px;
-    font-weight: 500;
-    padding-bottom: 2px;
-    color: #003347;
-}
-p{
-    font-size: 12px;
-    font-weight: 500;
-    color: #003347;
-
-}
-
-
-
-`
-
-export const Div = styled.div`
-
-`
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+`;

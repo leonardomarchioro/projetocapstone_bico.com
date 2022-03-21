@@ -12,9 +12,12 @@ const DashboardSuplier = () => {
   // console.log(allServices);
   return (
     <Container>
-      {allServices.map((service) => {
-        return <ContainerInfo key={service.id} service={service} />;
-      })}
+      <h2>PÁGINA DE ANÚNCIOS</h2>
+      <ul>
+        {allServices.map((service) => {
+          return <ContainerInfo key={service.id} service={service} />;
+        })}
+      </ul>
     </Container>
   );
 };

@@ -1,12 +1,12 @@
 import MyServices from "../MyServices";
 import ServiceRequest from "../ServiceRequest";
 
-const DashboardClient = () => {
+const DashboardClient = ({ showService }) => {
   return (
-    <div>
-      <ServiceRequest />
-      <MyServices />
-    </div>
+    <>
+      <ServiceRequest showService={showService} />
+      <MyServices showService={showService} />
+    </>
   );
 };
 export default DashboardClient;

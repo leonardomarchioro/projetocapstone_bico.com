@@ -6,6 +6,7 @@ import Logo from "../../components/Logo";
 import { FiCornerDownLeft } from "react-icons/fi";
 import Button from "../../components/Button";
 import { useHistory } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const history = useHistory();
@@ -47,6 +48,27 @@ const Contact = () => {
     window.open(url, "_blank")?.focus();
   };
 
+  const dropIn = {
+    hidden: {
+      y: "-100vh",
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.1,
+        type: "spring",
+        damping: 100,
+        stiffness: 500,
+      },
+    },
+    exit: {
+      y: "100vh",
+      opacity: 0,
+    },
+  };
+
   return (
     <Container>
       <div>
@@ -60,7 +82,13 @@ const Contact = () => {
       </div>
 
       <Content>
-        <section className="containerMobile">
+        <motion.section
+          variants={dropIn}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          className="containerMobile"
+        >
           <h2>Contatos</h2>
           <div className="principaisContatos">
             <ul>
@@ -79,7 +107,7 @@ const Contact = () => {
               })}
             </ul>
           </div>
-        </section>
+        </motion.section>
         <section className="containerDesktop">
           <figure>
             <img src={cellphone} alt="cellphone" />

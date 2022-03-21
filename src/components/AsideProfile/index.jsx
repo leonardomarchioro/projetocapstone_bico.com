@@ -2,20 +2,13 @@ import { Container, Content } from "./styles";
 import { useUser } from "../../providers/User";
 import { useState } from "react";
 import Button from "../Button";
-import { toast } from "react-toastify";
+
 import { MdHomeRepairService } from "react-icons/md";
 import { FaPeopleArrows } from "react-icons/fa";
 
-const AsideProfile = ({ handlePage, profile }) => {
-  const { addSupplier, userLogin, supplier } = useUser();
+const AsideProfile = ({ handlePage, profile, setNewSupplier }) => {
+  const { userLogin, supplier } = useUser();
   const [page, setPage] = useState("Biqueiro");
-
-  const success = () => {
-    toast.success("Biqueiro cadastrado com sucesso!");
-  };
-  const error = () => {
-    toast.error("Houve algum erro, tente mais tarde");
-  };
 
   return (
     <Container profile={profile}>
@@ -46,10 +39,7 @@ const AsideProfile = ({ handlePage, profile }) => {
             }
           />
         ) : (
-          <Button
-            onClick={() => addSupplier(success, error)}
-            text="Seja Membro"
-          />
+          <Button onClick={() => setNewSupplier(true)} text="Seja Membro" />
         )}
       </Content>
     </Container>

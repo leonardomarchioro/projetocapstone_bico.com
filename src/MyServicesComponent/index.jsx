@@ -8,16 +8,16 @@ const MyServicesComponent = ({ service }) => {
     <li key={service.id} id={service.id}>
       <h2>{service.category}</h2>
       <span>{service.dateActual}</span>
-      <Button text="Excluir" onClick={() => deleteService(service.id)} />
+      {/* <Button text="X" onClick={() => deleteService(service.id)} />
       <Button
-        text="review"
+        text="+"
         onClick={() =>
           attServiceReview(service.id, {
             score: 5,
             comment: " trabalha direitinho o rapaz",
           })
         }
-      />
+      /> */}
     </li>
   );
 };

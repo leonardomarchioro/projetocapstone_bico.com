@@ -9,22 +9,16 @@ const ContainerInfo = ({ service }) => {
   return (
     <>
       <ContainerService>
-        <Div>
-          <div>
-            <h3>{service.name}</h3>
-            <span>{service.category}</span>
-          </div>
-          <button
-            id={service.id}
-            onClick={() => attSupplierToService(service.id)}
-            text={"Candidatar-se"}
-          >
-            {" "}
-            Candidatar-se
-          </button>
-        </Div>
-        <DivPar>{service.description}</DivPar>
-        <span>{service.dateActual}</span>
+        <div>
+          <h3>{service.name}</h3>
+          <span>Categoria: {service.category}</span>
+        </div>
+
+        <Button
+          id={service.id}
+          onClick={() => attSupplierToService(service.id)}
+          text={"Candidatar-se"}
+        />
       </ContainerService>
     </>
   );

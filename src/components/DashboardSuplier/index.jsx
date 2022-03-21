@@ -11,13 +11,14 @@ const DashboardSuplier = () => {
   }, []);
   // console.log(allServices);
   return (
-    <DivPai>
-      <Container>
+    <Container>
+      <h2>PÁGINA DE ANÚNCIOS</h2>
+      <ul>
         {allServices.map((service) => {
           return <ContainerInfo key={service.id} service={service} />;
         })}
-      </Container>
-    </DivPai>
+      </ul>
+    </Container>
   );
 };
 

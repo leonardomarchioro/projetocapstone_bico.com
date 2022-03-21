@@ -1,10 +1,12 @@
-import { Container } from "./styles";
+import { Container, Content } from "./styles";
 import { useUser } from "../../providers/User";
 import { useState } from "react";
 import Button from "../Button";
 import { toast } from "react-toastify";
+import { MdHomeRepairService } from "react-icons/md";
+import { FaPeopleArrows } from "react-icons/fa";
 
-const AsideProfile = ({ handlePage }) => {
+const AsideProfile = ({ handlePage, profile }) => {
   const { addSupplier, userLogin, supplier } = useUser();
   const [page, setPage] = useState("Biqueiro");
 
@@ -16,30 +18,40 @@ const AsideProfile = ({ handlePage }) => {
   };
 
   return (
-    <Container>
-      <img
-        src="https://thenexus.one/storage/2022/03/Featured-Image-Luffy-hat.jpg"
-        alt="Luffysan"
-      />
-
-      <span>{userLogin.name}</span>
-      {supplier ? (
+    <Container profile={profile}>
+      <Content>
         <div>
-          <div>Página de biqueiro</div>
+          <figure>
+            <img
+              src="https://thenexus.one/storage/2022/03/Featured-Image-Luffy-hat.jpg"
+              alt="Luffysan"
+            />
+          </figure>
+
+          <span>{userLogin.name}</span>
+        </div>
+
+        {supplier ? (
           <Button
             onClick={() => {
               handlePage();
               page === "Biqueiro" ? setPage("Cliente") : setPage("Biqueiro");
             }}
-            text={`Página de ${page}`}
+            text={
+              page === "Biqueiro" ? (
+                <FaPeopleArrows size={20} />
+              ) : (
+                <MdHomeRepairService size={20} />
+              )
+            }
           />
-        </div>
-      ) : (
-        <Button
-          onClick={() => addSupplier(success, error)}
-          text="Seja Membro"
-        />
-      )}
+        ) : (
+          <Button
+            onClick={() => addSupplier(success, error)}
+            text="Seja Membro"
+          />
+        )}
+      </Content>
     </Container>
   );
 };

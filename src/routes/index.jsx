@@ -5,7 +5,7 @@ import Contact from "../pages/Contact";
 import Home from "../pages/Home";
 import Register from "../pages/Register";
 import { AnimatePresence } from "framer-motion";
-import { Route } from "react-router-dom";
+import Route from "./route";
 
 const Routes = () => {
   return (

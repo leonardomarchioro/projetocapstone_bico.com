@@ -7,8 +7,9 @@ import { useService } from "../../providers/Services";
 import Button from "../Button";
 import Input from "../Input";
 import { toast } from "react-toastify";
+import { Container } from "./styles";
 
-const ServiceRequest = () => {
+const ServiceRequest = ({ showService }) => {
   const { addService } = useService();
 
   const currentDate = new Date();
@@ -56,44 +57,50 @@ const ServiceRequest = () => {
   };
 
   return (
-    <div>
+    <Container error={errors.description?.message} showService={showService}>
       <h1>SOLICITAÇÃO DE SERVIÇO</h1>
-      <div>
-        <form onSubmit={handleSubmit(postService)}>
-          <div>
-            <Input
-              label="Tipo de serviço"
-              register={register}
-              name={"category"}
-              error={errors.category?.message}
-              placeholder="Ex: Jardinagem"
-            />
-            <Input
-              label="Selecione uma data para o serviço"
-              register={register}
-              name={"date"}
-              error={errors.date?.message}
-              type="date"
-            />
-            <Button text="Solicitar serviço" type="submit" />
+
+      <form onSubmit={handleSubmit(postService)}>
+        <div className="inputArea">
+          <Input
+            label="Tipo de serviço"
+            register={register}
+            name={"category"}
+            error={errors.category?.message}
+            placeholder="Ex: Jardinagem"
+          />
+          <Input
+            label="Selecione uma data para o serviço"
+            register={register}
+            name={"date"}
+            error={errors.date?.message}
+            type="date"
+          />
+          <Button
+            text="Solicitar serviço"
+            type="submit"
+            className="buttonDesktop"
+          />
+        </div>
+        <div className="textArea">
+          <label>Descrição do serviço</label>
+          <textarea
+            {...register("description")}
+            rows="5"
+            cols="33"
+            maxLength="150"
+          />
+          <div className="errorMessage">
+            {!!errors.description && <span>{errors.description.message}</span>}
           </div>
-          <div>
-            <label>Descrição do serviço</label>
-            <textarea
-              {...register("description")}
-              rows="5"
-              cols="33"
-              maxLength="150"
-            />
-            <div>
-              {!!errors.description && (
-                <span>{errors.description.message}</span>
-              )}
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
+        </div>
+        <Button
+          text="Solicitar serviço"
+          type="submit"
+          className="buttonMobile"
+        />
+      </form>
+    </Container>
   );
 };
 

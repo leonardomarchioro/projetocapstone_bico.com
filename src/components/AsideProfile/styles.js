@@ -1,17 +1,53 @@
 import styled from "styled-components";
 
 export const Container = styled.aside`
-  width: 296px;
-  height: 536px;
-  display: flex;
+  width: 80%;
+  display: ${({ profile }) => (profile ? "flex" : "none")};
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  img {
-    width: 125px;
-    height: 119px;
-    border-radius: 50px;
-    background: #e0e0e0;
-    box-shadow: -20px -20px 60px #bebebe, 20px 20px 60px #ffffff;
+  flex-direction: row;
+  justify-content: center;
+`;
+
+export const Content = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 90%;
+  margin-bottom: 10px;
+
+  > div {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    figure {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 50px;
+
+      img {
+        border-radius: 80%;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    width: 40%;
+    margin-bottom: 10px;
+
+    button {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+    }
   }
 `;

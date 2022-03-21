@@ -28,8 +28,8 @@ p{
 `
 
 export const DivPar = styled.p`
-    word-wrap: break-word;
-    font-size: 12px;
+word-wrap: break-word;
+font-size: 12px;
     font-weight: 500;
     color: #003347;
     max-width: 350px;

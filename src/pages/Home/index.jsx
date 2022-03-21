@@ -9,6 +9,7 @@ import HomeImg from "../../assets/homeimg.svg";
 
 import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
+import ModalConfirmation from "../../components/ModalConfirmation";
 
 const Home = () => {
   const [modalLoginUp, setModalLoginUp] = useState(false);
@@ -28,6 +29,7 @@ const Home = () => {
 
   return (
     <Container>
+      <ModalConfirmation />
       <div>
         <Header openModalLogin={openModalLogin} />
         {modalLoginUp && <ModalLogin openModalLogin={openModalLogin} />}

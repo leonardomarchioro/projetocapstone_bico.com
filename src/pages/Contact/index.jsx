@@ -1,7 +1,7 @@
 import { Container, Content } from "./styles";
 import { FaLinkedin } from "react-icons/fa";
 import { useState } from "react";
-import cellphone from "../../img/cellphone.gif";
+import cellphone from "../../assets/cellphone.gif";
 import Logo from "../../components/Logo";
 import { FiCornerDownLeft } from "react-icons/fi";
 import Button from "../../components/Button";
@@ -68,7 +68,7 @@ const Contact = () => {
                 return (
                   <li key={index}>
                     <h3>
-                      {user.name}{" "}
+                      {user.name}
                       <span onClick={() => openInNewTab(user.link)}>
                         <FaLinkedin size={20} />
                       </span>

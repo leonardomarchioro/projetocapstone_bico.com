@@ -1,6 +1,6 @@
 import { Container, Content } from "./styles";
 import Logo from "../../components/Logo/";
-import people from "../../img/people.png";
+import people from "../../assets/people.png";
 import { FiCornerDownLeft } from "react-icons/fi";
 import Button from "../../components/Button";
 import { useHistory } from "react-router-dom";

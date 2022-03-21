@@ -43,7 +43,7 @@ const ServiceRequest = () => {
       dateActual,
       description,
     };
-    console.log(data);
+    // console.log(data);
     addService(data);
   };
 

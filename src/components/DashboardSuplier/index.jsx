@@ -9,7 +9,7 @@ const DashboardSuplier = () => {
   useEffect(() => {
     getAllServices();
   }, []);
-  console.log(allServices);
+  // console.log(allServices);
   return (
     <Container>
       {allServices.map((service) => {

@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const Container = styled.aside`
   width: 296px;
-  height: 536px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  display: none;
   img {
     width: 125px;
     height: 119px;

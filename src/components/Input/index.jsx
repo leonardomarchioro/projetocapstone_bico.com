@@ -1,14 +1,6 @@
 import { ContainerInput, InputWrapper, LabCont } from "./style";
 
-const Input = ({
-  label,
-  register,
-  name,
-  error,
-  type = "text",
-  children,
-  ...rest
-}) => {
+const Input = ({ label, register, name, error, children, ...rest }) => {
   return (
     <InputWrapper>
       <LabCont>{!!label && <label>{label}</label>}</LabCont>

@@ -12,14 +12,14 @@ const DashNavMobile = () => {
     <Container>
       <div>
         <button onClick={console.log()}>
-          <FiUser />
+          <FiUser size={20} />
         </button>
         <button onClick={console.log()}>
-          <FiClipboard />
+          <FiClipboard size={20} />
         </button>
       </div>
       <button onClick={() => handleLogout(history)}>
-        <FiLogIn />
+        <FiLogIn size={20} />
       </button>
     </Container>
   );

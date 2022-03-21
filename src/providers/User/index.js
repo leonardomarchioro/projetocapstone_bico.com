@@ -15,7 +15,6 @@ export const ProviderUser = ({ children }) => {
   });
 
   const [token, setToken] = useState(localStorage.getItem("@token:Bico") || "");
-  console.log(token);
 
   const [supplier, setSuplier] = useState(false);
 
@@ -29,13 +28,9 @@ export const ProviderUser = ({ children }) => {
         .then(() => success())
         .catch((err) => error(err.response.data));
     } else {
-      // console.log("Adicionar toast de erro");
       error("CEP inválido!");
     }
   };
-
-  // console.log(userLogin);
-  // console.log(supplier);
 
   const ApiCheck = async (cep) => {
     const response = await axios.get(
@@ -45,23 +40,21 @@ export const ProviderUser = ({ children }) => {
     return response;
   };
 
-  const Login = async (data, history) => {
-    // console.log(data);
+  const Login = async (data, history, success, error) => {
     const response = await bicoApi
       .post("/login", data)
       .then((res) => {
-        // console.log(res);
         setUserLogin(res.data.user);
         setToken(res.data.accessToken);
         localStorage.setItem("@user:Bico", JSON.stringify(res.data.user));
         localStorage.setItem("@token:Bico", res.data.accessToken);
         history.push("/dashboard");
+        success();
       })
-      .catch((err) => console.log(err));
-    // console.log(response);
+      .catch((err) => error(err.response.data));
   };
 
-  const addSupplier = async () => {
+  const addSupplier = async (success, error) => {
     const { email, name, phone, cep, id } = userLogin;
     const update = await bicoApi
       .patch(
@@ -70,7 +63,6 @@ export const ProviderUser = ({ children }) => {
         { headers: { Authorization: `Bearer ${token}` } }
       )
       .then((res) => {
-        // console.log(res);
         localStorage.setItem("@user:Bico", JSON.stringify(res.data));
       });
     const data = {
@@ -79,7 +71,7 @@ export const ProviderUser = ({ children }) => {
       cep: cep,
       phone: phone,
     };
-    // console.log(data);
+
     const response = await bicoApi
       .post(
         "/suppliers",
@@ -87,9 +79,10 @@ export const ProviderUser = ({ children }) => {
         { headers: { Authorization: `Bearer ${token}` } }
       )
       .then((res) => {
+        success();
         setSuplier([res.data]);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => error());
   };
   const supplierGet = async () => {
     const response = await bicoApi
@@ -106,7 +99,6 @@ export const ProviderUser = ({ children }) => {
     localStorage.clear();
     setSuplier(false);
     setToken("");
-    // history.push("/");
   };
 
   return (
@@ -128,14 +120,3 @@ export const ProviderUser = ({ children }) => {
 };
 
 export const useUser = () => useContext(UserContext);
-
-/*
-OBS: 
-No cadastro nao ha armazanagem de localStorage, pois queremos que o usuario faca login apos cadastro.
-
-
-PARA SUPLIERS: 
-
- OD ID E O USER ID DEVEM SER IGUAIS <=> pois indicam o mesmo usuario tornando-se um prestador de servico
-
-*/

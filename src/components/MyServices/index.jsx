@@ -6,19 +6,16 @@ import { Container } from "./styles";
 const MyServices = ({ showService }) => {
   const { getSevicesClient, services } = useService();
 
-  console.log(services);
-
   useEffect(() => {
     getSevicesClient();
   }, []);
 
-  // console.log(services);
   return (
     <Container showService={showService}>
       <h1>MEUS SERVIÇOS SOLICITADOS</h1>
       <ul>
         {services.map((service) => {
-          return <MyServicesComponent service={service} />;
+          return <MyServicesComponent key={service.id} service={service} />;
         })}
       </ul>
     </Container>

@@ -4,13 +4,14 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 296px;
+  min-width: 300px;
   height: 50px;
   background-color: var(--form-register);
   border-radius: 10px;
   margin: 0 auto;
   padding: 0 20px;
-  box-shadow: 0px 2px 2px black;
+  box-shadow: 0px 4px 4px rgba(9, 9, 9, 0.2);
+
   > div {
     display: flex;
     gap: 10px;

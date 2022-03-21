@@ -1,8 +1,9 @@
 import { useService } from "../../providers/Services";
 import { useEffect } from "react";
 import MyServicesComponent from "../../MyServicesComponent";
+import { Container } from "./styles";
 
-const MyServices = () => {
+const MyServices = ({ showService }) => {
   const { getSevicesClient, services } = useService();
 
   console.log(services);
@@ -13,13 +14,14 @@ const MyServices = () => {
 
   // console.log(services);
   return (
-    <div>
+    <Container showService={showService}>
+      <h1>MEUS SERVIÇOS SOLICITADOS</h1>
       <ul>
         {services.map((service) => {
           return <MyServicesComponent service={service} />;
         })}
       </ul>
-    </div>
+    </Container>
   );
 };
 export default MyServices;

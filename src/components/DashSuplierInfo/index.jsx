@@ -8,10 +8,11 @@ const ContainerInfo = ({ service }) => {
   return (
     <>
       <ContainerService>
-        <Div>
+        <div>
           <h3>{service.name}</h3>
-          <span>{service.category}</span>
-        </Div>
+          <span>Categoria: {service.category}</span>
+        </div>
+
         <Button
           id={service.id}
           onClick={() => attSupplierToService(service.id)}

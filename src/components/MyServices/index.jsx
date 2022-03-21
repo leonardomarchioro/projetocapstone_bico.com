@@ -1,16 +1,18 @@
 import { useService } from "../../providers/Services";
 import { useEffect, useState } from "react";
 import Button from "../Button";
+import { dateFormated } from "../../uteils";
 
 const MyServices = () => {
   const { getSevicesClient, services, deleteService, attServiceReview } =
     useService();
 
+  console.log(services);
+
   useEffect(() => {
     getSevicesClient();
   }, []);
 
-  console.log(services);
   return (
     <div>
       <ul>
@@ -18,7 +20,7 @@ const MyServices = () => {
           return (
             <li key={service.id} id={service.id}>
               <h2>{service.category}</h2>
-              <span>{service.date}</span>
+              <span>{service.dateActual}</span>
               <Button
                 text="Excluir"
                 onClick={() => deleteService(service.id)}

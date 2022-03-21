@@ -10,9 +10,7 @@ import Input from "../Input";
 const ServiceRequest = () => {
   const { addService } = useService();
 
-  const currentDate = new Date().toLocaleDateString();
-  const dateFormated = currentDate.split("/").reverse().join("-");
-  console.log(dateFormated);
+  const currentDate = new Date();
 
   const schema = yup.object().shape({
     category: yup
@@ -35,9 +33,14 @@ const ServiceRequest = () => {
   });
 
   const postService = ({ category, date, description }) => {
+    const day = date.getDate().toString().padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+    const dateActual = `${day}/${month}/${year}`;
+
     const data = {
       category,
-      date,
+      dateActual,
       description,
     };
     console.log(data);

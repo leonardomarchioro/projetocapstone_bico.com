@@ -19,7 +19,7 @@ const ContainerInfo = ({ service }) => {
         />
       </ContainerService>
       <p>{service.description}</p>
-      <span>{service.date}</span>
+      <span>{service.dateActual}</span>
     </>
   );
 };

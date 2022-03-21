@@ -18,6 +18,7 @@ export const ProviderService = ({ children }) => {
       })
       .catch((err) => console.log(err));
   };
+
   const getSevicesClient = async () => {
     const response = await bicoApi
       .get(`/services?clientId=${userLogin.id}`, {
@@ -29,6 +30,7 @@ export const ProviderService = ({ children }) => {
       })
       .catch((err) => console.log(err));
   };
+
   const addService = async (data) => {
     const { email, name, cep, phone, id } = userLogin;
     const newData = {
@@ -49,6 +51,7 @@ export const ProviderService = ({ children }) => {
       )
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+    getSevicesClient();
   };
 
   const attSupplierToService = async (dataId) => {

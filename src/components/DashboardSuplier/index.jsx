@@ -13,7 +13,7 @@ const DashboardSuplier = () => {
   return (
     <Container>
       {allServices.map((service) => {
-        return <ContainerInfo service={service} />;
+        return <ContainerInfo key={service.id} service={service} />;
       })}
     </Container>
   );

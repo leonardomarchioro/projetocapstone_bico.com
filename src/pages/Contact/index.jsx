@@ -51,10 +51,12 @@ const Contact = () => {
     <Container>
       <div>
         <Logo />
-        <Button
-          text={<FiCornerDownLeft size={30} />}
-          onClick={() => history.push("/")}
-        />
+        <div>
+          <Button
+            text={<FiCornerDownLeft size={30} />}
+            onClick={() => history.push("/")}
+          />
+        </div>
       </div>
 
       <Content>

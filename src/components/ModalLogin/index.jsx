@@ -1,19 +1,18 @@
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-
 import { useUser } from "../../providers/User";
-
 import Input from "../../components/Input";
 import InputPassword from "../../components/InputPassword";
 import Button from "../../components/Button";
 
-import { ContainerModal } from "./style";
-
 import { Link, useHistory } from "react-router-dom";
+import { useState } from "react";
+import { ContainerModal, Welcome, ContainerForm } from "./style";
 
 const ModalLogin = () => {
   const { Login, token } = useUser();
+
   const history = useHistory();
 
   const schema = yup.object().shape({
@@ -46,26 +45,32 @@ const ModalLogin = () => {
 
   return (
     <ContainerModal>
-      <form onSubmit={handleSubmit(handleLogin)}>
-        <Input
-          label="E-mail"
-          register={register}
-          name={"email"}
-          error={errors.email?.message}
-          placeholder="email@exemplo.com"
-          type="email"
-        />
-        <InputPassword
-          label="Senha"
-          register={register}
-          name={"password"}
-          error={errors.password?.message}
-          placeholder="Digite uma senha aqui"
-          type="password"
-        />
-        <Button type="submit" text="Entrar" />
-      </form>
-      <Link to="/register">Cadastre-se aqui</Link>
+      <Welcome>Seja bem vindo!</Welcome>
+      <ContainerForm>
+        <form onSubmit={handleSubmit(handleLogin)}>
+          <h3>Login</h3>
+          <Input
+            label="E-mail"
+            register={register}
+            name={"email"}
+            error={errors.email?.message}
+            placeholder="email@exemplo.com"
+            type="email"
+          />
+          <InputPassword
+            label="Senha"
+            register={register}
+            name={"password"}
+            error={errors.password?.message}
+            placeholder="Digite uma senha aqui"
+            type="password"
+            style={true}
+          />
+          <Button type="submit" text="Login" />
+          <h4>Não possui uma conta?</h4>
+          <Link to="/register">Cadastre-se aqui</Link>
+        </form>
+      </ContainerForm>
     </ContainerModal>
   );
 };

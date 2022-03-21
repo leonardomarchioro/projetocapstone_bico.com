@@ -17,9 +17,11 @@ export const Container = styled.main`
   > div {
     width: 100%;
     display: flex;
+    justify-content: space-between;
     padding: 30px;
 
-    button {
+    > div > section > button {
+      display: flex;
       background-color: transparent;
       color: #12465a;
       transition: 0.5s;

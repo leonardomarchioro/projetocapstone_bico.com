@@ -1,12 +1,23 @@
 import styled from "styled-components";
 
+export const InputWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const LabCont = styled.div`
+  width: 85%;
+  height: 25px;
+`;
+
 export const ContainerInput = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   align-items: flex-start;
-  height: 75px;
-  width: 80%;
+  width: 85%;
 
   > input {
     width: 100%;
@@ -14,7 +25,7 @@ export const ContainerInput = styled.div`
     background-color: var(--bg-color-register-1);
     border: ${({ error }) => (error ? "1px solid #ff0033" : "transparent")};
     border-radius: 3px;
-    padding-left: 10px;
+    text-indent: 10px;
     color: var(--title-1);
 
     &::placeholder {
@@ -32,6 +43,9 @@ export const ContainerInput = styled.div`
   }
   > div {
     height: 25px;
+    width: 100%;
+    display: flex;
+    align-items: center;
 
     > label {
       font-size: 15px;

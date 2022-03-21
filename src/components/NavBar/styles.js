@@ -2,11 +2,13 @@ import styled from "styled-components";
 
 export const NavContainer = styled.nav`
   width: 100%;
-  height: 80px;
+  height: 60px;
   transition: all 0.3s linear;
   font-family: "Josefin Sans", sans-serif;
   background-color: var(--color-primary-4);
   color: #12465a;
+  z-index: 1;
+  position: absolute;
   font-weight: 700;
   font-size: 12px;
   align-items: center;
@@ -14,9 +16,9 @@ export const NavContainer = styled.nav`
   letter-spacing: 0.1rem;
   display: ${({ open }) => (open ? "flex" : "none")};
   border-radius: 0 0 15px 15px;
-  box-shadow: 1px 10px 8px -2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 1px 10px 8px -2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 1px 10px 8px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 5px 4px 0px rgb(0 0 0 / 25%);
+  -webkit-box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.25);
   ul {
     width: 100%;
     display: flex;
@@ -45,6 +47,58 @@ export const NavContainer = styled.nav`
   @media screen and (min-width: 1024px) {
     display: ${({ open }) => (open ? "flex" : "flex")};
     box-shadow: ${({ open }) => (open ? "none" : "none")};
+    background-color: var(--color-primary);
+    z-index: 1;
+    position: absolute;
+    width: 50%;
+    top: 24%;
+    font-size: 1rem;
+    font-family: "Montserrat";
+    left: 40%;
+    display: -ms-flexbox;
+    display: flex;
+    box-shadow: none;
+
+    ul {
+      li {
+        margin-bottom: 0;
+      }
+      button {
+        font-size: 1rem;
+        background-color: var(--color-primary);
+        font-family: "Montserrat";
+        font-weight: 700;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    display: ${({ open }) => (open ? "flex" : "flex")};
+    box-shadow: ${({ open }) => (open ? "none" : "none")};
+    background-color: var(--color-primary);
+    z-index: 1;
+    position: absolute;
+    width: 48%;
+    top: 24%;
+    font-size: 1.25rem;
+    font-family: "Montserrat";
+    font-weight: 600;
+    left: 40%;
+    display: -ms-flexbox;
+    display: flex;
+    box-shadow: none;
+
+    ul {
+      li {
+        margin-bottom: 0;
+      }
+      button {
+        font-size: 1.25rem;
+        background-color: var(--color-primary);
+        font-family: "Montserrat";
+        font-weight: 600;
+      }
+    }
   }
 `;
 

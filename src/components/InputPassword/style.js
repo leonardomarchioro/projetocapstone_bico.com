@@ -1,10 +1,14 @@
 import styled from "styled-components";
 
 export const ContainerPassword = styled.div`
-  width: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   > div {
     height: 25px;
+    width: 85%;
 
     > label {
       font-size: 15px;
@@ -17,7 +21,7 @@ export const ContainerPassword = styled.div`
 `;
 
 export const InputEye = styled.section`
-  width: 100%;
+  width: 85%;
   display: flex;
 
   input {
@@ -26,10 +30,10 @@ export const InputEye = styled.section`
     background-color: var(--bg-color-register-1);
     border: ${({ error }) => (error ? "1px solid #ff0033" : "transparent")};
     border-radius: 3px;
-    padding-left: 10px;
+    text-indent: 10px;
     color: var(--title-1);
     position: relative;
-    left: 4px;
+    right: -8px;
 
     &::placeholder {
       color: var(--color-scrollbar);
@@ -44,9 +48,10 @@ export const InputEye = styled.section`
     color: #000;
   }
   button {
-    position: relative;
-    right: 20px;
     background: transparent;
+    position: relative;
+    top: ${({ style }) => (style ? "13px" : "3px")};
+    right: 25px;
     > svg {
       color: #3492d4;
     }

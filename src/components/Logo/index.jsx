@@ -1,9 +1,10 @@
 import { Container } from "./styles";
+import { Link } from "react-router-dom";
 
 const Logo = () => {
   return (
-    <Container className="containerLogo">
-      <h1>Kenzie Bicos</h1>
+    <Container>
+      <Link to="/">Kenzie Bicos</Link>
     </Container>
   );
 };

@@ -6,6 +6,7 @@ import { useService } from "../../providers/Services";
 
 import Button from "../Button";
 import Input from "../Input";
+import { toast } from "react-toastify";
 
 const ServiceRequest = () => {
   const { addService } = useService();
@@ -23,6 +24,13 @@ const ServiceRequest = () => {
       .min(currentDate, "Só é possível incluir datas futuras"),
     description: yup.string().required("Descrição do serviço obrigatória"),
   });
+
+  const success = () => {
+    toast.success("Requisição de serviço feita com sucesso!");
+  };
+  const error = () => {
+    toast.error("Houve algum erro, tente mais tarde");
+  };
 
   const {
     register,
@@ -43,8 +51,8 @@ const ServiceRequest = () => {
       dateActual,
       description,
     };
-    // console.log(data);
-    addService(data);
+
+    addService(data, success, error);
   };
 
   return (

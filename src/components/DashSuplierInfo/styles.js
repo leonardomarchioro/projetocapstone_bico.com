@@ -5,10 +5,11 @@ import styled from "styled-components";
 
 export const ContainerService = styled.div`
 display: flex;
-flex-direction: row;
+flex-direction: column;
 align-items: center;
-justify-content: space-between;
+
 padding-bottom: 10px;
+background: linear-gradient(180deg, #A8D5F4,rgba(214, 231, 243, 0));
 
 button{
     background-color: #57DE75;
@@ -36,23 +37,12 @@ h3{
     font-weight: 500;
     padding-bottom: 2px;
 }
-span{
-    font-size: 12px;
-    font-weight: 500;
-    padding-bottom: 2px;
-    color: #003347;
-}
-p{
-    font-size: 12px;
-    font-weight: 500;
-    color: #003347;
-
-}
-
-
 
 `
 
 export const Div = styled.div`
-
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+min-width: 320px;
 `

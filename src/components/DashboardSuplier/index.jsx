@@ -1,5 +1,5 @@
 import { useService } from "../../providers/Services";
-import { Container } from "./styles";
+import { Container, DivPai } from "./styles";
 import { useEffect } from "react";
 import ContainerInfo from "../DashSuplierInfo";
 
@@ -11,11 +11,13 @@ const DashboardSuplier = () => {
   }, []);
   // console.log(allServices);
   return (
-    <Container>
-      {allServices.map((service) => {
-        return <ContainerInfo key={service.id} service={service} />;
-      })}
-    </Container>
+    <DivPai>
+      <Container>
+        {allServices.map((service) => {
+          return <ContainerInfo key={service.id} service={service} />;
+        })}
+      </Container>
+    </DivPai>
   );
 };
 

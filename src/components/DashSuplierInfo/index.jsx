@@ -1,6 +1,7 @@
 import { ContainerService, Div } from "./styles.js";
 import Button from "../Button";
 import { useService } from "../../providers/Services/index.js";
+import { DivPar } from "../DashboardSuplier/styles.js";
 
 const ContainerInfo = ({ service }) => {
   const { attSupplierToService } = useService();
@@ -9,17 +10,22 @@ const ContainerInfo = ({ service }) => {
     <>
       <ContainerService>
         <Div>
-          <h3>{service.name}</h3>
-          <span>{service.category}</span>
+          <div>
+            <h3>{service.name}</h3>
+            <span>{service.category}</span>
+          </div>
+          <button
+            id={service.id}
+            onClick={() => attSupplierToService(service.id)}
+            text={"Candidatar-se"}
+          >
+            {" "}
+            Candidatar-se
+          </button>
         </Div>
-        <Button
-          id={service.id}
-          onClick={() => attSupplierToService(service.id)}
-          text={"Candidatar-se"}
-        />
+        <DivPar>{service.description}</DivPar>
+        <span>{service.dateActual}</span>
       </ContainerService>
-      <p>{service.description}</p>
-      <span>{service.dateActual}</span>
     </>
   );
 };

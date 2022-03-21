@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-background: linear-gradient(180deg, #A8D5F4,rgba(214, 231, 243, 0));
+
 display: flex;
 flex-direction: column;
+flex-wrap: wrap;
 justify-content: flex-start;
 padding: 15px 15px 0px 15px;
-max-width: 417px;
+max-width: 1000px;
 min-height: 138px;
 
 h3{
@@ -21,13 +22,24 @@ span{
     color: #003347;
 }
 p{
-    font-size: 12px;
-    font-weight: 500;
-    color: #003347;
-
+   
 }
-
-
 
 `
 
+export const DivPar = styled.p`
+    word-wrap: break-word;
+    font-size: 12px;
+    font-weight: 500;
+    color: #003347;
+    max-width: 350px;
+    max-height: 50px;
+    margin-bottom: 15px;
+`
+
+
+export const DivPai = styled.div`
+display: flex;
+flex-direction: row;
+
+`

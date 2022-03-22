@@ -8,6 +8,8 @@ export const Container = styled.div`
   padding: 15px 15px 0px 15px;
   min-width: 300px;
   min-height: 138px;
+  max-width: 700px;
+  margin: 10px;
 
   h2 {
     font-size: 16px;
@@ -27,5 +29,8 @@ export const Container = styled.div`
     border-radius: 0 0 5px 5px;
     padding: 10px;
     min-width: 300px;
+    overflow-y: scroll;
+    min-height: 400px;
+    max-height: 600px;
   }
 `;

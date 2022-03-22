@@ -50,4 +50,11 @@ export const Content = styled.div`
       height: 50px;
     }
   }
+  .avatar-container {
+    cursor: pointer;
+    transition: 0.4s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 `;

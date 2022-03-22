@@ -15,6 +15,7 @@ const MyServices = ({ showService }) => {
       <h1>MEUS SERVIÇOS SOLICITADOS</h1>
       <ul>
         {services.map((service) => {
+          console.log(service.supplier);
           return <MyServicesComponent key={service.id} service={service} />;
         })}
       </ul>

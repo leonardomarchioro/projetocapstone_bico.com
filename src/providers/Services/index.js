@@ -16,6 +16,7 @@ export const ProviderService = ({ children }) => {
         setAllServices(res.data);
       })
       .catch((err) => console.log(err));
+
   };
 
   const getSevicesClient = async () => {

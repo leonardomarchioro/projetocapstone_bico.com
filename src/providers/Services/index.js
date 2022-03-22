@@ -144,26 +144,25 @@ export const ProviderService = ({ children }) => {
     success,
     error
   ) => {
-    //MUDAR AUTORIZAÇÃO NA API
-    // const supplierResponse = await bicoApi
-    //   .patch(
-    //     `/suppliers?userId=${supplierId}`,
-    //     {
-    //       services_taken: [
-    //         ...serviceTaken,
-    //         {
-    //           category: category,
-    //           serviceId: dataId,
-    //           review: dataReview,
-    //         },
-    //       ],
-    //     },
-    //     {
-    //       headers: { Authorization: `Bearer ${token}` },
-    //     }
-    //   )
-    //   .then((res) => console.log(res))
-    //   .catch((err) => console.log(err));
+    const supplierResponse = await bicoApi
+      .patch(
+        `/suppliers/${supplierId}`,
+        {
+          services_taken: [
+            ...serviceTaken,
+            {
+              category: category,
+              serviceId: dataId,
+              review: dataReview,
+            },
+          ],
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
 
     const response = await bicoApi
       .patch(

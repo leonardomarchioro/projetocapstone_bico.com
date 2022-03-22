@@ -23,7 +23,7 @@ const Dashboard = () => {
   };
 
   const handlePage = () => {
-    client ? setClient(false) : setClient(true);
+    setClient(!client);
   };
 
   const handleProfile = () => {

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.aside`
+export const Container = styled.div`
   width: 80%;
   display: ${({ profile }) => (profile ? "flex" : "none")};
   flex-direction: column;

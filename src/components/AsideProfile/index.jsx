@@ -6,7 +6,7 @@ import Button from "../Button";
 import { MdHomeRepairService } from "react-icons/md";
 import { FaPeopleArrows } from "react-icons/fa";
 
-const AsideProfile = ({ handlePage, profile, setNewSupplier }) => {
+const AsideProfile = ({ handlePage, profile = true, setNewSupplier }) => {
   const { userLogin, supplier } = useUser();
   const [page, setPage] = useState("Biqueiro");
 

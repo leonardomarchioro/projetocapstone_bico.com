@@ -36,14 +36,13 @@ const MyServicesComponent = ({ service }) => {
       )}
       {service.supplier.length > 0 ? (
         <Li
-          className="Candidato"
           key={service.id}
           id={service.id}
           onClick={() => setShowModalInfo(true)}
           available={true}
         >
           <h2>{service.category}</h2>
-          <div className="supplier">
+          <div className="Supplier">
             <span>Candidato para o serviço</span>
             <span>{service.dateActual}</span>
           </div>

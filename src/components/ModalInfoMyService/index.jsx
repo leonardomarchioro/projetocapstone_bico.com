@@ -1,13 +1,14 @@
 import { useService } from "../../providers/Services";
 import { toast } from "react-toastify";
-import { ContainerModal, Modal } from "./style";
+import { ContainerModal, Div, Modal } from "./style";
+import { BiLogOutCircle } from "react-icons/bi";
 
 const ModalInfoMyService = ({
   service,
   setShowModalInfo,
   setShowModalReview,
 }) => {
-  const { getServiceTakenSupplier, regectSupplierToService } = useService();
+  const { regectSupplierToService } = useService();
 
   console.log(service.supplier[0].id);
 
@@ -19,14 +20,15 @@ const ModalInfoMyService = ({
   };
 
   return (
-    <>
-      <ContainerModal>
-        <Modal>
-          <h2>Candidato: {service.supplier[0].name}</h2>
-          <span>E-mail: {service.supplier[0].email}</span>
-          <span>Telefone: {service.supplier[0].phone}</span>
-          <button onClick={() => setShowModalInfo(false)}>X</button>
+    <ContainerModal>
+      <Modal>
+        <h2>Candidato: {service.supplier[0].name}</h2>
+        <span>E-mail: {service.supplier[0].email}</span>
+        <span>Telefone: {service.supplier[0].phone}</span>
+        <BiLogOutCircle size={30} onClick={() => setShowModalInfo(false)} />
+        <Div>
           <button
+            className="button-modal fechar"
             onClick={() => {
               setShowModalInfo(false);
               regectSupplierToService(service.id, success, error);
@@ -34,25 +36,8 @@ const ModalInfoMyService = ({
           >
             Rejeitar
           </button>
-          {/* <button
-          onClick={() => {
-            setShowModalInfo(false);
-            getServiceTakenSupplier(
-              service.category,
-              service.id,
-              {
-                score: "5",
-                review: "tudo ok",
-              },
-              service.supplier[0].id,
-              success,
-              error
-            );
-          }}
-        >
-          Aceitar
-        </button> */}
           <button
+            className="button-modal"
             onClick={() => {
               console.log("teste");
               setShowModalReview(true);
@@ -61,9 +46,9 @@ const ModalInfoMyService = ({
           >
             Aceitar
           </button>
-        </Modal>
-      </ContainerModal>
-    </>
+        </Div>
+      </Modal>
+    </ContainerModal>
   );
 };
 

@@ -63,8 +63,16 @@ export const Container = styled.div`
 
   .buttonDesktop {
     display: none;
+    transition: 0.5s;
+    &:hover {
+      filter: drop-shadow(2px 2px 2px grey);
+    }
   }
 
   .buttonMobile {
+    transition: 0.5s;
+    &:hover {
+      filter: drop-shadow(2px 2px 2px grey);
+    }
   }
 `;

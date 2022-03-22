@@ -12,28 +12,31 @@ export const Li = styled.li`
   padding: 10px;
   cursor: pointer;
   transition: 0.8s;
+  height: 35;
 
   &:hover {
-    /* background-color: red; */
-    background-color: ${({ available }) => (available ? "red" : "green")};
-    color: white;
+    background-color: ${({ available }) =>
+      available ? "#f17e7ec4" : "#00800059"};
+    color: #fff;
     font-weight: 700;
+
+    h2 {
+      font-weight: 600;
+    }
   }
   h2 {
     font-weight: 400;
     font-size: 14px;
+    transition: 0.5s;
   }
-  .supplier {
-    width: 245px;
-    display: flex;
-    justify-content: space-between;
-  }
-  .Client {
-    width: 100px;
+  .Supplier {
+    width: 235px;
     display: flex;
     justify-content: space-around;
-    align-items: center;
+  }
+  .Client {
+    display: flex;
+    width: 95px;
+    justify-content: space-between;
   }
 `;
-
-export const Div = styled.div``;

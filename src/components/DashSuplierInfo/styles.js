@@ -16,7 +16,7 @@ export const ContainerService = styled.li`
 export const Div = styled.p`
   width: 100%;
   padding: 5px 20px;
-  max-height: 100px;
+  min-height: 100px;
   word-break: break-word;
 `;
 

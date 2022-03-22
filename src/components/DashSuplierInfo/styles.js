@@ -5,7 +5,7 @@ export const ContainerService = styled.li`
   flex-direction: column;
   align-items: flex-start;
   padding-bottom: 10px;
-  background: linear-gradient(180deg, #a8d5f4 0%, rgb(255 255 255 / 68%) 100%);
+  background: linear-gradient(180deg, #a8d5f4 0%, rgb(151 203 244) 100%);
   margin: 10px 20px;
   border-radius: 5px;
   > span {

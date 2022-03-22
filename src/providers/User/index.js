@@ -90,7 +90,7 @@ export const ProviderUser = ({ children }) => {
       .then((res) => {
         setSuplier(res.data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => err);
   };
 
   const handleLogout = (history) => {

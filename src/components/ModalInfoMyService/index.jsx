@@ -10,8 +10,6 @@ const ModalInfoMyService = ({
 }) => {
   const { regectSupplierToService } = useService();
 
-  console.log(service.supplier[0].id);
-
   const success = (msn) => {
     toast.success(msn);
   };
@@ -39,7 +37,6 @@ const ModalInfoMyService = ({
           <button
             className="button-modal"
             onClick={() => {
-              console.log("teste");
               setShowModalReview(true);
               setShowModalInfo(false);
             }}

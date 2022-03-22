@@ -20,7 +20,6 @@ const MyServices = ({ showService }) => {
           <img src={empty} alt="empty" />
         ) : (
           services.map((service) => {
-            console.log(service.supplier);
             return <MyServicesComponent key={service.id} service={service} />;
           })
         )}

@@ -23,7 +23,7 @@ export const ProviderService = ({ children }) => {
           return available;
         });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => err);
   };
 
   const getSevicesClient = async () => {
@@ -40,7 +40,7 @@ export const ProviderService = ({ children }) => {
           return unComplet;
         });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => err);
   };
 
   const addService = async (data, success, error) => {
@@ -62,7 +62,6 @@ export const ProviderService = ({ children }) => {
         }
       )
       .then((res) => {
-        console.log(res);
         success();
       })
       .catch((err) => error());
@@ -84,12 +83,10 @@ export const ProviderService = ({ children }) => {
       })
       .catch((err) => {
         error();
-        console.log(err);
       });
   };
 
   const regectSupplierToService = async (dataId, success, error) => {
-    console.log(dataId);
     const response = await bicoApi
       .patch(
         `/services/${dataId}`,
@@ -99,13 +96,11 @@ export const ProviderService = ({ children }) => {
         }
       )
       .then((res) => {
-        console.log(res);
         success("Serviço rejeitado");
         getSevicesClient();
       })
       .catch((err) => {
         error();
-        console.log(err);
       });
   };
   const getServiceTakenSupplier = async (
@@ -159,8 +154,8 @@ export const ProviderService = ({ children }) => {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .then((res) => res)
+      .catch((err) => err);
 
     const response = await bicoApi
       .patch(
@@ -171,7 +166,6 @@ export const ProviderService = ({ children }) => {
         }
       )
       .then((res) => {
-        console.log(res);
         success("Serviço completado");
         getSevicesClient();
       })

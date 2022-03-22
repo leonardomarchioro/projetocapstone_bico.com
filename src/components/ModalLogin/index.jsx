@@ -40,7 +40,6 @@ const ModalLogin = () => {
     toast.success("Login feito com sucesso!");
   };
   const error = (errorMsg) => {
-    console.log(errorMsg);
     if (errorMsg === "Incorrect password") {
       toast.error("Senha incorreta");
     } else if (errorMsg === "Cannot find user") {

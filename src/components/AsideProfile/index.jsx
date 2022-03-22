@@ -14,7 +14,7 @@ const AsideProfile = ({ handlePage, profile, setNewSupplier }) => {
   const { userLogin, supplier } = useUser();
   const [page, setPage] = useState("Biqueiro");
   const [showModalAvatars, setShowModalAvatars] = useState(false);
-  console.log(showModalAvatars);
+
   return (
     <>
       <ModalAvatars

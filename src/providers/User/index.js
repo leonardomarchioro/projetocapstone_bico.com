@@ -13,14 +13,12 @@ export const ProviderUser = ({ children }) => {
     }
     return {};
   });
-
   const [token, setToken] = useState(localStorage.getItem("@token:Bico") || "");
 
   const [supplier, setSuplier] = useState(false);
 
   const SignUp = async (data, success, error) => {
     data.type = "client";
-
     const validation = ApiCheck(data.cep);
     if ((await validation).data.cep) {
       const response = await bicoApi
@@ -101,6 +99,23 @@ export const ProviderUser = ({ children }) => {
     setToken("");
   };
 
+  const updateAvatarIcon = async (avatarIcon) => {
+    const update = await bicoApi
+      .patch(`/users/${userLogin.id}`, avatarIcon, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then(() => {
+        bicoApi
+          .get(`/users/${userLogin.id}`, {
+            headers: { Authorization: `Bearer ${token}` },
+          })
+          .then((res) => {
+            setUserLogin(res.data);
+            localStorage.setItem("@user:Bico", JSON.stringify(res.data));
+          });
+      });
+  };
+
   return (
     <UserContext.Provider
       value={{
@@ -112,6 +127,7 @@ export const ProviderUser = ({ children }) => {
         supplier,
         supplierGet,
         handleLogout,
+        updateAvatarIcon,
       }}
     >
       {children}

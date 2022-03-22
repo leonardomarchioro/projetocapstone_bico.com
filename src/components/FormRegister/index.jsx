@@ -3,6 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 
 import { useUser } from "../../providers/User";
+import { useAvatars } from "../../providers/Avatars";
 
 import Input from "../Input";
 import InputPassword from "../InputPassword";
@@ -63,6 +64,7 @@ const FormRegister = () => {
       toast.error("Houve algum erro, tente mais tarde");
     }
   };
+  const { getRandomAvatar } = useAvatars();
 
   const handleRegister = ({ name, cep, email, phone, password }) => {
     const register = {
@@ -71,6 +73,7 @@ const FormRegister = () => {
       email,
       phone,
       password,
+      avatar: getRandomAvatar(),
     };
 
     SignUp(register, success, error);

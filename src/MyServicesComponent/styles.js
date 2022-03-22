@@ -16,6 +16,7 @@ export const Li = styled.li`
     
 
     &:hover {
+
       /* background-color: red; */
       background-color: ${(props) => props.backgroundColor ? props.backgroundColor : "green"};
       color: white;

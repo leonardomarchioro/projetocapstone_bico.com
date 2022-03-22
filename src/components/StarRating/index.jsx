@@ -2,9 +2,7 @@ import { useState } from "react";
 import { Container } from "./styles";
 import { BsStarFill } from "react-icons/bs";
 
-const StarRating = () => {
-  const [rating, setRating] = useState(0);
-  const [hover, setHover] = useState(0);
+const StarRating = ({ setRating, setHover, rating, hover }) => {
   return (
     <Container>
       {[...Array(5)].map((star, index) => {

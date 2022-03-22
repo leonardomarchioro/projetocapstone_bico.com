@@ -32,6 +32,7 @@ const MyServicesComponent = ({ service }) => {
         <ModalReview
           setShowModalReview={setShowModalReview}
           setShowModalInfo={setShowModalInfo}
+          service={service}
         />
       )}
       {service.supplier.length > 0 ? (

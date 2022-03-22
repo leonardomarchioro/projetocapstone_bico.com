@@ -9,6 +9,7 @@ import HomeImg from "../../assets/homeimg.svg";
 import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
+import StarRating from "../../components/StarRating";
 
 const Home = () => {
   const [modalLoginUp, setModalLoginUp] = useState(false);

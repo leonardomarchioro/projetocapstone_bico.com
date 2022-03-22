@@ -37,8 +37,16 @@ export const PageRegister = styled.div`
         section {
           width: 88.335%;
 
+          @media (min-width: 1024px) {
+            width: 88.81%;
+          }
+
+          @media (min-width: 1440px) {
+            width: 88.81%;
+          }
+
           @media (max-width: 425px) {
-            width: 89.435%;
+            width: 89.445%;
           }
           button {
             width: auto;

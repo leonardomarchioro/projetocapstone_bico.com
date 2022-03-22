@@ -20,6 +20,7 @@ export const ContainerPage = styled.div`
     border-radius: 20px;
     padding-top: 30px;
     padding-bottom: 10px;
+    box-shadow: 0px 3px 3px 0px rgb(0 0 0 / 25%);
 
     @media (min-width: 1024px) {
       width: 350px;

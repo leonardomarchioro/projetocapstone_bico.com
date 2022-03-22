@@ -32,6 +32,11 @@ export const Content = styled.div`
 
     h3 {
       font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
     }
 
     p {

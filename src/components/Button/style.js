@@ -7,7 +7,7 @@ export const Btn = styled.button`
   color: white;
   font-weight: 600;
   font-size: 14px;
-  box-shadow: 0px 3px 3px 0px rgb(0 0 0 / 25%);
+  box-shadow: 0px 3px 3px 0px rgb(0 0 0 / 35%);
 `;
 
 export const Sec = styled.section`

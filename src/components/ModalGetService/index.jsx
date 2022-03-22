@@ -1,14 +1,14 @@
-import { Container } from "./styles";
+import { Container } from "./style";
 import { motion } from "framer-motion";
 import { FiCheckSquare, FiXSquare } from "react-icons/fi";
-import { useUser } from "../../providers/User";
+import { useService } from "../../providers/Services/index.js";
 import { toast } from "react-toastify";
 
-const ModalConfirmation = ({ setNewSupplier }) => {
-  const { addSupplier } = useUser();
+const ModalGetService = ({ setGetService, dataId }) => {
+  const { attSupplierToService } = useService();
 
   const success = () => {
-    toast.success("Biqueiro cadastrado com sucesso!");
+    toast.success("Candidatado com sucesso!");
   };
   const error = () => {
     toast.error("Houve algum erro, tente mais tarde");
@@ -42,14 +42,14 @@ const ModalConfirmation = ({ setNewSupplier }) => {
         animate="visible"
         exit="exit"
       >
-        <h2>Tem certeza que quer se tornar membro?</h2>
+        <h2>Tem certeza de que quer se candidatar?</h2>
         <div>
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => {
-              setNewSupplier(false);
-              addSupplier(success, error);
+              setGetService(false);
+              attSupplierToService(dataId, success, error);
             }}
           >
             <FiCheckSquare size={35} />
@@ -57,7 +57,7 @@ const ModalConfirmation = ({ setNewSupplier }) => {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            onClick={() => setNewSupplier(false)}
+            onClick={() => setGetService(false)}
           >
             <FiXSquare size={35} />
           </motion.button>
@@ -67,4 +67,4 @@ const ModalConfirmation = ({ setNewSupplier }) => {
   );
 };
 
-export default ModalConfirmation;
+export default ModalGetService;

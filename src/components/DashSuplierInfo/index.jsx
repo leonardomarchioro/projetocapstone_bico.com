@@ -2,22 +2,30 @@ import { ContainerService, Div, ContainerInfos } from "./styles.js";
 import Button from "../Button";
 import { useService } from "../../providers/Services/index.js";
 import { DivPar } from "../DashboardSuplier/styles.js";
+import ModalGetService from "../ModalGetService";
+import { useState } from "react";
 
 const ContainerInfo = ({ service }) => {
-  const { attSupplierToService } = useService();
+  const [getService, setgetService] = useState(false);
 
   return (
     <>
+      {getService && (
+        <ModalGetService
+          key={service.id}
+          setGetService={setgetService}
+          dataId={service.id}
+        />
+      )}
       <ContainerService>
         <ContainerInfos>
           <div>
             <h3>{service.name}</h3>
             <span>Categoria: {service.category}</span>
           </div>
-
           <Button
             id={service.id}
-            onClick={() => attSupplierToService(service.id)}
+            onClick={() => setgetService(true)}
             text={"Candidatar-se"}
           />
         </ContainerInfos>

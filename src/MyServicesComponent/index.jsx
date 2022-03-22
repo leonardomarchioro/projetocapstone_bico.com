@@ -1,37 +1,39 @@
 import Button from "../components/Button";
 import { useService } from "../providers/Services";
-import { Div, Li } from "./styles";
+import ModalInfoMyService from "../components/ModalInfoMyService";
+import { useState } from "react";
+import { Li } from "./styles";
 
 const MyServicesComponent = ({ service }) => {
   const { deleteService, attServiceReview } = useService();
-  console.log(service);
+  const [showModalInfo, setShowModalInfo] = useState(false);
+  console.log(service.supplier);
   return (
     <>
-      {service.supplier.length == undefined ? (
-        <Li key={service.id} id={service.id}>
-          <Div>
-            <h2>{service.category}</h2>
-            Disponível
-          </Div>
-          <span>{service.dateActual}</span>
+      {showModalInfo && (
+        <ModalInfoMyService
+          service={service}
+          setShowModalInfo={setShowModalInfo}
+        />
+      )}
+      {service.supplier.length > 0 ? (
+        <Li
+          className="Candidato"
+          key={service.id}
+          id={service.id}
+          onClick={() => setShowModalInfo(true)}
+          available={true}
+        >
+          <h2>{service.category}</h2>
+          <div className="supplier">
+            <span>Candidato para o serviço</span>
+            <span>{service.dateActual}</span>
+          </div>
         </Li>
       ) : (
-        <Li key={service.id} id={service.id} backgroundColor="red">
-          <Div>
-            <h2>{service.category}</h2>
-            Indisponível
-          </Div>
+        <Li key={service.id} id={service.id}>
+          <h2>{service.category}</h2>
           <span>{service.dateActual}</span>
-          {/* <Button text="X" onClick={() => deleteService(service.id)} />
-      <Button
-        text="+"
-        onClick={() =>
-          attServiceReview(service.id, {
-            score: 5,
-            comment: " trabalha direitinho o rapaz",
-          })
-        }
-      /> */}
         </Li>
       )}
     </>

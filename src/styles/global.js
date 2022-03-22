@@ -73,29 +73,27 @@ export const GlobalStyle = createGlobalStyle`
         text-decoration: none;
     }
 
-    // Está bugado resolver depois;
 
-    /* * {
+    * {
         scrollbar-width: thin;
         scrollbar-color: var(--color-scrollbar) var(--color-scrollbar);
     }
 
     /* Works on Chrome, Edge, and Safari */
 
-    /* *::-webkit-scrollbar {
-        width: 12px;
+     *::-webkit-scrollbar {
+        width: 8px;
     }
 
     *::-webkit-scrollbar-track {
-        background-color: var(--color-scrollbar);
+        background-color: transparent;
     }
 
     *::-webkit-scrollbar-thumb {
-        background-color: var(--color-scrollbar);
-        opacity: 0.7;
-        border-radius: 20px;
-        border: 1px solid var(--color-scrollbar);
-    } */
+        background-color: #00000026;
+    border-radius: 20px;
+    border: 1px solid #00000026;
+    } 
 
 `;
 export const colorPrimary = "#BADBF3";

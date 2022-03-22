@@ -2,6 +2,7 @@ import { useService } from "../../providers/Services";
 import { useEffect } from "react";
 import MyServicesComponent from "../../MyServicesComponent";
 import { Container } from "./styles";
+import ModalInfoMyService from "../ModalInfoMyService";
 
 const MyServices = ({ showService }) => {
   const { getSevicesClient, services } = useService();

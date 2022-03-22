@@ -33,7 +33,16 @@ export const Container = styled.div`
     background-color: #fff;
     border-radius: 0 0 5px 5px;
     overflow-y: scroll;
+  }
 
-    
+  @media screen and (min-width: 1024px) {
+    display: ${({ showService }) => (showService ? "flex" : "flex")};
+    flex-direction: column;
+    width: 700px;
+    height: 342px;
+    ul {
+      width: 700px;
+      height: 342px;
+    }
   }
 `;

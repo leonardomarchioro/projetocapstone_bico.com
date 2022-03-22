@@ -67,4 +67,37 @@ export const Container = styled.div`
 
   .buttonMobile {
   }
+
+  @media screen and (min-width: 1024px) {
+    width: 700px;
+    height: 321px;
+    form {
+      .inputArea {
+        width: 40%;
+        > div {
+          width: 245px;
+        }
+      }
+      .textArea {
+        padding-right: 1rem;
+        > textarea {
+          height: 160px;
+        }
+      }
+
+      > section {
+        :last-child {
+          display: none;
+        }
+      }
+      flex-direction: row;
+      .buttonDesktop {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 1rem;
+        width: 213px;
+      }
+    }
+  }
 `;

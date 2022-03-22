@@ -21,4 +21,7 @@ export const Container = styled.div`
     background-color: var(--form-register);
     color: #3b87b0;
   }
+  @media screen and (min-width: 1024px) {
+    display: none;
+  }
 `;

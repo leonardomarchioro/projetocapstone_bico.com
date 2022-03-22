@@ -1,44 +1,36 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background: linear-gradient(180deg, #a8d5f4, rgba(214, 231, 243, 0));
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: flex-start;
+  padding: 15px 15px 0px 15px;
   min-width: 300px;
-  width: 80%;
+  min-height: 138px;
+  max-width: 700px;
+  margin: 10px;
 
   h2 {
-    font-size: 0.8rem;
-    height: 37px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #78bced;
-    color: #1e637d;
-    border-radius: 5px 5px 0 0;
-  }
-
-  ul {
-    background: rgba(79, 113, 141, 0.54);
-    max-height: 400px;
-    overflow-y: scroll;
-  }
-
-  h3 {
     font-size: 16px;
     font-weight: 500;
     padding-bottom: 2px;
+    background: #78bced;
+    border-radius: 5px 5px 0 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1e637d;
+    min-width: 300px;
   }
-  span {
-    font-size: 12px;
-    font-weight: 500;
-    padding-bottom: 2px;
-    color: #003347;
-  }
-  p {
-    font-size: 12px;
-    font-weight: 500;
-    color: #003347;
+  ul {
+    background-color: #4f718d;
+    border-radius: 0 0 5px 5px;
+    padding: 10px;
+    min-width: 300px;
+    overflow-y: scroll;
+    min-height: 400px;
+    max-height: 600px;
   }
 `;

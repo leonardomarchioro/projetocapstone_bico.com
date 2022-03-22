@@ -2,6 +2,7 @@ import Button from "../components/Button";
 import { useService } from "../providers/Services";
 import ModalInfoMyService from "../components/ModalInfoMyService";
 import { useState } from "react";
+import { Li } from "./styles";
 
 const MyServicesComponent = ({ service }) => {
   const { deleteService, attServiceReview } = useService();
@@ -16,20 +17,24 @@ const MyServicesComponent = ({ service }) => {
         />
       )}
       {service.supplier.length > 0 ? (
-        <li
+        <Li
           className="Candidato"
           key={service.id}
           id={service.id}
           onClick={() => setShowModalInfo(true)}
+          available={true}
         >
           <h2>{service.category}</h2>
-          <span>{service.dateActual}</span>
-        </li>
+          <div className="supplier">
+            <span>Candidato para o serviço</span>
+            <span>{service.dateActual}</span>
+          </div>
+        </Li>
       ) : (
-        <li key={service.id} id={service.id}>
+        <Li key={service.id} id={service.id}>
           <h2>{service.category}</h2>
           <span>{service.dateActual}</span>
-        </li>
+        </Li>
       )}
     </>
   );

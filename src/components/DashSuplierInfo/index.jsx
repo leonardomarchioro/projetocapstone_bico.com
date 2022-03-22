@@ -1,5 +1,7 @@
 import { ContainerService, Div, ContainerInfos } from "./styles.js";
 import Button from "../Button";
+import { useService } from "../../providers/Services/index.js";
+import { DivPar } from "../DashboardSuplier/styles.js";
 import ModalGetService from "../ModalGetService";
 import { useState } from "react";
 

@@ -35,6 +35,9 @@ export const Content = styled.div`
         height: 100%;
       }
     }
+    span {
+      text-align: center;
+    }
   }
   section {
     display: flex;

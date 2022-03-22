@@ -9,7 +9,6 @@ const DashboardSuplier = () => {
   useEffect(() => {
     getAllServices();
   }, []);
-
   return (
     <Container>
       <h2>PÁGINA DE ANÚNCIOS</h2>

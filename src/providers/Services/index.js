@@ -24,6 +24,7 @@ export const ProviderService = ({ children }) => {
         });
       })
       .catch((err) => console.log(err));
+
   };
 
   const getSevicesClient = async () => {

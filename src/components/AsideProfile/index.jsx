@@ -5,6 +5,7 @@ import Button from "../Button";
 
 import { MdHomeRepairService } from "react-icons/md";
 import { FaPeopleArrows } from "react-icons/fa";
+import { FiUserPlus } from "react-icons/fi";
 
 const AsideProfile = ({ handlePage, profile = true, setNewSupplier }) => {
   const { userLogin, supplier } = useUser();
@@ -39,7 +40,10 @@ const AsideProfile = ({ handlePage, profile = true, setNewSupplier }) => {
             }
           />
         ) : (
-          <Button onClick={() => setNewSupplier(true)} text="Seja Membro" />
+          <Button
+            onClick={() => setNewSupplier(true)}
+            text={<FiUserPlus size={20} />}
+          />
         )}
       </Content>
     </Container>

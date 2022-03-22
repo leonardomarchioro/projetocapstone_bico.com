@@ -24,11 +24,9 @@ export const ProviderService = ({ children }) => {
         });
       })
       .catch((err) => console.log(err));
-
   };
 
   const getSevicesClient = async () => {
-    console.log(userLogin);
     const response = await bicoApi
       .get(`/services?clientId=${userLogin.id}`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -123,7 +121,6 @@ export const ProviderService = ({ children }) => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
-        console.log(res.data[0].services_taken);
         attServiceReview(
           category,
           dataId,
@@ -181,10 +178,11 @@ export const ProviderService = ({ children }) => {
       .catch((err) => error());
   };
 
-  const deleteService = async (dataId) => {
+  const deleteService = async (dataId, success, error) => {
     const response = await bicoApi.delete(`/services/${dataId}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
+    success();
     getSevicesClient();
   };
 

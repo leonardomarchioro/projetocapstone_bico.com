@@ -89,6 +89,7 @@ const ServiceRequest = ({ showService }) => {
             rows="5"
             cols="33"
             maxLength="150"
+            placeholder="Escreva aqui uma descrição do serviço que você quer solicitar"
           />
           <div className="errorMessage">
             {!!errors.description && <span>{errors.description.message}</span>}

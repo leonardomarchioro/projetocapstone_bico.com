@@ -28,6 +28,12 @@ export const Li = styled.li`
     display: flex;
     justify-content: space-between;
   }
+  .Client {
+    width: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
 `;
 
 export const Div = styled.div``;

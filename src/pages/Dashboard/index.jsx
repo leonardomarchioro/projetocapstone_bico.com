@@ -9,14 +9,25 @@ import DashboardClient from "../../components/DashboardClient";
 
 import { useUser } from "../../providers/User";
 import { useState, useEffect } from "react";
-import ServiceSupplier from "../../components/DashboardSuplier";
+import ModalConfirmation from "../../components/ModalConfirmation";
 
 const Dashboard = () => {
   const { userLogin, supplierGet } = useUser();
   const [client, setClient] = useState(true);
+  const [showService, setShowService] = useState(false);
+  const [profile, setProfile] = useState(false);
+  const [newSupplier, setNewSupplier] = useState(false);
+
+  const handleService = () => {
+    setShowService(!showService);
+  };
 
   const handlePage = () => {
     client ? setClient(false) : setClient(true);
+  };
+
+  const handleProfile = () => {
+    setProfile(!profile);
   };
 
   useEffect(() => {
@@ -27,10 +38,22 @@ const Dashboard = () => {
 
   return (
     <Container>
-      <Logo />
-      <DashNavMobile />
-      <AsideProfile handlePage={handlePage} />
-      {client ? <DashboardClient /> : <DashboardSuplier />}
+      {newSupplier && <ModalConfirmation setNewSupplier={setNewSupplier} />}
+      <Logo className="logo" />
+      <DashNavMobile
+        handleService={handleService}
+        handleProfile={handleProfile}
+      />
+      <AsideProfile
+        handlePage={handlePage}
+        profile={profile}
+        setNewSupplier={setNewSupplier}
+      />
+      {client ? (
+        <DashboardClient showService={showService} />
+      ) : (
+        <DashboardSuplier />
+      )}
     </Container>
   );
 };

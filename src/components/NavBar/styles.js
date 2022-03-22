@@ -113,7 +113,21 @@ export const ContainerUpLink = styled.li`
     font-size: 12px;
     letter-spacing: 0.1rem;
     color: var(--primary-tittle);
+
   }
+
+  div a{
+  transition: 0.5s;
+  &:hover {
+      filter: drop-shadow(10px 10px 4px var(--primary-tittle));
+    }
+
+    div button {
+      background-color: black;
+    }
+
+
+}
   @media screen and (min-width: 620px) {
     button {
       font-size: 16px;
@@ -125,4 +139,21 @@ export const ContainerDownLink = styled.li`
   display: flex;
   justify-content: space-around;
   flex: 1;
-`;
+
+div a{
+  transition: 0.5s;
+  &:hover {
+      filter: drop-shadow(10px 10px 4px var(--primary-tittle));
+    }
+}
+
+` ;
+
+
+export const Div = styled.div`
+cursor: pointer;
+transition: 0.5s;
+  &:hover {
+      filter: drop-shadow(10px 10px 4px var(--primary-tittle));
+    }
+`

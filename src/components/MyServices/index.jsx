@@ -1,44 +1,26 @@
 import { useService } from "../../providers/Services";
-import { useEffect, useState } from "react";
-import Button from "../Button";
+import { useEffect } from "react";
+import MyServicesComponent from "../../MyServicesComponent";
+import { Container } from "./styles";
+import ModalInfoMyService from "../ModalInfoMyService";
 
-const MyServices = () => {
-  const { getSevicesClient, services, deleteService, attServiceReview } =
-    useService();
-
-  console.log(services);
+const MyServices = ({ showService }) => {
+  const { getSevicesClient, services } = useService();
 
   useEffect(() => {
     getSevicesClient();
   }, []);
 
-  // console.log(services);
   return (
-    <div>
+    <Container showService={showService}>
+      <h1>MEUS SERVIÇOS SOLICITADOS</h1>
       <ul>
         {services.map((service) => {
-          return (
-            <li key={service.id} id={service.id}>
-              <h2>{service.category}</h2>
-              <span>{service.dateActual}</span>
-              <Button
-                text="Excluir"
-                onClick={() => deleteService(service.id)}
-              />
-              <Button
-                text="review"
-                onClick={() =>
-                  attServiceReview(service.id, {
-                    score: 5,
-                    comment: " trabalha direitinho o rapaz",
-                  })
-                }
-              />
-            </li>
-          );
+          console.log(service.supplier);
+          return <MyServicesComponent key={service.id} service={service} />;
         })}
       </ul>
-    </div>
+    </Container>
   );
 };
 export default MyServices;

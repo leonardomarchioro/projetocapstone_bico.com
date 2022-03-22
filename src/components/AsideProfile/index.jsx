@@ -1,45 +1,51 @@
-import { Container } from "./styles";
+import { Container, Content } from "./styles";
 import { useUser } from "../../providers/User";
 import { useState } from "react";
 import Button from "../Button";
-import { toast } from "react-toastify";
 
-const AsideProfile = ({ handlePage }) => {
-  const { addSupplier, userLogin, supplier } = useUser();
+import { MdHomeRepairService } from "react-icons/md";
+import { FaPeopleArrows } from "react-icons/fa";
+import { FiUserPlus } from "react-icons/fi";
+
+const AsideProfile = ({ handlePage, profile, setNewSupplier }) => {
+  const { userLogin, supplier } = useUser();
   const [page, setPage] = useState("Biqueiro");
 
-  const success = () => {
-    toast.success("Biqueiro cadastrado com sucesso!");
-  };
-  const error = () => {
-    toast.error("Houve algum erro, tente mais tarde");
-  };
-
   return (
-    <Container>
-      <img
-        src="https://thenexus.one/storage/2022/03/Featured-Image-Luffy-hat.jpg"
-        alt="Luffysan"
-      />
-
-      <span>{userLogin.name}</span>
-      {supplier ? (
+    <Container profile={profile}>
+      <Content>
         <div>
-          <div>Página de biqueiro</div>
+          <figure>
+            <img
+              src="https://thenexus.one/storage/2022/03/Featured-Image-Luffy-hat.jpg"
+              alt="Luffysan"
+            />
+          </figure>
+
+          <span>{userLogin.name}</span>
+        </div>
+
+        {supplier ? (
           <Button
             onClick={() => {
               handlePage();
               page === "Biqueiro" ? setPage("Cliente") : setPage("Biqueiro");
             }}
-            text={`Página de ${page}`}
+            text={
+              page === "Biqueiro" ? (
+                <FaPeopleArrows size={20} />
+              ) : (
+                <MdHomeRepairService size={20} />
+              )
+            }
           />
-        </div>
-      ) : (
-        <Button
-          onClick={() => addSupplier(success, error)}
-          text="Seja Membro"
-        />
-      )}
+        ) : (
+          <Button
+            onClick={() => setNewSupplier(true)}
+            text={<FiUserPlus size={20} />}
+          />
+        )}
+      </Content>
     </Container>
   );
 };

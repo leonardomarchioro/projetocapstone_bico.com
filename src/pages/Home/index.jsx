@@ -38,7 +38,7 @@ const Home = () => {
           <Header openModalLogin={openModalLogin} />
           {modalLoginUp && <ModalLogin openModalLogin={openModalLogin} />}
         </div>
-        <Content>
+        <Content modalLoginUp={modalLoginUp}>
           <section className="containerMobile">
             <h3>CHEGA MAIS!</h3>
             <h2>Contrate serviços ou ofereça seus trabalhos</h2>

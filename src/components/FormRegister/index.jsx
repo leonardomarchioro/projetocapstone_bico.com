@@ -80,7 +80,7 @@ const FormRegister = () => {
     <ContainerPage>
       <ContainerTitle>
         <h4>
-          Já possuí uma conta?{" "}
+          Já possui uma conta?{" "}
           <Link to={{ pathname: "/", prevPath: "/register" }}>Login</Link>
         </h4>
       </ContainerTitle>

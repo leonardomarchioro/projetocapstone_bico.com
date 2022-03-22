@@ -21,6 +21,10 @@ export const ContainerPage = styled.div`
     padding-top: 30px;
     padding-bottom: 10px;
 
+    @media (min-width: 1024px) {
+      width: 350px;
+    }
+
     > section {
       width: 80%;
       display: flex;
@@ -30,7 +34,7 @@ export const ContainerPage = styled.div`
         width: 265px;
         height: 38px;
         border-radius: 4px;
-        background: var(--color-primary-2);
+        background: #4f9bd1;
         color: white;
         margin-bottom: 20px;
         transition: background 0.5s;
@@ -40,7 +44,6 @@ export const ContainerPage = styled.div`
       }
     }
   }
-
   @media (max-width: 850px) {
     width: 100%;
   }
@@ -69,6 +72,22 @@ export const ContainerTitle = styled.div`
     color: var(--primary-tittle);
     font-size: 22px;
     font-weight: 500;
+
+    @media (min-width: 320px) {
+      font-size: 1.2rem;
+    }
+
+    @media (min-width: 375px) {
+      font-size: 1.3rem;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 1.6rem;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 1.5rem;
+    }
 
     > a {
       color: #1091ee;

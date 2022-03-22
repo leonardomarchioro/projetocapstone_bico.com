@@ -67,6 +67,7 @@ export const Content = styled.div`
     }
     p {
       line-height: 25px;
+      font-weight: 500;
     }
   }
 

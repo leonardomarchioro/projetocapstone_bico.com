@@ -21,8 +21,20 @@ export const ContainerPassword = styled.div`
 `;
 
 export const InputEye = styled.section`
-  width: 85%;
+  width: 89.022%;
   display: flex;
+
+  @media (min-width: 768px) {
+    width: 89.72%;
+  }
+
+  @media (min-width: 1024px) {
+    width: 89.82%;
+  }
+
+  @media (min-width: 1440px) {
+    width: 89.022%;
+  }
 
   input {
     width: 100%;
@@ -34,7 +46,6 @@ export const InputEye = styled.section`
     color: var(--title-1);
     position: relative;
     right: -8px;
-
     &::placeholder {
       color: var(--color-scrollbar);
     }
@@ -43,7 +54,6 @@ export const InputEye = styled.section`
     border: 1px solid #000;
     color: #000;
   }
-
   input:focus::-webkit-input-placeholder {
     color: #000;
   }

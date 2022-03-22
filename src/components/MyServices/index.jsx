@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import MyServicesComponent from "../../MyServicesComponent";
 import { Container } from "./styles";
 import ModalInfoMyService from "../ModalInfoMyService";
+import empty from "../../assets/empty.svg";
 
 const MyServices = ({ showService }) => {
   const { getSevicesClient, services } = useService();
@@ -15,10 +16,14 @@ const MyServices = ({ showService }) => {
     <Container showService={showService}>
       <h1>MEUS SERVIÇOS SOLICITADOS</h1>
       <ul>
-        {services.map((service) => {
-          console.log(service.supplier);
-          return <MyServicesComponent key={service.id} service={service} />;
-        })}
+        {services.length === 0 ? (
+          <img src={empty} alt="empty" />
+        ) : (
+          services.map((service) => {
+            console.log(service.supplier);
+            return <MyServicesComponent key={service.id} service={service} />;
+          })
+        )}
       </ul>
     </Container>
   );

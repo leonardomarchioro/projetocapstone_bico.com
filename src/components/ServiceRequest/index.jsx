@@ -21,7 +21,9 @@ const ServiceRequest = ({ showService }) => {
       .matches(/^[ a-zA-Z á]*$/, "Deve conter apenas letras"),
     date: yup
       .date()
-      .required("Data obigatória")
+      .nullable()
+      .transform((curr, orig) => (orig === "" ? null : curr))
+      .required("Data é obrigatória")
       .min(currentDate, "Só é possível incluir datas futuras"),
     description: yup.string().required("Descrição do serviço obrigatória"),
   });
@@ -70,16 +72,11 @@ const ServiceRequest = ({ showService }) => {
             placeholder="Ex: Jardinagem"
           />
           <Input
-            label="Selecione uma data para o serviço"
+            label="Selecione a data do serviço"
             register={register}
             name={"date"}
             error={errors.date?.message}
             type="date"
-          />
-          <Button
-            text="Solicitar serviço"
-            type="submit"
-            className="buttonDesktop"
           />
         </div>
         <div className="textArea">

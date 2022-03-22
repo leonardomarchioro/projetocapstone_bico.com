@@ -10,6 +10,7 @@ export const InputWrapper = styled.div`
 export const LabCont = styled.div`
   width: 85%;
   height: 25px;
+  color: #003347;
 `;
 
 export const ContainerInput = styled.div`

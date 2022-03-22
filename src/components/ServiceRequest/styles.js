@@ -29,14 +29,22 @@ export const Container = styled.div`
 
     .inputArea {
       margin-top: 30px;
-      width: 95%;
+      width: 100%;
+      height: 180px;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      flex-direction: column;
     }
 
     .textArea {
       margin: 0 auto;
-      width: 80%;
+      width: 85%;
+      color: #003347;
 
       textarea {
+        margin-top: 5px;
         width: 100%;
         background-color: #b9d9f0;
         border: ${({ error }) => (error ? "1px solid #ff0033" : "transparent")};
@@ -44,6 +52,7 @@ export const Container = styled.div`
         text-indent: 10px;
         color: var(--title-1);
         padding: 10px 5px;
+        resize: none;
 
         &::placeholder {
           color: var(--color-scrollbar);
@@ -58,6 +67,8 @@ export const Container = styled.div`
       justify-content: center;
       margin-bottom: 10px;
       color: #ff0033;
+      justify-content: space-between;
+      align-items: center;
     }
   }
 

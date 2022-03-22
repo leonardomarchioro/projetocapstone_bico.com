@@ -5,13 +5,13 @@ export const Container = styled.main`
   min-width: 320px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   min-height: 100vh;
   padding-bottom: 50px;
 
   > div:nth-child(1) {
-    padding: 20px;
+    padding: 20px 10px;
+    margin-left: 0;
     width: 100%;
   }
 

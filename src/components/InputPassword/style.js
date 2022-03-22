@@ -21,8 +21,16 @@ export const ContainerPassword = styled.div`
 `;
 
 export const InputEye = styled.section`
-  width: 89.022%;
+  width: 89.63%;
   display: flex;
+
+  @media (min-width: 375px) {
+    width: 88.95%;
+  }
+
+  @media (min-width: 425px) {
+    width: 88.485%;
+  }
 
   @media (min-width: 768px) {
     width: 89.72%;

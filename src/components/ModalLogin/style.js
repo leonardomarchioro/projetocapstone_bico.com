@@ -6,7 +6,13 @@ export const ContainerModal = styled.div`
   align-items: center;
   position: absolute;
   width: 100%;
-
+  > section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+  }
   form {
     display: flex;
     width: 90%;

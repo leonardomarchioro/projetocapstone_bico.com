@@ -7,6 +7,15 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: row;
   justify-content: center;
+
+  @media screen and (min-width: 1024px) {
+    display: ${({ profile }) => (profile ? "flex" : "flex")};
+    width: 303px;
+    height: 678px;
+    background-color: #fff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+  }
 `;
 
 export const Content = styled.div`
@@ -51,6 +60,16 @@ export const Content = styled.div`
       border-radius: 50%;
       width: 50px;
       height: 50px;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-evenly;
+
+    > div {
+      gap: 1rem;
     }
   }
 `;

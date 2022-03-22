@@ -38,22 +38,27 @@ const Dashboard = () => {
 
   return (
     <Container>
-      {newSupplier && <ModalConfirmation setNewSupplier={setNewSupplier} />}
       <Logo className="logo" />
-      <DashNavMobile
-        handleService={handleService}
-        handleProfile={handleProfile}
-      />
-      <AsideProfile
-        handlePage={handlePage}
-        profile={profile}
-        setNewSupplier={setNewSupplier}
-      />
-      {client ? (
-        <DashboardClient showService={showService} />
-      ) : (
-        <DashboardSuplier />
-      )}
+      <section>
+        {newSupplier && <ModalConfirmation setNewSupplier={setNewSupplier} />}
+
+        <DashNavMobile
+          handleService={handleService}
+          handleProfile={handleProfile}
+        />
+
+        <AsideProfile
+          handlePage={handlePage}
+          profile={profile}
+          setNewSupplier={setNewSupplier}
+        />
+
+        {client ? (
+          <DashboardClient showService={showService} />
+        ) : (
+          <DashboardSuplier />
+        )}
+      </section>
     </Container>
   );
 };

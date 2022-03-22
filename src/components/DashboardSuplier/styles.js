@@ -33,4 +33,9 @@ export const Container = styled.div`
     min-height: 400px;
     max-height: 600px;
   }
+  @media screen and (min-width: 1024px) {
+    height: 640px;
+    width: 750px;
+    padding: 0;
+  }
 `;

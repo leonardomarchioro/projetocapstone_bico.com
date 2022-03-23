@@ -8,9 +8,14 @@ import Button from "../Button";
 import { MdHomeRepairService } from "react-icons/md";
 import { FaPeopleArrows } from "react-icons/fa";
 
-const DashNavMobile = ({ handleService, handleProfile, handlePage }) => {
+const DashNavMobile = ({
+  handleService,
+  handleProfile,
+  handlePage,
+  setNewSupplier,
+}) => {
   const history = useHistory();
-  const { userLogin, supplier, handleLogout, setNewSupplier } = useUser();
+  const { userLogin, supplier, handleLogout } = useUser();
 
   const [page, setPage] = useState("Biqueiro");
 

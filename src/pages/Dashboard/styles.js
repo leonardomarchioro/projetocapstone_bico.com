@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.main`
   background-color: var(--color-primary);
-  min-width: 300px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -40,12 +39,19 @@ export const Container = styled.main`
       margin: 0;
 
       > div:nth-child(2) {
-        width: 150px;
+        width: 250px;
       }
 
       > div:nth-child(4) {
         margin: 0;
         margin-right: 30px;
+      }
+    }
+  }
+  @media screen and (min-width: 1440px) {
+    > section {
+      > div:nth-child(2) {
+        width: 400px;
       }
     }
   }

@@ -15,7 +15,7 @@ const AverageReview = () => {
     <Container>
       <span>
         <GoStar size={25} color="#dddd0f" />
-        <strong>{average.toFixed(1)}</strong>
+        <strong>{average > 0 ? average.toFixed(1) : "0"}</strong>
       </span>
     </Container>
   );

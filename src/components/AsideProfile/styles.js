@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  min-width: 300px;
   width: 90%;
   display: ${({ profile }) => (profile ? "flex" : "none")};
   flex-direction: column;
@@ -15,8 +14,8 @@ export const Container = styled.div`
 
   @media screen and (min-width: 1024px) {
     display: ${({ profile }) => (profile ? "flex" : "flex")};
-    min-width: 100px;
-    height: 600px;
+    width: 250px;
+    height: 680px;
     background-color: #fff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
@@ -26,6 +25,10 @@ export const Container = styled.div`
       background-color: transparent;
       color: #3b87b0;
     }
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 310px;
   }
 `;
 

@@ -30,8 +30,7 @@ export const Container = styled.div`
     min-width: 300px;
     width: 100%;
     overflow-y: scroll;
-    min-height: 400px;
-    max-height: 600px;
+
     padding-left: 8px;
     display: flex;
     flex-direction: column;
@@ -61,16 +60,21 @@ export const Container = styled.div`
   .empty {
     color: red;
   }
+  @media screen and (max-width: 768px) {
+    ul {
+      min-height: 400px;
+      max-height: 600px;
+    }
+  }
   @media screen and (min-width: 1024px) {
-    height: 600px;
     min-width: 600px;
     padding-right: 30px;
     width: 95%;
-
+    height: 680px;
     margin: 0;
 
     ul {
-      height: 560px;
+      height: 95%;
       .svgEmpty {
         width: 90%;
       }

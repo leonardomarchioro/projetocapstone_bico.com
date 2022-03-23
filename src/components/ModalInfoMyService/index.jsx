@@ -25,7 +25,7 @@ const ModalInfoMyService = ({
           {service.supplier[0].name}
         </h2>
 
-        <AverageReview />
+        <AverageReview service={service} />
 
         <span>
           E-mail: <br />

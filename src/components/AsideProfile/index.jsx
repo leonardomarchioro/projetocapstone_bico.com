@@ -35,7 +35,7 @@ const AsideProfile = ({ handlePage, profile, setNewSupplier }) => {
                 {...userLogin.avatar?.avatarConfig}
               />
             </div>
-            {supplier && <AverageReview />}
+            {supplier && <AverageReview asideProfile={true} />}
             <span>{userLogin.name}</span>
           </div>
 

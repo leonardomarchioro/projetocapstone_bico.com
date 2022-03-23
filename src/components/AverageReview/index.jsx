@@ -3,12 +3,16 @@ import { useService } from "../../providers/Services";
 import { GoStar } from "react-icons/go";
 import { Container } from "./styles";
 import { useEffect } from "react";
-const AverageReview = () => {
+const AverageReview = ({ service = false, asideProfile = false }) => {
   const { supplier } = useUser();
   const { average, UpdateAverage } = useService();
 
   useEffect(() => {
-    UpdateAverage(supplier[0].id);
+    if (asideProfile) {
+      UpdateAverage(supplier[0].id);
+    } else if (!asideProfile) {
+      UpdateAverage(service.supplier[0].id);
+    }
   }, []);
 
   return (

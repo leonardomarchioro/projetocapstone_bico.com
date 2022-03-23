@@ -16,7 +16,15 @@ export const Container = styled.div`
 
   > div {
     display: flex;
-    gap: 10px;
+    gap: 1rem;
+    align-items: center;
+    > section {
+      margin: 0;
+      background-color: transparent;
+      > button {
+        box-shadow: none;
+      }
+    }
   }
 
   button {

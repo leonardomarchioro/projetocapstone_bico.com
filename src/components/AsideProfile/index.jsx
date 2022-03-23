@@ -9,11 +9,13 @@ import { FaPeopleArrows } from "react-icons/fa";
 import { FiUserPlus, FiLogIn } from "react-icons/fi";
 
 import Avatar from "react-nice-avatar";
+import Average from "../Average";
 
 const AsideProfile = ({ handlePage, profile, setNewSupplier }) => {
   const { userLogin, supplier, handleLogout } = useUser();
   const [page, setPage] = useState("Biqueiro");
   const [showModalAvatars, setShowModalAvatars] = useState(false);
+  console.log(supplier);
 
   return (
     <>
@@ -33,7 +35,7 @@ const AsideProfile = ({ handlePage, profile, setNewSupplier }) => {
                 {...userLogin.avatar?.avatarConfig}
               />
             </div>
-
+            {supplier && <Average />}
             <span>{userLogin.name}</span>
           </div>
 

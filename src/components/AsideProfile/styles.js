@@ -43,8 +43,8 @@ export const Content = styled.div`
   .avatarContainer {
     width: 60%;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
     figure {
       display: flex;
       justify-content: center;
@@ -59,6 +59,7 @@ export const Content = styled.div`
       }
     }
     span {
+      font-weight: 600;
       text-align: center;
     }
   }
@@ -74,11 +75,13 @@ export const Content = styled.div`
       border-radius: 50%;
       width: 50px;
       height: 50px;
+      display: none;
     }
   }
   .avatar-container {
     cursor: pointer;
     transition: 0.4s;
+
     &:hover {
       transform: scale(1.1);
     }
@@ -91,7 +94,7 @@ export const Content = styled.div`
 
     .avatarContainer {
       width: 100%;
-      display: flex;
+      flex-direction: column;
       align-items: center;
     }
 
@@ -99,6 +102,22 @@ export const Content = styled.div`
       width: 100%;
       display: flex;
       justify-content: center;
+
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.4s;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+    button {
+      transition: 0.4s;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 `;

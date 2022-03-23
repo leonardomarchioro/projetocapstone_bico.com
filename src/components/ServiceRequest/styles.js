@@ -99,6 +99,7 @@ export const Container = styled.div`
         width: 60%;
         > textarea {
           height: 160px;
+          width: 95%;
         }
       }
 

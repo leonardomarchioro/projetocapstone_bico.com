@@ -46,6 +46,7 @@ const Dashboard = () => {
         <DashNavMobile
           handleService={handleService}
           handleProfile={handleProfile}
+          handlePage={handlePage}
         />
 
         <AsideProfile

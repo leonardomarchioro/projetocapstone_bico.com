@@ -34,7 +34,7 @@ const ModalReview = ({ setShowModalReview, setShowModalInfo, service }) => {
 
   const postReview = ({ description }) => {
     const data = {
-      score: rating,
+      score: rating + 1,
       description,
     };
     getServiceTakenSupplier(

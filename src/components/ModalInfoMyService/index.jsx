@@ -3,12 +3,18 @@ import { toast } from "react-toastify";
 import { ContainerModal, Div, Modal } from "./style";
 import { BiLogOutCircle } from "react-icons/bi";
 import AverageReview from "../AverageReview";
+import { useState, useCallback, useEffect } from "react";
 const ModalInfoMyService = ({
   service,
   setShowModalInfo,
   setShowModalReview,
 }) => {
-  const { regectSupplierToService } = useService();
+  const { regectSupplierToService, UpdateAverage } = useService();
+  const [avarage, setAvarage] = useState(0);
+  const getAvarage = useCallback(async () => {
+    const avarageUpdated = await UpdateAverage(service.supplier[0].id);
+    setAvarage(avarageUpdated);
+  }, [UpdateAverage, service.supplier]);
 
   const success = (msn) => {
     toast.success(msn);
@@ -17,6 +23,9 @@ const ModalInfoMyService = ({
     toast.error("Houve algum erro, tente mais tarde");
   };
 
+  useEffect(() => {
+    getAvarage();
+  }, [getAvarage]);
   return (
     <ContainerModal>
       <Modal>
@@ -25,7 +34,7 @@ const ModalInfoMyService = ({
           {service.supplier[0].name}
         </h2>
 
-        <AverageReview service={service} />
+        <AverageReview avarage={avarage} />
 
         <span>
           E-mail: <br />

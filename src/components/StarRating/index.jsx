@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Container } from "./styles";
 import { BsStarFill } from "react-icons/bs";
 
@@ -6,7 +5,6 @@ const StarRating = ({ setRating, setHover, rating, hover }) => {
   return (
     <Container>
       {[...Array(5)].map((star, index) => {
-        index += 1;
         return (
           <button
             type="button"

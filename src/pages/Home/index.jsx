@@ -23,7 +23,6 @@ const Home = () => {
   }, [prevPath]);
 
   const openModalLogin = () => {
-    //FUNÇAO PARA ABRIR MODAL DE LOGIN, IMPLEMENTAR PROVIDER
     setModalLoginUp((prevCheck) => !prevCheck);
   };
 
@@ -45,14 +44,13 @@ const Home = () => {
             <h2>Contrate serviços ou ofereça seus trabalhos</h2>
             <p>TRABALHE FAZENDO BICOS OU CONTRATE-OS</p>
             <figure>
-              <img src={HomeImg} alt="logo" />
+              {modalLoginUp === false && <img src={HomeImg} alt="logo" />}
             </figure>
             <span>
               Receba diariamente anúncios de bicos , ganhe desconto a cada
-              avaliação de serviço prestado e muito mais!{" "}
+              avaliação de serviço prestado e muito mais!
             </span>
           </section>
-
           <section className="containerDesktop">
             <figure>
               <img src={HomeImg} alt="logo" />

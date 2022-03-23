@@ -76,6 +76,7 @@ export const ContainerModal = styled.div`
     z-index: 1;
     width: 100%;
     margin-top: 100px;
+    margin-right: 19.6%;
 
     form {
       width: 27%;
@@ -106,7 +107,7 @@ export const ContainerModal = styled.div`
   @media only screen and (min-width: 1440px) {
     z-index: 1;
     width: 100%;
-    height: 100%;
+
     margin-top: 100px;
 
     form {

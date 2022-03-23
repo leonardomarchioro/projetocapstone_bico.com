@@ -1,15 +1,15 @@
 import { useUser } from "../../providers/User";
+import { useService } from "../../providers/Services";
 import { GoStar } from "react-icons/go";
 import { Container } from "./styles";
-
-const Average = () => {
+import { useEffect } from "react";
+const AverageReview = () => {
   const { supplier } = useUser();
+  const { average, UpdateAverage } = useService();
 
-  const sumScore = supplier[0].services_taken.reduce((prev, curr) => {
-    return curr.review.score + prev;
-  }, 0);
-
-  const average = sumScore / supplier[0].services_taken.length;
+  useEffect(() => {
+    UpdateAverage(supplier[0].id);
+  }, []);
 
   return (
     <Container>
@@ -20,4 +20,4 @@ const Average = () => {
     </Container>
   );
 };
-export default Average;
+export default AverageReview;

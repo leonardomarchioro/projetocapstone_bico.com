@@ -5,11 +5,12 @@ import { useUser } from "../User";
 const ServiceContext = createContext();
 
 export const ProviderService = ({ children }) => {
-  const { userLogin, token, supplier } = useUser();
+  const { userLogin, token, supplier, supplierGet } = useUser();
   const [services, setService] = useState([]);
   const [allServices, setAllServices] = useState([]);
   const [availableServices, setAvailableServices] = useState([]);
   const [allServicesClient, setAllServicesClient] = useState([]);
+  const [average, setAverage] = useState(0);
 
   const getAllServices = async () => {
     const response = await bicoApi
@@ -103,6 +104,23 @@ export const ProviderService = ({ children }) => {
         error();
       });
   };
+
+  const UpdateAverage = async (supplierId) => {
+    const response = await bicoApi
+      .get(`/suppliers/${supplierId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((res) => {
+        console.log(res.data);
+        const sum = res.data.services_taken.reduce((acc, cur) => {
+          return cur.review.score + acc;
+        }, 0);
+
+        setAverage(sum / res.data.services_taken.length);
+      })
+      .catch((err) => err);
+  };
+
   const getServiceTakenSupplier = async (
     category,
     dataId,
@@ -168,6 +186,7 @@ export const ProviderService = ({ children }) => {
       .then((res) => {
         success("Serviço completado");
         getSevicesClient();
+        UpdateAverage(supplierId);
       })
       .catch((err) => error());
   };
@@ -195,6 +214,8 @@ export const ProviderService = ({ children }) => {
         regectSupplierToService,
         allServicesClient,
         getServiceTakenSupplier,
+        UpdateAverage,
+        average,
       }}
     >
       {children}

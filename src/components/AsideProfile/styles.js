@@ -61,6 +61,7 @@ export const Content = styled.div`
     span {
       font-weight: 600;
       text-align: center;
+      margin-left: 10px;
     }
   }
   section {

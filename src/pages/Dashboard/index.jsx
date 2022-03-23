@@ -47,6 +47,7 @@ const Dashboard = () => {
           handleService={handleService}
           handleProfile={handleProfile}
           handlePage={handlePage}
+          setNewSupplier={setNewSupplier}
         />
 
         <AsideProfile

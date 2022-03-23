@@ -12,6 +12,7 @@ export const Container = styled.section`
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
   overflow: none;
+  z-index: 100000;
 
   > div {
     background: linear-gradient(

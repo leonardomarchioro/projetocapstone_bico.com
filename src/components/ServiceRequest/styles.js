@@ -92,11 +92,17 @@ export const Container = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        > div {
+
+        label {
+          font-size: 14px;
         }
       }
       .textArea {
         width: 60%;
+
+        label {
+          font-size: 14px;
+        }
         > textarea {
           height: 160px;
           width: 95%;

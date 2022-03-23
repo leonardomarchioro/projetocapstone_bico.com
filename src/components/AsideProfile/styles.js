@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   min-width: 300px;
   width: 90%;
-  display: ${({ profile }) => (profile ? "flex" : "none")};
+  display: ${({ profile: { profile } }) => (profile ? "flex" : "none")};
   flex-direction: column;
   align-items: center;
   flex-direction: row;
@@ -14,7 +14,7 @@ export const Container = styled.div`
   }
 
   @media screen and (min-width: 1024px) {
-    display: ${({ profile }) => (profile ? "flex" : "flex")};
+    display: ${({ profile: { profile } }) => (profile ? "flex" : "flex")};
     min-width: 100px;
     height: 600px;
     background-color: #fff;

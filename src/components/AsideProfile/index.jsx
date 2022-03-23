@@ -17,7 +17,7 @@ const AsideProfile = ({ handlePage, profile, setNewSupplier }) => {
 
   return (
     <>
-      <Container profile={profile}>
+      <Container profile={{ profile }}>
         <ModalAvatars
           isOpen={showModalAvatars}
           onClose={() => setShowModalAvatars(false)}

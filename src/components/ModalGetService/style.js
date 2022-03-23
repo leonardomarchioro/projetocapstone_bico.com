@@ -2,14 +2,17 @@ import styled from "styled-components";
 
 export const Container = styled.section`
   width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
+  min-height: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
+  overflow: none;
+  z-index: 1000;
 
   > div {
     background: linear-gradient(
@@ -17,7 +20,9 @@ export const Container = styled.section`
       rgba(120, 188, 237, 1) 0%,
       rgba(213, 227, 248, 1) 50%
     );
-    width: 500px;
+    min-width: 300px;
+    max-width: 500px;
+    width: 90%;
     height: 150px;
     border-radius: 10px;
     display: flex;

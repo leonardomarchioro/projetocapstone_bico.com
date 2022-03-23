@@ -15,7 +15,11 @@ const InputPassword = ({ label, register, name, error, style, ...rest }) => {
       <InputEye style={style} error={error}>
         <input {...register(name)} {...rest} type={type} />
         <button onClick={showPassword} type="button">
-          {type === "password" ? <MdVisibility /> : <MdVisibilityOff />}
+          {type === "password" ? (
+            <MdVisibility size={20} />
+          ) : (
+            <MdVisibilityOff size={20} />
+          )}
         </button>
       </InputEye>
       <div>{!!error && <span>{error}</span>}</div>

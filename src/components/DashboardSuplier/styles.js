@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  padding: 15px 15px 0px 15px;
   min-width: 300px;
   min-height: 138px;
-  max-width: 700px;
-  margin: 10px;
+  width: 90%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   h2 {
     font-size: 16px;
@@ -22,16 +22,22 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     color: #1e637d;
-    min-width: 300px;
+    width: 100%;
   }
   ul {
     background-color: #fff;
     border-radius: 0 0 5px 5px;
-    padding: 10px;
     min-width: 300px;
+    width: 100%;
     overflow-y: scroll;
     min-height: 400px;
     max-height: 600px;
+    padding-left: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     .svgEmpty {
       width: 100%;
@@ -56,8 +62,22 @@ export const Container = styled.div`
     color: red;
   }
   @media screen and (min-width: 1024px) {
-    height: 640px;
-    width: 750px;
-    padding: 0;
+    height: 600px;
+    min-width: 600px;
+    padding-right: 30px;
+    width: 95%;
+
+    margin: 0;
+
+    ul {
+      height: 560px;
+      .svgEmpty {
+        width: 90%;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1316px) {
+    min-width: 700px;
   }
 `;

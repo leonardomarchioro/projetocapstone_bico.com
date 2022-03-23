@@ -6,24 +6,24 @@ import ModalAvatars from "../ModalAvatars";
 
 import { MdHomeRepairService } from "react-icons/md";
 import { FaPeopleArrows } from "react-icons/fa";
-import { FiUserPlus } from "react-icons/fi";
+import { FiUserPlus, FiLogIn } from "react-icons/fi";
 
 import Avatar from "react-nice-avatar";
 
 const AsideProfile = ({ handlePage, profile, setNewSupplier }) => {
-  const { userLogin, supplier } = useUser();
+  const { userLogin, supplier, handleLogout } = useUser();
   const [page, setPage] = useState("Biqueiro");
   const [showModalAvatars, setShowModalAvatars] = useState(false);
 
   return (
     <>
-      <ModalAvatars
-        isOpen={showModalAvatars}
-        onClose={() => setShowModalAvatars(false)}
-      />
       <Container profile={profile}>
+        <ModalAvatars
+          isOpen={showModalAvatars}
+          onClose={() => setShowModalAvatars(false)}
+        />
         <Content>
-          <div>
+          <div className="avatarContainer">
             <div
               className="avatar-container"
               onClick={() => setShowModalAvatars(true)}
@@ -57,6 +57,12 @@ const AsideProfile = ({ handlePage, profile, setNewSupplier }) => {
               text={<FiUserPlus size={20} />}
             />
           )}
+          <button
+            onClick={() => handleLogout()}
+            className="buttonDesktopLogout"
+          >
+            <FiLogIn size={30} />
+          </button>
         </Content>
       </Container>
     </>

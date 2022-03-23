@@ -20,8 +20,14 @@ const ModalInfoMyService = ({
   return (
     <ContainerModal>
       <Modal>
-        <h2>Candidato: {service.supplier[0].name}</h2>
-        <span>E-mail: {service.supplier[0].email}</span>
+        <h2>
+          Candidato: <br />
+          {service.supplier[0].name}
+        </h2>
+        <span>
+          E-mail: <br />
+          {service.supplier[0].email}
+        </span>
         <span>Telefone: {service.supplier[0].phone}</span>
         <BiLogOutCircle size={30} onClick={() => setShowModalInfo(false)} />
         <Div>

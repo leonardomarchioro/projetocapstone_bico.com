@@ -4,10 +4,11 @@ export const Wrapper = styled.div`
   display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
   position: fixed;
   z-index: 1;
-  left: 0;
-  right: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 100%;
-  height: 110%;
+  height: 100%;
   align-items: center;
   overflow: auto;
   background-color: rgb(0, 0, 0);

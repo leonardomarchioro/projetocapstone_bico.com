@@ -21,7 +21,7 @@ export const ContainerPassword = styled.div`
 `;
 
 export const InputEye = styled.section`
-  width: 85%;
+  width: 90%;
   display: flex;
 
   input {

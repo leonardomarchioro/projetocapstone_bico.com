@@ -7,6 +7,7 @@ export const ContainerPage = styled.div`
   min-height: 100vh;
   /* width: 50%; */
   justify-content: center;
+  padding-bottom: 20px;
 
   background-color: var(--bg-color-register-2);
 
@@ -19,13 +20,13 @@ export const ContainerPage = styled.div`
     background-color: var(--form-register);
     border-radius: 20px;
     padding-top: 30px;
-    padding-bottom: 10px;
 
     > section {
       width: 80%;
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin: 0;
       > button {
         width: 265px;
         height: 38px;
@@ -67,7 +68,7 @@ export const ContainerTitle = styled.div`
 
   > h4 {
     color: var(--primary-tittle);
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 500;
 
     > a {
@@ -75,6 +76,12 @@ export const ContainerTitle = styled.div`
     }
     > a:hover {
       text-decoration: underline;
+    }
+  }
+
+  @media (min-width: 450px) {
+    > h4 {
+      font-size: 22px;
     }
   }
 `;

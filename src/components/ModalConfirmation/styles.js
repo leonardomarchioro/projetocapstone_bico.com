@@ -2,14 +2,16 @@ import styled from "styled-components";
 
 export const Container = styled.section`
   width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
+  min-height: 100vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
+  overflow: none;
 
   > div {
     background: linear-gradient(
@@ -50,6 +52,7 @@ export const Container = styled.section`
       }
     }
   }
+
   @media screen and (min-width: 768px) {
     > div {
       width: 400px;

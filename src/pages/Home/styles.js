@@ -3,10 +3,12 @@ import styled from "styled-components";
 export const Container = styled.main`
   background-color: #badbf3;
   min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: #12465a;
+  padding-bottom: 50px;
 
   > div {
     width: 100%;
@@ -109,7 +111,6 @@ export const Content = styled.div`
       display: flex;
       justify-content: center;
       width: 40%;
-      margin-right: 50px;
       height: 300px;
 
       figure {

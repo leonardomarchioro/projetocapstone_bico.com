@@ -12,7 +12,7 @@ export const Li = styled.li`
   padding: 10px;
   cursor: pointer;
   transition: 0.8s;
-  height: 35;
+  height: 50px;
 
   &:hover {
     background-color: ${({ available }) =>
@@ -25,18 +25,40 @@ export const Li = styled.li`
     }
   }
   h2 {
-    font-weight: 400;
-    font-size: 14px;
     transition: 0.5s;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
   }
   .Supplier {
-    width: 235px;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 10px;
   }
   .Client {
     display: flex;
-    width: 95px;
+    width: 70px;
     justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+  }
+
+  @media screen and (min-width: 768px) {
+    h2 {
+      font-size: 14px;
+    }
+
+    .Supplier {
+      width: 250px;
+      justify-content: space-between;
+      flex-direction: row;
+      font-size: 12px;
+    }
+
+    .Client {
+      font-size: 12px;
+      width: 100px;
+    }
   }
 `;

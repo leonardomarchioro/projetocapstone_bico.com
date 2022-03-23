@@ -19,18 +19,20 @@ const ContainerInfo = ({ service }) => {
       )}
       <ContainerService>
         <ContainerInfos>
-          <div>
+          <div className="informationContainer">
             <h3>{service.name}</h3>
             <span>Categoria: {service.category}</span>
           </div>
+        </ContainerInfos>
+        <Div>{service.description}</Div>
+        <div className="informationButton">
           <Button
             id={service.id}
             onClick={() => setgetService(true)}
             text={"Candidatar-se"}
           />
-        </ContainerInfos>
-        <Div>{service.description}</Div>
-        <span>{service.dateActual}</span>
+          <span>{service.dateActual}</span>
+        </div>
       </ContainerService>
     </>
   );

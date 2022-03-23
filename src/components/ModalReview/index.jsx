@@ -65,7 +65,7 @@ const ModalReview = ({ setShowModalReview, setShowModalInfo, service }) => {
             hover={hover}
             setHover={setHover}
           />
-          <div>
+          <div className="containerTextarea">
             <label>Comentário:</label>
             <textarea
               {...register("description")}

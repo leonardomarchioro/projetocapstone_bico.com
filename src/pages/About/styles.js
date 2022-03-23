@@ -59,6 +59,9 @@ export const Content = styled.div`
 
   .containerMobile {
     max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
 
     h3 {
       font-size: 2rem;

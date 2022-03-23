@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const ContainerModal = styled.div`
   position: fixed;
-  top: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -19,14 +21,22 @@ export const Modal = styled.section`
   align-items: center;
   justify-content: space-between;
   padding: 60px 18px;
-  min-width: 350px;
   height: 400px;
   border-radius: 4px;
+  min-width: 300px;
+  width: 90%;
+  max-width: 400px;
+
+  > h2,
+  span {
+    width: 100%;
+    text-align: center;
+  }
 
   > svg {
     position: relative;
     top: -235px;
-    left: 195px;
+    right: -130px;
     color: #f86060;
     cursor: pointer;
     transition: 0.5s;
@@ -43,6 +53,7 @@ export const Modal = styled.section`
     color: white;
     font-weight: 00;
     transition: 0.5s;
+    margin: 0 10px;
     &:hover {
       transform: scale(1.1);
     }

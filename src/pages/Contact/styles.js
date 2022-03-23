@@ -56,7 +56,12 @@ export const Content = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: 50px;
+
+  .containerMobile {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
 
   h2 {
     width: 100%;
@@ -65,7 +70,7 @@ export const Content = styled.div`
     text-transform: uppercase;
   }
 
-  ul {
+  .principaisContatos ul {
     list-style: none;
     padding: 0;
     display: flex;

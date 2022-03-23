@@ -6,6 +6,8 @@ export const ContainerModal = styled.div`
   align-items: center;
   position: absolute;
   width: 100%;
+  top: 120px;
+
   > section {
     display: flex;
     flex-direction: column;
@@ -16,7 +18,7 @@ export const ContainerModal = styled.div`
   form {
     display: flex;
     width: 90%;
-    height: 100%;
+    height: 350px;
     flex-direction: column;
     align-items: center;
     z-index: 1;
@@ -24,9 +26,10 @@ export const ContainerModal = styled.div`
     background-color: var(--color-primary-2);
     border-radius: 10px;
     box-shadow: 0px 3px 3px 0px rgb(0 0 0 / 35%);
+    padding-bottom: 20px;
 
     h3 {
-      padding: 50px 0px 30px;
+      padding: 20px 0px 10px;
     }
 
     section {
@@ -144,7 +147,6 @@ export const Welcome = styled.h3`
 export const ContainerForm = styled.div`
   width: 100%;
   display: flex;
-  height: 434px;
   align-content: center;
   justify-content: center;
 

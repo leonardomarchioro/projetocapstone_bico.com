@@ -2,16 +2,17 @@ import styled from "styled-components";
 
 export const Container = styled.main`
   background-color: var(--color-primary);
-  min-width: 320px;
+  min-width: 300px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* align-items: center; */
   min-height: 100vh;
   padding-bottom: 50px;
+
   > div:first-child {
     padding: 1.5rem;
   }
+
   > section {
     width: 100%;
     height: 100%;
@@ -20,9 +21,8 @@ export const Container = styled.main`
     align-items: center;
     justify-content: center;
     gap: 1rem;
+
     > div:nth-child(1) {
-      padding: 20px;
-      width: 100%;
     }
 
     > div:nth-child(2) {
@@ -32,10 +32,21 @@ export const Container = styled.main`
   }
 
   @media screen and (min-width: 1024px) {
-    padding: 1rem;
     > section {
       display: flex;
       flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin: 0;
+
+      > div:nth-child(2) {
+        width: 150px;
+      }
+
+      > div:nth-child(4) {
+        margin: 0;
+        margin-right: 30px;
+      }
     }
   }
 `;

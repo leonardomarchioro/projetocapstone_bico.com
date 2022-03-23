@@ -29,7 +29,7 @@ const Contact = () => {
     },
     {
       name: "Leonardo Marchioro",
-      role: "Teach Leader",
+      role: "Tech Leader",
       link: "https://www.linkedin.com/in/leonardo-marchioro-224a6a226/",
     },
     {

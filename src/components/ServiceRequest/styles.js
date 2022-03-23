@@ -26,7 +26,7 @@ export const Container = styled.div`
     margin: 0 auto;
     background-color: #dfeefa;
     align-items: center;
-
+    border-radius: 0 0 5px 5px;
     .inputArea {
       margin-top: 30px;
       width: 95%;
@@ -44,6 +44,8 @@ export const Container = styled.div`
         text-indent: 10px;
         color: var(--title-1);
         padding: 10px 5px;
+        resize: none;
+        margin-top: 5px;
 
         &::placeholder {
           color: var(--color-scrollbar);
@@ -55,7 +57,7 @@ export const Container = styled.div`
       height: 16px;
       font-size: 12px;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       margin-bottom: 10px;
       color: #ff0033;
     }
@@ -77,17 +79,24 @@ export const Container = styled.div`
   }
 
   @media screen and (min-width: 1024px) {
-    width: 700px;
+    min-width: 500px;
     height: 321px;
+    width: 100%;
+    display: block;
     form {
+      padding: 0 10px;
+
       .inputArea {
         width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         > div {
-          width: 245px;
         }
       }
       .textArea {
-        padding-right: 1rem;
+        width: 60%;
         > textarea {
           height: 160px;
         }
@@ -103,9 +112,12 @@ export const Container = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-left: 1rem;
-        width: 213px;
+        width: 100%;
       }
     }
+  }
+
+  @media screen and (min-width: 1316px) {
+    min-width: 700px;
   }
 `;

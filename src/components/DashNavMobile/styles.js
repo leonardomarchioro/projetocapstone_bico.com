@@ -5,6 +5,8 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   min-width: 300px;
+  width: 90%;
+
   height: 50px;
   background-color: var(--form-register);
   border-radius: 10px;

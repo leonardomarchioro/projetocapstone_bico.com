@@ -2,19 +2,18 @@ import styled from "styled-components";
 
 export const PageRegister = styled.div`
   width: 100%;
-  min-height: 100%;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   overflow: hidden;
+  background-color: var(--bg-color-register-1);
+
   > section:nth-child(2) {
     flex: 1;
   }
 `;
 
 export const ContainerImg = styled.div`
-  min-height: 100vh;
-
-  background-color: var(--bg-color-register-1);
   display: flex;
   flex-direction: column;
   justify-content: center;

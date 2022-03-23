@@ -16,7 +16,7 @@ export const ProviderUser = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("@token:Bico") || "");
 
   const [supplier, setSuplier] = useState(false);
-
+  console.log(supplier);
   const SignUp = async (data, success, error) => {
     data.type = "client";
     const validation = ApiCheck(data.cep, error);

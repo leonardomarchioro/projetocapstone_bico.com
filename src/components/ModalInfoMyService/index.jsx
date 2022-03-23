@@ -2,7 +2,7 @@ import { useService } from "../../providers/Services";
 import { toast } from "react-toastify";
 import { ContainerModal, Div, Modal } from "./style";
 import { BiLogOutCircle } from "react-icons/bi";
-import AverageReview from "../AverageReview";
+import AverageReviewModal from "../../AverageReviewModal";
 const ModalInfoMyService = ({
   service,
   setShowModalInfo,
@@ -25,7 +25,7 @@ const ModalInfoMyService = ({
           {service.supplier[0].name}
         </h2>
 
-        <AverageReview service={service} />
+        <AverageReviewModal service={service} />
 
         <span>
           E-mail: <br />

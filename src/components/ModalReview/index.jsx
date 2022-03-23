@@ -12,7 +12,7 @@ const ModalReview = ({ setShowModalReview, setShowModalInfo, service }) => {
   const { getServiceTakenSupplier } = useService();
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
-
+  console.log(service);
   const schema = yup.object().shape({
     description: yup.string(),
   });
@@ -38,6 +38,7 @@ const ModalReview = ({ setShowModalReview, setShowModalInfo, service }) => {
       description,
     };
     getServiceTakenSupplier(
+      service.clientId,
       service.category,
       service.id,
       data,

@@ -11,6 +11,7 @@ export const ProviderService = ({ children }) => {
   const [availableServices, setAvailableServices] = useState([]);
   const [allServicesClient, setAllServicesClient] = useState([]);
   const [average, setAverage] = useState(0);
+  const [averageSupplier, setAverageSupplier] = useState(0);
 
   const getAllServices = async () => {
     const response = await bicoApi
@@ -105,7 +106,7 @@ export const ProviderService = ({ children }) => {
       });
   };
 
-  const UpdateAverage = async (supplierId) => {
+  const UpdateAverage = async (supplierId, type) => {
     const response = await bicoApi
       .get(`/suppliers/${supplierId}`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -115,13 +116,17 @@ export const ProviderService = ({ children }) => {
         const sum = res.data.services_taken.reduce((acc, cur) => {
           return cur.review.score + acc;
         }, 0);
-
-        setAverage(sum / res.data.services_taken.length);
+        if (type === "profile") {
+          setAverage(sum / res.data.services_taken.length);
+        } else if (type === "supplier") {
+          setAverageSupplier(sum / res.data.services_taken.length);
+        }
       })
       .catch((err) => err);
   };
 
   const getServiceTakenSupplier = async (
+    clientId,
     category,
     dataId,
     dataReview,
@@ -129,12 +134,15 @@ export const ProviderService = ({ children }) => {
     success,
     error
   ) => {
+    console.log(clientId, supplierId);
     const response = await bicoApi
       .get(`/suppliers?userId=${supplierId}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
+        console.log(res);
         attServiceReview(
+          clientId,
           category,
           dataId,
           dataReview,
@@ -147,6 +155,7 @@ export const ProviderService = ({ children }) => {
   };
 
   const attServiceReview = async (
+    clientId,
     category,
     dataId,
     dataReview,
@@ -186,7 +195,9 @@ export const ProviderService = ({ children }) => {
       .then((res) => {
         success("Serviço completado");
         getSevicesClient();
-        UpdateAverage(supplierId);
+        console.log(supplierId);
+        UpdateAverage(supplierId, "supplier");
+        UpdateAverage(clientId, "profile");
       })
       .catch((err) => error());
   };
@@ -216,6 +227,7 @@ export const ProviderService = ({ children }) => {
         getServiceTakenSupplier,
         UpdateAverage,
         average,
+        averageSupplier,
       }}
     >
       {children}

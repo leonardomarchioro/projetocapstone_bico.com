@@ -1,6 +1,7 @@
 import { Container, Content } from "./styles";
 import { useUser } from "../../providers/User";
-import { useState } from "react";
+import { useService } from "../../providers/Services";
+import { useCallback, useEffect, useState } from "react";
 import Button from "../Button";
 import ModalAvatars from "../ModalAvatars";
 
@@ -13,13 +14,22 @@ import AverageReview from "../AverageReview";
 
 const AsideProfile = ({ handlePage, profile, setNewSupplier }) => {
   const { userLogin, supplier, handleLogout } = useUser();
+  const { UpdateAverage } = useService();
   const [page, setPage] = useState("Biqueiro");
   const [showModalAvatars, setShowModalAvatars] = useState(false);
-  console.log(supplier);
-
+  const [avarage, setAvarage] = useState(0);
+  const getAvarage = useCallback(async () => {
+    if (supplier) {
+      const avarageUpdated = await UpdateAverage(supplier[0].id);
+      setAvarage(avarageUpdated);
+    }
+  }, [UpdateAverage, supplier]);
+  useEffect(() => {
+    getAvarage();
+  }, [getAvarage]);
   return (
     <>
-      <Container profile={profile}>
+      <Container profile={{ profile }}>
         <ModalAvatars
           isOpen={showModalAvatars}
           onClose={() => setShowModalAvatars(false)}
@@ -35,7 +45,7 @@ const AsideProfile = ({ handlePage, profile, setNewSupplier }) => {
                 {...userLogin.avatar?.avatarConfig}
               />
             </div>
-            {supplier && <AverageReview />}
+            {supplier && <AverageReview avarage={avarage} />}
             <span>{userLogin.name}</span>
           </div>
 

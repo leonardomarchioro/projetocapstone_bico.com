@@ -111,14 +111,14 @@ export const ProviderService = ({ children }) => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
-        console.log(res.data);
         const sum = res.data.services_taken.reduce((acc, cur) => {
           return cur.review.score + acc;
         }, 0);
-
-        setAverage(sum / res.data.services_taken.length);
+        const avarage = sum / res.data.services_taken.length;
+        return avarage;
       })
-      .catch((err) => err);
+      .catch(console.log);
+    return response;
   };
 
   const getServiceTakenSupplier = async (
@@ -130,7 +130,7 @@ export const ProviderService = ({ children }) => {
     error
   ) => {
     const response = await bicoApi
-      .get(`/suppliers?userId=${supplierId}`, {
+      .get(`/suppliers/${supplierId}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -139,7 +139,7 @@ export const ProviderService = ({ children }) => {
           dataId,
           dataReview,
           supplierId,
-          res.data[0].services_taken,
+          res.data.services_taken,
           success,
           error
         );

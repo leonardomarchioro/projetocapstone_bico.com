@@ -2,7 +2,6 @@ import { useService } from "../../providers/Services";
 import { useEffect } from "react";
 import MyServicesComponent from "../MyServicesComponent";
 import { Container } from "./styles";
-import ModalInfoMyService from "../ModalInfoMyService";
 import empty from "../../assets/empty.svg";
 
 const MyServices = ({ showService }) => {

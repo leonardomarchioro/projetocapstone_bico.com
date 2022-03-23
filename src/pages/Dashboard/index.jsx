@@ -10,14 +10,13 @@ import DashboardClient from "../../components/DashboardClient";
 import { useUser } from "../../providers/User";
 import { useState, useEffect } from "react";
 import ModalConfirmation from "../../components/ModalConfirmation";
-import ModalGetService from "../../components/ModalGetService";
 
 const Dashboard = () => {
   const { userLogin, supplierGet } = useUser();
   const [client, setClient] = useState(true);
   const [showService, setShowService] = useState(false);
-  /*booleano também funciona com 0 e 1 */
-  const [profile, setProfile] = useState(1);
+
+  const [profile, setProfile] = useState(true);
   const [newSupplier, setNewSupplier] = useState(false);
 
   const handleService = () => {

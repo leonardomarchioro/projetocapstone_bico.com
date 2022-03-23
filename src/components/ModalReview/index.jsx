@@ -18,7 +18,7 @@ const ModalReview = ({ setShowModalReview, setShowModalInfo, service }) => {
   });
 
   const success = () => {
-    toast.success("SErviço concluído com sucesso!");
+    toast.success("Serviço concluído com sucesso!");
   };
   const error = () => {
     toast.error("Houve algum erro, tente mais tarde");

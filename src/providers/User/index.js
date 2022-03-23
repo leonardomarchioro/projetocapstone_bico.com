@@ -19,7 +19,7 @@ export const ProviderUser = ({ children }) => {
 
   const SignUp = async (data, success, error) => {
     data.type = "client";
-    const validation = ApiCheck(data.cep);
+    const validation = ApiCheck(data.cep, error);
     if ((await validation).data.cep) {
       const response = await bicoApi
         .post("/users", data)
@@ -30,10 +30,11 @@ export const ProviderUser = ({ children }) => {
     }
   };
 
-  const ApiCheck = async (cep) => {
-    const response = await axios.get(
-      `https://viacep.com.br/ws/${cep}/json/unicode/`
-    );
+  const ApiCheck = async (cep, error) => {
+    const response = await axios
+      .get(`https://viacep.com.br/ws/${cep}/json/unicode/`)
+      .then((res) => res)
+      .catch((err) => error("CEP inválido!"));
 
     return response;
   };

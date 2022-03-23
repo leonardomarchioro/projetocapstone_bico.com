@@ -22,7 +22,8 @@ const FormRegister = () => {
     name: yup
       .string()
       .required("Nome obrigatório")
-      .matches(/^[ a-zA-Z á]*$/, "Deve conter apenas letras"),
+      .matches(/^[ a-zA-Z á]*$/, "Deve conter apenas letras")
+      .max(16, "Pode conter no máximo 16 carácteres"),
     cep: yup
       .string()
       .required("Cep obrigatório")
@@ -58,8 +59,11 @@ const FormRegister = () => {
     history.push({ pathname: "/", prevPath: "/register" });
   };
   const error = (errorMsg) => {
+    console.log(errorMsg);
     if (errorMsg === "Email already exists") {
       toast.error("Email já cadastrado");
+    } else if (errorMsg === "CEP inválido!") {
+      toast.error(errorMsg);
     } else {
       toast.error("Houve algum erro, tente mais tarde");
     }

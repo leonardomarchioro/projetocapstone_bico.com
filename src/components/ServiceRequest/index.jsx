@@ -20,7 +20,7 @@ const ServiceRequest = ({ showService }) => {
       .required("Tipo de serviço obrigatório")
       .matches(/^[ a-zA-Z á]*$/, "Deve conter apenas letras")
       .min(4, "Deve conter no mínimo 4 caracteres")
-      .max(18, "Máximo de 18 caracteres"),
+      .max(12, "Máximo de 12 caracteres"),
     date: yup
       .date()
       .required("Data obigatória")

@@ -67,7 +67,7 @@ export const Content = styled.div`
         }
       }
       span {
-        width: 400px;
+        width: 377px;
         position: relative;
         left: -160px;
         top: ${({ modalLoginUp }) => (modalLoginUp ? "none" : "-50px")};

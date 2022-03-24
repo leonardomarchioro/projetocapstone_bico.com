@@ -35,12 +35,13 @@ const ModalInfoMyService = ({
         </h2>
 
         <AverageReview avarage={avarage} />
-
-        <span>
-          E-mail: <br />
-          {service.supplier[0].email}
-        </span>
-        <span>Telefone: {service.supplier[0].phone}</span>
+        <div className="Infos">
+          <span>
+            E-mail: <br />
+            {service.supplier[0].email}
+          </span>
+          <span>Telefone: {service.supplier[0].phone}</span>
+        </div>
         <BiLogOutCircle size={30} onClick={() => setShowModalInfo(false)} />
         <Div>
           <button

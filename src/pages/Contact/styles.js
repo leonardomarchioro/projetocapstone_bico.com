@@ -14,11 +14,13 @@ export const Container = styled.main`
   color: #12465a;
   overflow: none;
 
+  .header {
+    padding: 30px;
+  }
   > div {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 30px;
 
     > div > section > button {
       display: flex;
@@ -56,6 +58,7 @@ export const Content = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  padding: 0;
 
   .containerMobile {
     display: flex;
@@ -69,6 +72,9 @@ export const Content = styled.div`
     margin-bottom: 40px;
     text-transform: uppercase;
   }
+  .principaisContatos {
+    padding: 0;
+  }
 
   .principaisContatos ul {
     list-style: none;
@@ -79,7 +85,7 @@ export const Content = styled.div`
 
     li {
       margin-bottom: 20px;
-      max-width: 320px;
+      max-width: 300px;
       width: 300px;
 
       h3 {

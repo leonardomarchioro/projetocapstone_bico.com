@@ -97,6 +97,11 @@ export const Content = styled.div`
       width: 100%;
       flex-direction: column;
       align-items: center;
+
+      span {
+        margin-top: 5px;
+        margin-left: 0%;
+      }
     }
 
     section {

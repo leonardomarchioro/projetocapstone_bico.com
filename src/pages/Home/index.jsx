@@ -9,7 +9,6 @@ import HomeImg from "../../assets/homeimg.svg";
 import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import StarRating from "../../components/StarRating";
 
 const Home = () => {
   const [modalLoginUp, setModalLoginUp] = useState(false);
@@ -39,24 +38,18 @@ const Home = () => {
           {modalLoginUp && <ModalLogin openModalLogin={openModalLogin} />}
         </div>
         <Content modalLoginUp={modalLoginUp}>
-          <section className="containerMobile">
+          <div className="TextContainer">
             <h3>CHEGA MAIS!</h3>
             <h2>Contrate serviços ou ofereça seus trabalhos</h2>
             <p>TRABALHE FAZENDO BICOS OU CONTRATE-OS</p>
-            <figure>
-              {modalLoginUp === false && <img src={HomeImg} alt="logo" />}
-            </figure>
+          </div>
+          <div className="ImagemContainer">
+            <figure>{!modalLoginUp && <img src={HomeImg} alt="logo" />}</figure>
             <span>
               Receba diariamente anúncios de bicos , ganhe desconto a cada
               avaliação de serviço prestado e muito mais!
             </span>
-          </section>
-          <section className="containerDesktop">
-            <figure>
-              <img src={HomeImg} alt="logo" />
-              <figcaption>O faz-tudo de confiança</figcaption>
-            </figure>
-          </section>
+          </div>
         </Content>
       </Container>
     </motion.section>

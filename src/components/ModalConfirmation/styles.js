@@ -20,7 +20,7 @@ export const Container = styled.section`
       rgba(120, 188, 237, 1) 0%,
       rgba(213, 227, 248, 1) 50%
     );
-    width: 500px;
+    width: 300px;
     height: 150px;
     border-radius: 10px;
     display: flex;

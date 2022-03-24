@@ -19,6 +19,7 @@ export const Li = styled.li`
       available ? "#f17e7ec4" : "#00800059"};
     color: #fff;
     font-weight: 700;
+    transform: scale(1.02);
 
     h2 {
       font-weight: 600;

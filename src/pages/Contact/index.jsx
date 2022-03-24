@@ -71,7 +71,7 @@ const Contact = () => {
 
   return (
     <Container>
-      <div>
+      <div className="header">
         <Logo />
         <div>
           <Button

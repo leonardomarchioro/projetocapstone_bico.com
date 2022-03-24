@@ -16,7 +16,9 @@ const MyServices = ({ showService }) => {
       <h1>MEUS SERVIÇOS SOLICITADOS</h1>
       <ul>
         {services.length === 0 ? (
-          <img src={empty} alt="empty" />
+          <figure className="ImagemSVG">
+            <img src={empty} alt="empty" />
+          </figure>
         ) : (
           services.map((service) => {
             return <MyServicesComponent key={service.id} service={service} />;

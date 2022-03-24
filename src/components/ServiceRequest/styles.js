@@ -30,6 +30,9 @@ export const Container = styled.div`
     .inputArea {
       margin-top: 30px;
       width: 95%;
+      label {
+        font-size: 14px;
+      }
     }
 
     .textArea {

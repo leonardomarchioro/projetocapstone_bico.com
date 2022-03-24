@@ -77,6 +77,9 @@ export const Container = styled.div`
       height: 95%;
       .svgEmpty {
         width: 90%;
+        height: 100%;
+        display: flex;
+        justify-content: space-evenly;
       }
     }
   }

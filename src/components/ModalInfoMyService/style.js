@@ -12,6 +12,7 @@ export const ContainerModal = styled.div`
   align-items: center;
   background-color: rgba(0, 0, 0, 0.7);
   justify-content: center;
+  z-index: 9;
 `;
 
 export const Modal = styled.section`
@@ -24,18 +25,28 @@ export const Modal = styled.section`
   height: 400px;
   border-radius: 4px;
   min-width: 300px;
-  width: 90%;
-  max-width: 400px;
+  width: 300px;
 
-  > h2,
-  span {
+  .Infos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    span {
+      padding: 5px;
+      width: 100%;
+      text-align: center;
+      font-weight: 600;
+      line-height: 22px;
+    }
+  }
+  > h2 {
     width: 100%;
     text-align: center;
   }
 
   > svg {
     position: relative;
-    top: -235px;
+    top: -269px;
     right: -130px;
     color: #f86060;
     cursor: pointer;
@@ -60,6 +71,18 @@ export const Modal = styled.section`
   }
   .fechar {
     background-color: #f86060;
+  }
+  @media screen and (min-width: 768px) {
+    width: 500px;
+
+    .Infos > span {
+      font-size: 18px;
+    }
+    > svg {
+      position: relative;
+      top: -269px;
+      right: -231px;
+    }
   }
 `;
 

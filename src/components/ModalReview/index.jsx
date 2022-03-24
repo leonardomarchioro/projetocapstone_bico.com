@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { ContainerModal, Modal } from "./style";
 import StarRating from "../StarRating";
 import { useState } from "react";
-
+import { TiArrowBack } from "react-icons/ti";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
@@ -50,14 +50,17 @@ const ModalReview = ({ setShowModalReview, setShowModalInfo, service }) => {
   return (
     <ContainerModal>
       <Modal>
-        <button
-          onClick={() => {
-            setShowModalInfo(true);
-            setShowModalReview(false);
-          }}
-        >
-          Voltar
-        </button>
+        <div className="Header">
+          <h1>Avaliação de serviço</h1>
+          <TiArrowBack
+            size={30}
+            onClick={() => {
+              setShowModalInfo(true);
+              setShowModalReview(false);
+            }}
+          />
+        </div>
+
         <form onSubmit={handleSubmit(postReview)}>
           <StarRating
             setRating={setRating}

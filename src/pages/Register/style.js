@@ -11,6 +11,11 @@ export const PageRegister = styled.div`
   > section:nth-child(2) {
     flex: 1;
   }
+  @media (min-width: 1440px) {
+    > section {
+      width: 50%;
+    }
+  }
 `;
 
 export const ContainerImg = styled.div`
@@ -22,13 +27,13 @@ export const ContainerImg = styled.div`
   > img {
     width: 490px;
   }
+  @media (max-width: 850px) {
+    display: none;
+  }
 
   @media (max-width: 1000px) {
     > img {
       width: 400px;
     }
-  }
-  @media (max-width: 850px) {
-    display: none;
   }
 `;

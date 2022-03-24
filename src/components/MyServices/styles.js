@@ -28,7 +28,7 @@ export const Container = styled.div`
     max-height: 499px;
     height: 499px;
     list-style: none;
-    padding: 10px 5px;
+    padding: 10px 3px 10px 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,6 +36,17 @@ export const Container = styled.div`
     background-color: #fff;
     border-radius: 0 0 5px 5px;
     overflow-y: scroll;
+
+    .ImagemSVG {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 260px;
+      }
+    }
   }
 
   @media screen and (min-width: 1024px) {

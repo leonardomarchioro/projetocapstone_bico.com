@@ -10,7 +10,6 @@ export const ProviderService = ({ children }) => {
   const [allServices, setAllServices] = useState([]);
   const [availableServices, setAvailableServices] = useState([]);
   const [allServicesClient, setAllServicesClient] = useState([]);
-  const [average, setAverage] = useState(0);
 
   const getAllServices = async () => {
     const response = await bicoApi
@@ -117,7 +116,7 @@ export const ProviderService = ({ children }) => {
         const avarage = sum / res.data.services_taken.length;
         return avarage;
       })
-      .catch(console.log);
+      .catch();
     return response;
   };
 
@@ -215,7 +214,6 @@ export const ProviderService = ({ children }) => {
         allServicesClient,
         getServiceTakenSupplier,
         UpdateAverage,
-        average,
       }}
     >
       {children}

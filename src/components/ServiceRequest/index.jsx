@@ -18,7 +18,9 @@ const ServiceRequest = ({ showService }) => {
     category: yup
       .string()
       .required("Tipo de serviço obrigatório")
-      .matches(/^[ a-zA-Z á]*$/, "Deve conter apenas letras"),
+      .matches(/^[ a-zA-Z á]*$/, "Deve conter apenas letras")
+      .min(4, "Deve conter no mínimo 4 caracteres")
+      .max(18, "Máximo de 18 caracteres"),
     date: yup
       .date()
       .required("Data obigatória")

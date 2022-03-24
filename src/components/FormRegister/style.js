@@ -5,7 +5,6 @@ export const ContainerPage = styled.div`
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  /* width: 50%; */
   justify-content: center;
   padding-bottom: 20px;
 

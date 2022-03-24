@@ -8,7 +8,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 
-const ModalReview = ({ setShowModalReview, setShowModalInfo, service }) => {
+const ModalReview = ({ setShowModalReview, service }) => {
   const { getServiceTakenSupplier } = useService();
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
@@ -51,7 +51,6 @@ const ModalReview = ({ setShowModalReview, setShowModalInfo, service }) => {
           <TiArrowBack
             size={30}
             onClick={() => {
-              setShowModalInfo(true);
               setShowModalReview(false);
             }}
           />
@@ -74,7 +73,7 @@ const ModalReview = ({ setShowModalReview, setShowModalInfo, service }) => {
               placeholder="Escreva um comentário sobre o biqueiro"
             />
           </div>
-          <button type="submit">Enviar</button>
+          <button type="submit">Concluir serviço</button>
         </form>
       </Modal>
     </ContainerModal>

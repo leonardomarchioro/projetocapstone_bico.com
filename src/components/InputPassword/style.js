@@ -5,7 +5,7 @@ export const ContainerPassword = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  margin-bottom: 10px;
   > div {
     height: 25px;
     width: 85%;

@@ -19,13 +19,7 @@ const ModalLogin = () => {
 
   const schema = yup.object().shape({
     email: yup.string().required("Email obrigatório").email("Email inválido"),
-    password: yup
-      .string()
-      .required("Senha obrigatória")
-      .matches(
-        /^[0-9a-zA-Z]{8,}$/,
-        "Deve conter ao menos 8 caracteres e um número"
-      ),
+    password: yup.string().required("Senha obrigatória"),
   });
 
   const {

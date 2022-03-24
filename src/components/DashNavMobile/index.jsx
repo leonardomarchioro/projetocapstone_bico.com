@@ -15,7 +15,7 @@ const DashNavMobile = ({
   setNewSupplier,
 }) => {
   const history = useHistory();
-  const { userLogin, supplier, handleLogout } = useUser();
+  const { supplier, handleLogout } = useUser();
 
   const [page, setPage] = useState("Biqueiro");
 

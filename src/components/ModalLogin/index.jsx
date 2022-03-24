@@ -8,12 +8,12 @@ import Button from "../../components/Button";
 
 import { Link, useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useState } from "react";
+
 import { ContainerModal, Welcome, ContainerForm } from "./style";
 import { toast } from "react-toastify";
 
 const ModalLogin = () => {
-  const { Login, token } = useUser();
+  const { Login } = useUser();
 
   const history = useHistory();
 
@@ -106,7 +106,7 @@ const ModalLogin = () => {
               error={errors.password?.message}
               placeholder="Digite uma senha aqui"
               type="password"
-              style={true}
+              style
             />
             <Button type="submit" text="Login" />
             <h4>Não possui uma conta?</h4>

@@ -14,7 +14,7 @@ const Header = ({ openModalLogin }) => {
   };
 
   const changeStyle = () => {
-    const newColor = style === "cont" ? setStyle("cont2") : setStyle("cont");
+    style === "cont" ? setStyle("cont2") : setStyle("cont");
   };
 
   const wrapperFunc = () => {

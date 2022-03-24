@@ -1,5 +1,3 @@
-import { useUser } from "../../providers/User";
-import { useService } from "../../providers/Services";
 import { GoStar } from "react-icons/go";
 import { Container } from "./styles";
 const AverageReview = ({ avarage }) => {

@@ -5,9 +5,6 @@ import {
   ContainerDownLink,
   Div,
 } from "./styles";
-import ButtonLogin from "../ButtonLogin";
-import { useState } from "react";
-import ModalLogin from "../ModalLogin";
 import { motion } from "framer-motion";
 
 const NavBar = ({ open, wrapperFunc, setModalLoginUp, ModalLoginUp }) => {

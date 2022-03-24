@@ -24,11 +24,7 @@ const ModalReview = ({ setShowModalReview, setShowModalInfo, service }) => {
     toast.error("Houve algum erro, tente mais tarde");
   };
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const { register, handleSubmit } = useForm({
     resolver: yupResolver(schema),
   });
 

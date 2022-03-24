@@ -46,7 +46,7 @@ const Home = () => {
           <div className="ImagemContainer">
             <figure>{!modalLoginUp && <img src={HomeImg} alt="logo" />}</figure>
             <span>
-              Receba diariamente anúncios de bicos , ganhe desconto a cada
+              Receba diariamente anúncios de bicos, ganhe desconto a cada
               avaliação de serviço prestado e muito mais!
             </span>
           </div>

@@ -44,22 +44,20 @@ export const Modal = styled.section`
       width: 100%;
       font-weight: 600;
       line-height: 22px;
+      font-size: 12px;
     }
 
-    .div-info{
+    .div-info {
       display: flex;
       flex-direction: column;
     }
-    .button-info{
-    background-color: #67B3DD;
-    width: 72px;
-    height: 30px;
-    color: white;
+    .button-info {
+      background-color: #67b3dd;
+      width: 72px;
+      height: 30px;
+      color: white;
     }
   }
-  
-
-  
 
   .button-modal {
     background-color: #008000b8;
@@ -77,41 +75,41 @@ export const Modal = styled.section`
     background-color: #f86060;
   }
 
-  .logo{
+  .logo {
     position: relative;
     top: -53px;
     right: -128px;
 
-        svg {
-         color: #f86060;
-        cursor: pointer;
-        transition: 0.5s}
+    svg {
+      color: #f86060;
+      cursor: pointer;
+      transition: 0.5s;
+    }
 
-        &:hover {
-       color: red;
-       transform: scale(1.1)}
+    &:hover {
+      color: red;
+      transform: scale(1.1);
+    }
   }
-.averageName{
+  .averageName {
     display: flex;
     flex-direction: row;
     align-items: center;
 
     > h2 {
-    width: 100%;
-    text-align: center;
-    color: black;
-    text-align: initial;
-    font-weight: 500;
-    font-size: 18px;
-
-    .h2-span{
-      color:#333;
+      width: 100%;
+      text-align: center;
+      color: black;
+      text-align: initial;
+      font-weight: 500;
       font-size: 18px;
 
+      .h2-span {
+        color: #333;
+        font-size: 18px;
+      }
     }
   }
-}
-
 
   @media screen and (min-width: 768px) {
     width: 500px;
@@ -120,16 +118,12 @@ export const Modal = styled.section`
       font-size: 18px;
     }
 
-
-    .logo{
-    position: relative;
-    top: -53px;
-    right: -231px;
+    .logo {
+      position: relative;
+      top: -53px;
+      right: -231px;
+    }
   }
-  }
-
-
-
 `;
 
 export const Div = styled.div`

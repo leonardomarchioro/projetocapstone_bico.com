@@ -6,7 +6,6 @@ export const Container = styled.div`
   font-size: 12px;
 
   header {
-    /* height: 30px; */
     width: 100%;
     display: flex;
     align-items: center;
@@ -17,6 +16,9 @@ export const Container = styled.div`
     font-weight: bold;
     border-radius: 5px 5px 0 0;
     padding-top: 15px;
+    h2 {
+      font-size: 14px;
+    }
   }
   .svg-icon {
     position: relative;
@@ -40,7 +42,7 @@ export const Container = styled.div`
     overflow-y: scroll;
 
     li {
-      margin-top: 10px;
+      margin: 10px 0;
       width: 85%;
       display: flex;
       justify-content: center;
@@ -83,6 +85,9 @@ export const Container = styled.div`
     width: 500px;
     font-size: 16px;
     border-radius: 50%;
+    header > h2 {
+      font-size: 16px;
+    }
     .svg-icon {
       right: -226px;
     }

@@ -18,18 +18,19 @@ export const Container = styled.div`
     border-radius: 5px 5px 0 0;
     padding-top: 15px;
   }
-.svg-icon{
+  .svg-icon {
     position: relative;
     top: -25px;
     right: -130px;
     color: #f86060;
-        cursor: pointer;
-        transition: 0.5s;
+    cursor: pointer;
+    transition: 0.5s;
 
-        &:hover {
-       color: red;
-       transform: scale(1.1)}
-}
+    &:hover {
+      color: red;
+      transform: scale(1.1);
+    }
+  }
   ul {
     width: 100%;
     max-height: 400px;
@@ -53,7 +54,7 @@ export const Container = styled.div`
         align-items: center;
         gap: 5px;
       }
-      >p{
+      > p {
         width: 90%;
         margin-top: 10px;
         color: #333;
@@ -61,28 +62,28 @@ export const Container = styled.div`
     }
   }
 
-.review-average{
-  width: 100%;
-  padding: 0 10px;
-  display: flex;
-  align-items: center;
+  .review-average {
+    width: 100%;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
 
-    >span{
+    > span {
       display: flex;
       align-items: center;
+      font-weight: 600;
     }
-    >h2{
-    font-size: 16px;
-
+    > h2 {
+      font-size: 16px;
     }
-}
+  }
 
   @media screen and (min-width: 768px) {
     width: 500px;
     font-size: 16px;
     border-radius: 50%;
-    .svg-icon{
+    .svg-icon {
       right: -226px;
     }
   }

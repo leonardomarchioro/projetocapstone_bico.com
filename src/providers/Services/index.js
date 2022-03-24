@@ -10,6 +10,7 @@ export const ProviderService = ({ children }) => {
   const [allServices, setAllServices] = useState([]);
   const [availableServices, setAvailableServices] = useState([]);
   const [allServicesClient, setAllServicesClient] = useState([]);
+  const [reviewsTaken, setReviewsTaken] = useState([]);
 
   const getAllServices = async () => {
     const response = await bicoApi
@@ -216,6 +217,14 @@ export const ProviderService = ({ children }) => {
     getSevicesClient();
   };
 
+  const getReviewsSupplier = async (dataId) => {
+    const response = await bicoApi
+      .get(`/suppliers/${dataId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((res) => setReviewsTaken(res.data.services_taken));
+  };
+
   return (
     <ServiceContext.Provider
       value={{
@@ -233,6 +242,8 @@ export const ProviderService = ({ children }) => {
         getServiceTakenSupplier,
         UpdateAverage,
         AceptSupplierToService,
+        getReviewsSupplier,
+        reviewsTaken,
       }}
     >
       {children}

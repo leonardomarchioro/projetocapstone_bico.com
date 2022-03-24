@@ -1,13 +1,20 @@
 import { Container } from "./styles";
 import { GoStar } from "react-icons/go";
 import { BiLogOutCircle } from "react-icons/bi";
+import { useService } from "../../providers/Services";
+import { useEffect } from "react";
 
 const ReviewInformationPopUp = ({ supplierInfo, setOpenReview }) => {
+  const { getReviewsSupplier, reviewsTaken } = useService();
+
+  useEffect(() => {
+    getReviewsSupplier(supplierInfo.id);
+  }, []);
+
   return (
     <Container>
       <header>
         <h2>Reviews {supplierInfo.name}</h2>
-        {/* <span onClick={() => setOpenReview((prev) => !prev)}>Voltar</span> */}
         <BiLogOutCircle
           className="svg-icon"
           size={30}
@@ -15,7 +22,7 @@ const ReviewInformationPopUp = ({ supplierInfo, setOpenReview }) => {
         />
       </header>
       <ul>
-        {supplierInfo.services_taken.map((service, index) => (
+        {reviewsTaken.map((service, index) => (
           <li key={index}>
             <div className="review-average">
               <h2>{service.category}</h2>

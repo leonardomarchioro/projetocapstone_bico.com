@@ -10,9 +10,14 @@ export const ContainerModal = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
   background-color: rgba(0, 0, 0, 0.7);
   justify-content: center;
   z-index: 9;
+
+  @media screen and (min-width: 1024px) {
+    flex-direction: row;
+  }
 `;
 
 export const Modal = styled.section`

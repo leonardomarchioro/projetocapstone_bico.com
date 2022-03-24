@@ -11,6 +11,12 @@ export const PageRegister = styled.div`
   > section:nth-child(2) {
     flex: 1;
   }
+  @media (min-width: 1024px) {
+    > section {
+      width: 50%;
+    }
+  }
+
   @media (min-width: 1440px) {
     > section {
       width: 50%;

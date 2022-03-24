@@ -6,6 +6,8 @@ export const Container = styled.main`
   flex-direction: column;
   color: #12465a;
   background-image: linear-gradient(#d5e3f8, var(--color-primary-2));
+  overflow-y: hidden;
+  max-height: 100vh;
 
   > div {
     width: 100%;

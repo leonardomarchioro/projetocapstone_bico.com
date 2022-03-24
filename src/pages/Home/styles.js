@@ -2,7 +2,8 @@ import styled from "styled-components";
 export const Container = styled.main`
   background-color: #badbf3;
   min-height: 100vh;
-
+  overflow-x: hidden;
+  max-width: 100%;
   color: #12465a;
 `;
 export const Content = styled.div`
@@ -12,6 +13,7 @@ export const Content = styled.div`
   height: 500px;
   justify-content: space-around;
   padding: 15px;
+  min-width: 300px;
   h3 {
     font-weight: 500;
   }

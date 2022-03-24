@@ -23,7 +23,7 @@ const FormRegister = () => {
       .string()
       .required("Nome obrigatório")
       .matches(/^[ a-zA-Z á]*$/, "Deve conter apenas letras")
-      .max(16, "Pode conter no máximo 16 carácteres"),
+      .max(24, "Pode conter no máximo 24 carácteres"),
     cep: yup
       .string()
       .required("Cep obrigatório")

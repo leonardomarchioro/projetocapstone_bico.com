@@ -25,31 +25,44 @@ const MyServicesComponent = ({ service }) => {
         <ModalInfoMyService
           service={service}
           setShowModalInfo={setShowModalInfo}
-          setShowModalReview={setShowModalReview}
         />
       )}
       {showModalReview && (
         <ModalReview
           setShowModalReview={setShowModalReview}
-          setShowModalInfo={setShowModalInfo}
           service={service}
         />
       )}
       {service.supplier.length > 0 ? (
-        <Li
-          key={service.id}
-          id={service.id}
-          onClick={() => setShowModalInfo(true)}
-          available={true}
-        >
-          <h2>{service.category}</h2>
-          <div className="Supplier">
-            <span>Candidato para o serviço</span>
-            <span>{service.dateActual}</span>
-          </div>
-        </Li>
+        service.type === "doing" ? (
+          <Li
+            key={service.id}
+            id={service.id}
+            onClick={() => setShowModalReview(true)}
+            available={"#ff990069"}
+          >
+            <h2>{service.category}</h2>
+            <div className="Doing">
+              <span>Serviço em andamento</span>
+              <span>{service.dateActual}</span>
+            </div>
+          </Li>
+        ) : (
+          <Li
+            key={service.id}
+            id={service.id}
+            onClick={() => setShowModalInfo(true)}
+            available={"#f17e7ec4"}
+          >
+            <h2>{service.category}</h2>
+            <div className="Supplier">
+              <span>Candidato para o serviço</span>
+              <span>{service.dateActual}</span>
+            </div>
+          </Li>
+        )
       ) : (
-        <Li key={service.id} id={service.id}>
+        <Li key={service.id} id={service.id} available={"#00800059"}>
           <h2>{service.category}</h2>
           <div className="Client">
             <span>{service.dateActual}</span>

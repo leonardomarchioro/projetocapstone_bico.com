@@ -5,7 +5,7 @@ import { useUser } from "../User";
 const ServiceContext = createContext();
 
 export const ProviderService = ({ children }) => {
-  const { userLogin, token, supplier, supplierGet } = useUser();
+  const { userLogin, token, supplier } = useUser();
   const [services, setService] = useState([]);
   const [allServices, setAllServices] = useState([]);
   const [availableServices, setAvailableServices] = useState([]);
@@ -77,7 +77,7 @@ export const ProviderService = ({ children }) => {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
-      .then((res) => {
+      .then(() => {
         success();
         getAllServices();
       })
@@ -99,7 +99,7 @@ export const ProviderService = ({ children }) => {
         success("Serviço rejeitado");
         getSevicesClient();
       })
-      .catch((err) => {
+      .catch(() => {
         error();
       });
   };
@@ -118,6 +118,24 @@ export const ProviderService = ({ children }) => {
       })
       .catch();
     return response;
+  };
+
+  const AceptSupplierToService = async (dataId, success, error) => {
+    const response = await bicoApi
+      .patch(
+        `/services/${dataId}`,
+        { type: "doing" },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .then(() => {
+        success("Biqueiro aceito");
+        getSevicesClient();
+      })
+      .catch(() => {
+        error();
+      });
   };
 
   const getServiceTakenSupplier = async (
@@ -214,6 +232,7 @@ export const ProviderService = ({ children }) => {
         allServicesClient,
         getServiceTakenSupplier,
         UpdateAverage,
+        AceptSupplierToService,
       }}
     >
       {children}

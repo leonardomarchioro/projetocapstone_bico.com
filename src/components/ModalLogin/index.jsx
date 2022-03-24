@@ -8,24 +8,18 @@ import Button from "../../components/Button";
 
 import { Link, useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useState } from "react";
+
 import { ContainerModal, Welcome, ContainerForm } from "./style";
 import { toast } from "react-toastify";
 
 const ModalLogin = () => {
-  const { Login, token } = useUser();
+  const { Login } = useUser();
 
   const history = useHistory();
 
   const schema = yup.object().shape({
     email: yup.string().required("Email obrigatório").email("Email inválido"),
-    password: yup
-      .string()
-      .required("Senha obrigatória")
-      .matches(
-        /^[0-9a-zA-Z]{8,}$/,
-        "Deve conter ao menos 8 caracteres e um número"
-      ),
+    password: yup.string().required("Senha obrigatória"),
   });
 
   const {

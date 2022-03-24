@@ -15,8 +15,7 @@ export const Li = styled.li`
   height: 50px;
 
   &:hover {
-    background-color: ${({ available }) =>
-      available ? "#f17e7ec4" : "#00800059"};
+    background-color: ${({ available }) => available};
     color: #fff;
     font-weight: 700;
     transform: scale(1.02);
@@ -44,6 +43,13 @@ export const Li = styled.li`
     align-items: center;
     font-size: 10px;
   }
+  .Doing {
+    display: flex;
+    width: 122px;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 10px;
+  }
 
   @media screen and (min-width: 768px) {
     h2 {
@@ -60,6 +66,12 @@ export const Li = styled.li`
     .Client {
       font-size: 12px;
       width: 100px;
+    }
+    .Doing {
+      flex-direction: row;
+      font-size: 12px;
+      width: 245px;
+      justify-content: space-between;
     }
   }
 `;

@@ -4,13 +4,11 @@ import { ContainerModal, Div, Modal } from "./style";
 import { BiLogOutCircle } from "react-icons/bi";
 import AverageReview from "../AverageReview";
 import { useState, useCallback, useEffect } from "react";
-const ModalInfoMyService = ({
-  service,
-  setShowModalInfo,
-  setShowModalReview,
-}) => {
-  const { regectSupplierToService, UpdateAverage } = useService();
+const ModalInfoMyService = ({ service, setShowModalInfo }) => {
+  const { regectSupplierToService, UpdateAverage, AceptSupplierToService } =
+    useService();
   const [avarage, setAvarage] = useState(0);
+
   const getAvarage = useCallback(async () => {
     const avarageUpdated = await UpdateAverage(service.supplier[0].id);
     setAvarage(avarageUpdated);
@@ -56,7 +54,7 @@ const ModalInfoMyService = ({
           <button
             className="button-modal"
             onClick={() => {
-              setShowModalReview(true);
+              AceptSupplierToService(service.id, success, error);
               setShowModalInfo(false);
             }}
           >

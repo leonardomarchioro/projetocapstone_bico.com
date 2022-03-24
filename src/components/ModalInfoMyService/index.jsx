@@ -29,23 +29,28 @@ const ModalInfoMyService = ({ service, setShowModalInfo }) => {
     <ContainerModal>
       {!openReview ? (
         <Modal>
-          <h2>
-            Candidato: <br />
-            {service.supplier[0].name}
-          </h2>
-
-          <AverageReview avarage={avarage} />
-          <div className="Infos">
-            <span onClick={() => setOpenReview(!openReview)}>
-              Reviews do Biqueiro
-            </span>
-            <span>
-              E-mail: <br />
-              {service.supplier[0].email}
-            </span>
-            <span>Telefone: {service.supplier[0].phone}</span>
+          <div className="logo">
+            <BiLogOutCircle size={30} onClick={() => setShowModalInfo(false)} />
           </div>
-          <BiLogOutCircle size={30} onClick={() => setShowModalInfo(false)} />
+          <div className="averageName">
+            <h2>
+              Candidato:{" "}
+              <span className="h2-span">{service.supplier[0].name}</span>
+            </h2>
+            <AverageReview avarage={avarage} />
+          </div>
+          <div className="Infos">
+            <div className="div-info">
+              <span>E-mail: {service.supplier[0].email}</span>
+              <span>Telefone: {service.supplier[0].phone}</span>
+            </div>
+            <button
+              className="button-info"
+              onClick={() => setOpenReview(!openReview)}
+            >
+              Reviews
+            </button>
+          </div>
           <Div>
             <button
               className="button-modal fechar"

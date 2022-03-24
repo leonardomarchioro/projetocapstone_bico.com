@@ -25,7 +25,7 @@ export const Modal = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 60px 18px;
   height: 400px;
   border-radius: 4px;
@@ -34,33 +34,32 @@ export const Modal = styled.section`
 
   .Infos {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+    margin: 45px 0;
     span {
       padding: 5px;
       width: 100%;
-      text-align: center;
       font-weight: 600;
       line-height: 22px;
     }
-  }
-  > h2 {
-    width: 100%;
-    text-align: center;
-  }
 
-  > svg {
-    position: relative;
-    top: -269px;
-    right: -130px;
-    color: #f86060;
-    cursor: pointer;
-    transition: 0.5s;
-    &:hover {
-      color: red;
-      transform: scale(1.1);
+    .div-info{
+      display: flex;
+      flex-direction: column;
+    }
+    .button-info{
+    background-color: #67B3DD;
+    width: 72px;
+    height: 30px;
+    color: white;
     }
   }
+  
+
+  
 
   .button-modal {
     background-color: #008000b8;
@@ -77,18 +76,60 @@ export const Modal = styled.section`
   .fechar {
     background-color: #f86060;
   }
+
+  .logo{
+    position: relative;
+    top: -53px;
+    right: -128px;
+
+        svg {
+         color: #f86060;
+        cursor: pointer;
+        transition: 0.5s}
+
+        &:hover {
+       color: red;
+       transform: scale(1.1)}
+  }
+.averageName{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    > h2 {
+    width: 100%;
+    text-align: center;
+    color: black;
+    text-align: initial;
+    font-weight: 500;
+    font-size: 18px;
+
+    .h2-span{
+      color:#333;
+      font-size: 18px;
+
+    }
+  }
+}
+
+
   @media screen and (min-width: 768px) {
     width: 500px;
 
     .Infos > span {
       font-size: 18px;
     }
-    > svg {
-      position: relative;
-      top: -269px;
-      right: -231px;
-    }
+
+
+    .logo{
+    position: relative;
+    top: -53px;
+    right: -231px;
   }
+  }
+
+
+
 `;
 
 export const Div = styled.div`

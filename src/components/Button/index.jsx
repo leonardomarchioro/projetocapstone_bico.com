@@ -1,9 +1,10 @@
 import { Btn, Sec } from "./style";
 
-const Button = ({ text, ...rest }) => {
+const Button = ({ text, subtitle, ...rest }) => {
   return (
     <Sec>
       <Btn {...rest}>{text}</Btn>
+      {subtitle && <span>{subtitle}</span>}
     </Sec>
   );
 };

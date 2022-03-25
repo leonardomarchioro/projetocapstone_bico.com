@@ -27,6 +27,7 @@ const AsideProfile = ({ handlePage, profile, setNewSupplier }) => {
   useEffect(() => {
     getAvarage();
   }, [getAvarage]);
+  console.log(page);
   return (
     <>
       <Container profile={{ profile }}>
@@ -51,6 +52,9 @@ const AsideProfile = ({ handlePage, profile, setNewSupplier }) => {
 
           {supplier ? (
             <Button
+              subtitle={
+                page === "Biqueiro" ? "Página de anúncios" : "Página principal"
+              }
               onClick={() => {
                 handlePage();
                 page === "Biqueiro" ? setPage("Cliente") : setPage("Biqueiro");
@@ -65,6 +69,7 @@ const AsideProfile = ({ handlePage, profile, setNewSupplier }) => {
             />
           ) : (
             <Button
+              subtitle="Torne-se um biqueiro"
               onClick={() => setNewSupplier(true)}
               text={<FiUserPlus size={20} />}
             />
@@ -74,6 +79,7 @@ const AsideProfile = ({ handlePage, profile, setNewSupplier }) => {
             className="buttonDesktopLogout"
           >
             <FiLogIn size={30} />
+            <span className="subtitle">Sair</span>
           </button>
         </Content>
       </Container>

@@ -126,4 +126,19 @@ export const Content = styled.div`
       }
     }
   }
+
+  .subtitle {
+    position: absolute;
+    opacity: 0;
+    display: block;
+    text-align: center;
+    transition: 0.4s;
+    transform: translate(7px, 40px);
+    font-size: 14px;
+    color: #3b87b0;
+  }
+
+  > button:hover .subtitle {
+    opacity: 1;
+  }
 `;

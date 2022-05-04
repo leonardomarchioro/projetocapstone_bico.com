@@ -32,7 +32,7 @@ export const ProviderUser = ({ children }) => {
 
   const ApiCheck = async (cep, error) => {
     const response = await axios
-      .get(`https://viacep.com.br/ws/${cep}/json/unicode/`)
+      .get(`https://viacep.com.br/ws/${cep}/json`)
       .then((res) => res)
       .catch((err) => error("CEP inválido!"));
 

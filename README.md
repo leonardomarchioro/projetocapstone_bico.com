@@ -13,6 +13,7 @@ Nossa aplicação tem como objetivo principal ligar um trabalhador autônomo pre
 # Techs:  
 
 - ReactJS
+- ConxtexAPI
 - Axios 
 - Router dom 5
 - Styled-components
